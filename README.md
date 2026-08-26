@@ -1,19 +1,88 @@
-My approach is based on a simple idea: a map should not be just a static visualization. It should help interpret what is happening around an area of interest.
+<h1 align="center">Juan Manuel Torres</h1>
+<p align="center">
+  <strong>Geospatial Software Developer · Backend & APIs · Territorial Intelligence · Agentic Workflows</strong>
+</p>
 
-I work with PostgreSQL/PostGIS, FastAPI, React, TypeScript, Leaflet, Cesium, and Google Earth Engine to integrate mining data, territorial layers, satellite imagery, weather, public signals, routes, hydrography, and environmental context.
+<p align="center">
+  I build software that turns scattered territorial and operational data into clear, traceable context for decision-making.
+</p>
 
-The platform already separates two key domains:
+<p align="center">
+  <a href="https://www.linkedin.com/in/juanmtorres23/">LinkedIn</a> ·
+  <a href="https://juanmtorres.vercel.app/">Portfolio</a> ·
+  <a href="https://sanjuangeo.vercel.app/">GeoPlatform App</a> ·
+  <a href="https://github.com/juanmanueltorres-creator/geo-agent-langgraph">Geo Agent</a>
+</p>
 
-On one side, the mining dataset: projects, drillholes, assays, geotechnical data, filters, and persistent records.
+<p align="center">
+  <img src="./assets/profile-system-map.svg" alt="Territory to software system map" width="100%" />
+</p>
 
-On the other side, the territorial operations center: observed area, current map view, weather, Sentinel/GEE, regional signals, provincial radar, daily reports, and reviewed sources.
+## About
 
-My differentiator is not only the ability to build a web application.
+My work sits at the intersection of **geosciences, geospatial systems, backend engineering, and AI-assisted software**.
 
-My differentiator is the ability to read the territory through geology: cartography, stratigraphy, sedimentary environments, hydrography, geomorphology, mineralization, and operational context. This allows me to decide which layers matter, how they relate to each other, and what information can provide real value before a technical or field decision is made.
+I come from a geology and mining background, and I use that domain understanding to build products that connect **territory, data, APIs, maps, and decision workflows**.
 
-I am building this Goplatform with an incremental, secure, and traceable architecture: a FastAPI backend, spatial logic with PostGIS, a modern React frontend, 2D/3D visualization with Leaflet and Cesium, and the progressive integration of public sources such as Sentinel, Open-Meteo, USGS, NASA FIRMS, IGN/SEGEMAR, provincial datasets, mining cadastre, population data, and hydrography.
+I am especially interested in systems where a map is not just a visualization layer, but a way to **query, validate, and interpret what is happening around an area of interest**.
 
-My goal is to transform scattered geospatial information into a clear operational tool: select an area, understand what surrounds it, and generate verifiable territorial context.
+## What I build
 
-I am not trying to replace technical studies or official sources. I am building an updatable and traceable information layer to support mining, environmental analysis, and territorial decision-making in complex mountain regions.
+- **GeoPlatform** — a territorial intelligence platform with 2D/3D mapping, spatial data, environmental context, satellite imagery, reports, and AI-assisted workflows.
+- **Geospatial backends** — APIs, spatial data models, integrations, access control, and traceable context layers.
+- **Agentic workflows** — tool-enabled LLM systems that query real sources, validate outputs, and help turn data into usable operational context.
+
+## Core stack
+
+### Geospatial & Domain
+`PostgreSQL` · `PostGIS` · `GIS` · `Leaflet` · `CesiumJS` · `Google Earth Engine` · `GeoJSON/KML` · `WMS/WFS` · `OGC`
+
+### Backend & Data
+`Python` · `FastAPI` · `REST APIs` · `SQL` · `Supabase` · `Data Architecture` · `Integrations` · `Webhooks`
+
+### Frontend & Product
+`React` · `TypeScript` · `Vite` · `2D/3D Interfaces` · `Territorial UX`
+
+### Production & Reliability
+`GitHub Actions` · `pytest` · `Vitest` · `RLS` · `OAuth` · `Rate Limiting` · `Observability` · `Docker`
+
+### AI Systems
+`LLMs` · `Tool Calling` · `Context Engineering` · `MCP` · `LangChain` · `LangGraph` · `Human-in-the-loop` · `Guardrails`
+
+## Featured work
+
+### [GeoPlatform](https://sanjuangeo.vercel.app/)
+A web platform for territorial intelligence focused on mining, environment, and operational context.
+
+**Highlights**
+- Spatial backend with **FastAPI + PostgreSQL/PostGIS**
+- 2D/3D interfaces with **Leaflet + Cesium**
+- Integration of satellite, weather, environmental, and public territorial data
+- Context and reporting workflows with **traceability, source awareness, and reviewed signals**
+
+### [geo-agent-langgraph](https://github.com/juanmanueltorres-creator/geo-agent-langgraph)
+A minimal geospatial AI agent built with **LangChain, LangGraph, DeepSeek, and real-world APIs**.
+
+**Highlights**
+- Tool-enabled workflow using real weather, elevation, and territorial context APIs
+- Deterministic validation and retry logic
+- Focus on understanding **how agentic systems actually work in software**, not only talking about them
+
+## Current focus
+
+- Building **production-style geospatial software**
+- Strengthening **backend engineering and data integrations**
+- Exploring **AI systems that operate on real tools and real context**
+- Designing products that reduce uncertainty around **territory, evidence, and decisions**
+
+## Contact
+
+- **Location:** Córdoba, Argentina
+- **Email:** `juan.manuel.torres@mi.unc.edu.ar`
+- **LinkedIn:** [linkedin.com/in/juanmtorres23](https://www.linkedin.com/in/juanmtorres23/)
+
+---
+
+<p align="center">
+  <em>Mining foundations → Geosciences → Geospatial systems → Software & data → Automation → AI systems → Product</em>
+</p>
