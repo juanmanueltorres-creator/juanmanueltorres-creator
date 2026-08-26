@@ -1,0 +1,133 @@
+<svg width="1200" height="420" viewBox="0 0 1200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#081019"/>
+      <stop offset="1" stop-color="#0D1623"/>
+    </linearGradient>
+    <linearGradient id="line" x1="138" y1="194" x2="1062" y2="194" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#39D0FF"/>
+      <stop offset="0.5" stop-color="#7CF29A"/>
+      <stop offset="1" stop-color="#B48CFF"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .title { font: 700 18px 'Segoe UI', Inter, Arial, sans-serif; fill: #EAF4FF; }
+      .label { font: 500 12px 'Segoe UI', Inter, Arial, sans-serif; fill: #A9BDD3; }
+      .small { font: 500 11px 'Segoe UI', Inter, Arial, sans-serif; fill: #90A8C0; }
+      .chip { fill: rgba(17,27,40,0.92); stroke: rgba(107, 193, 255, 0.28); stroke-width: 1; }
+      .node { fill: #0F1C2B; stroke: rgba(148, 210, 255, 0.5); stroke-width: 1.2; }
+      .pulse { transform-origin: center; animation: pulse 3.8s ease-in-out infinite; }
+      .flowA { stroke-dasharray: 8 14; animation: dash 7s linear infinite; }
+      .flowB { stroke-dasharray: 10 18; animation: dash 8.5s linear infinite; }
+      .blink { animation: blink 2.8s ease-in-out infinite; }
+      .mapline { stroke: rgba(78, 153, 210, 0.22); stroke-width: 1; fill: none; }
+      @keyframes dash { from { stroke-dashoffset: 120; } to { stroke-dashoffset: 0; } }
+      @keyframes pulse { 0%,100% { opacity: 0.9; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
+      @keyframes blink { 0%,100% { opacity: 0.45; } 50% { opacity: 1; } }
+    </style>
+  </defs>
+
+  <rect width="1200" height="420" rx="22" fill="url(#bg)"/>
+
+  <g opacity="0.16">
+    <path d="M60 40H1140" stroke="#41617D"/>
+    <path d="M60 100H1140" stroke="#41617D"/>
+    <path d="M60 160H1140" stroke="#41617D"/>
+    <path d="M60 220H1140" stroke="#41617D"/>
+    <path d="M60 280H1140" stroke="#41617D"/>
+    <path d="M60 340H1140" stroke="#41617D"/>
+    <path d="M140 30V390" stroke="#41617D"/>
+    <path d="M300 30V390" stroke="#41617D"/>
+    <path d="M460 30V390" stroke="#41617D"/>
+    <path d="M620 30V390" stroke="#41617D"/>
+    <path d="M780 30V390" stroke="#41617D"/>
+    <path d="M940 30V390" stroke="#41617D"/>
+    <path d="M1100 30V390" stroke="#41617D"/>
+  </g>
+
+  <g opacity="0.38">
+    <path class="mapline" d="M102 84C140 70 172 79 188 105C205 132 201 170 186 207C177 229 178 251 192 274C203 292 209 315 204 334C198 360 170 375 148 355C129 338 116 309 111 277C104 238 100 203 86 175C72 147 69 113 102 84Z"/>
+    <path class="mapline" d="M234 125C259 121 281 130 290 152C299 174 293 197 282 217C270 239 264 264 267 288"/>
+    <circle cx="214" cy="208" r="3" fill="#4DD6FF" class="blink"/>
+    <circle cx="182" cy="160" r="2.5" fill="#77F3A1" class="blink"/>
+    <circle cx="196" cy="284" r="2.5" fill="#C694FF" class="blink"/>
+    <text x="96" y="370" class="small">Territory · Argentina / LATAM</text>
+  </g>
+
+  <path d="M150 206C220 206 250 206 320 206C390 206 410 170 476 170C544 170 552 206 620 206C690 206 716 242 782 242C847 242 873 206 940 206C986 206 1016 206 1050 206" stroke="url(#line)" stroke-width="3.2" fill="none" filter="url(#glow)" class="flowA"/>
+  <path d="M150 214C220 214 250 214 320 214C390 214 410 248 476 248C544 248 552 214 620 214C690 214 716 178 782 178C847 178 873 214 940 214C986 214 1016 214 1050 214" stroke="url(#line)" stroke-width="2" opacity="0.45" fill="none" class="flowB"/>
+
+  <g>
+    <text x="110" y="72" class="title">Geospatial Systems Map</text>
+    <text x="110" y="95" class="label">Territory → APIs → Spatial Data → Backend → Maps → LLM / Agents → Decision Context</text>
+  </g>
+
+  <g transform="translate(160,206)">
+    <circle r="12" fill="#39D0FF" filter="url(#glow)" class="pulse"/>
+    <circle r="22" class="node"/>
+    <rect x="-54" y="-78" width="108" height="44" rx="12" class="chip"/>
+    <text x="0" y="-55" text-anchor="middle" class="title">Territory</text>
+    <text x="0" y="-38" text-anchor="middle" class="small">geology · routes · climate</text>
+  </g>
+
+  <g transform="translate(330,206)">
+    <circle r="10" fill="#57E1C0" filter="url(#glow)" class="pulse"/>
+    <circle r="20" class="node"/>
+    <rect x="-48" y="36" width="96" height="44" rx="12" class="chip"/>
+    <text x="0" y="59" text-anchor="middle" class="title">APIs</text>
+    <text x="0" y="76" text-anchor="middle" class="small">weather · public sources</text>
+  </g>
+
+  <g transform="translate(480,206)">
+    <circle r="11" fill="#7CF29A" filter="url(#glow)" class="pulse"/>
+    <circle r="21" class="node"/>
+    <rect x="-72" y="-80" width="144" height="48" rx="12" class="chip"/>
+    <text x="0" y="-56" text-anchor="middle" class="title">PostgreSQL / PostGIS</text>
+    <text x="0" y="-39" text-anchor="middle" class="small">spatial data · context layers</text>
+  </g>
+
+  <g transform="translate(620,206)">
+    <circle r="11" fill="#88B8FF" filter="url(#glow)" class="pulse"/>
+    <circle r="21" class="node"/>
+    <rect x="-52" y="36" width="104" height="44" rx="12" class="chip"/>
+    <text x="0" y="59" text-anchor="middle" class="title">FastAPI</text>
+    <text x="0" y="76" text-anchor="middle" class="small">backend · integrations</text>
+  </g>
+
+  <g transform="translate(780,206)">
+    <circle r="11" fill="#76DDFF" filter="url(#glow)" class="pulse"/>
+    <circle r="21" class="node"/>
+    <rect x="-60" y="-80" width="120" height="48" rx="12" class="chip"/>
+    <text x="0" y="-56" text-anchor="middle" class="title">React / Cesium</text>
+    <text x="0" y="-39" text-anchor="middle" class="small">2D/3D maps · product UI</text>
+  </g>
+
+  <g transform="translate(940,206)">
+    <circle r="11" fill="#B48CFF" filter="url(#glow)" class="pulse"/>
+    <circle r="21" class="node"/>
+    <rect x="-58" y="36" width="116" height="44" rx="12" class="chip"/>
+    <text x="0" y="59" text-anchor="middle" class="title">LLM / Agents</text>
+    <text x="0" y="76" text-anchor="middle" class="small">tool calling · workflows</text>
+  </g>
+
+  <g transform="translate(1050,206)">
+    <circle r="10" fill="#FFD166" filter="url(#glow)" class="pulse"/>
+    <circle r="20" class="node"/>
+    <rect x="-64" y="-78" width="128" height="44" rx="12" class="chip"/>
+    <text x="0" y="-55" text-anchor="middle" class="title">Decision Context</text>
+    <text x="0" y="-38" text-anchor="middle" class="small">traceable · operational</text>
+  </g>
+
+  <g opacity="0.95">
+    <rect x="820" y="302" width="300" height="70" rx="14" class="chip"/>
+    <text x="842" y="328" class="title">Current focus</text>
+    <text x="842" y="348" class="small">Geospatial software · backend APIs · agentic workflows</text>
+    <text x="842" y="364" class="small">for mining, environment and territorial intelligence</text>
+  </g>
+</svg>
