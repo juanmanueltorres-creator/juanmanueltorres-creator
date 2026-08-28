@@ -9,10 +9,10 @@
 </p>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/juanmtorres23/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Profile-0A66C2?style=flat-square&logo=linkedin"></a>
-  <a href="https://juanmtorres.vercel.app/"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-juanmtorres.vercel.app-111111?style=flat-square&logo=vercel"></a>
-  <a href="https://sanjuangeo.vercel.app/"><img alt="GeoPlatform" src="https://img.shields.io/badge/GeoPlatform-Live-8f6747?style=flat-square"></a>
-  <a href="https://github.com/juanmanueltorres-creator/geo-agent-langgraph"><img alt="Geo Agent" src="https://img.shields.io/badge/Geo_Agent-LangGraph-2f3742?style=flat-square&logo=github"></a>
+  <a href="https://www.linkedin.com/in/juanmtorres23/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Profile-2580ff?style=flat-square&labelColor=111827&logo=linkedin&logoColor=ffffff"></a>
+  <a href="https://juanmtorres.vercel.app/"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-juanmtorres.vercel.app-7c3aed?style=flat-square&labelColor=111827&logo=vercel&logoColor=ffffff"></a>
+  <a href="https://sanjuangeo.vercel.app/"><img alt="GeoPlatform" src="https://img.shields.io/badge/GeoPlatform-Live-ec4899?style=flat-square&labelColor=111827"></a>
+  <a href="https://github.com/juanmanueltorres-creator/geo-agent-langgraph"><img alt="Geo Agent" src="https://img.shields.io/badge/Geo_Agent-LangGraph-6d28d9?style=flat-square&labelColor=111827&logo=github&logoColor=ffffff"></a>
 </p>
 
 <p align="center">
