@@ -19,24 +19,37 @@
   <img src="./assets/profile-rotating-tagline.svg" alt="GeoPlatform, Anti IA and territorial intelligence rotating tagline" width="100%" />
 </p>
 
+<br />
+
+<p align="center">
+  <strong>GeoPlatform</strong>
+  &nbsp;
+  <img alt="LIVE" src="https://img.shields.io/badge/LIVE-33d1ff?style=flat-square&labelColor=111827" />
+  &nbsp;·&nbsp; Territorial Intelligence &nbsp;·&nbsp; 2D/3D &nbsp;·&nbsp; Spatial Signals &nbsp;·&nbsp;
+  <a href="https://sanjuangeo.vercel.app/"><strong>Open platform →</strong></a>
+</p>
+
 <p align="center">
   <a href="https://sanjuangeo.vercel.app/">
     <img src="./assets/geoplatform-preview.png" alt="GeoPlatform territorial intelligence interface" width="100%" />
   </a>
 </p>
+
+<br />
+
 <p align="center">
-  <sub><strong>GeoPlatform / LIVE PRODUCT</strong> · Spatial signals · 2D/3D · territorial context · <a href="https://sanjuangeo.vercel.app/">open platform →</a></sub>
+  <strong>Anti IA</strong>
+  &nbsp;
+  <img alt="EXPERIMENTAL" src="https://img.shields.io/badge/EXPERIMENTAL-b56cff?style=flat-square&labelColor=111827" />
+  &nbsp;·&nbsp; Evidence &nbsp;·&nbsp; Context &nbsp;·&nbsp; Territory
 </p>
 
 <p align="center">
   <img src="./assets/anti-ia-preview.png" alt="Anti IA conceptual interface" width="100%" />
 </p>
-<p align="center">
-  <sub><strong>Anti IA / CONCEPT DIRECTION</strong> · Atlas vivo · evidence · context · territory · “Una coordenada no es un punto.”</sub>
-</p>
 
 <p align="center">
-  <img src="./assets/profile-system-map.svg" alt="Territory to software system map" width="100%" />
+  <em>“Una coordenada no es un punto.”</em>
 </p>
 
 ## About
