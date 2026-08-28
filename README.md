@@ -1,14 +1,4 @@
 <p align="center">
-  <img src="./assets/scanner_agent.gif" alt="Scanner territorial agent" width="105" />
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="./assets/field_agent.gif" alt="Field territorial agent" width="105" />
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="./assets/shadow_wraith.gif" alt="Territorial uncertainty wraith" width="105" />
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="./assets/scanner_drone.gif" alt="Territorial scanner drone" width="105" />
-</p>
-
-<p align="center">
   <img src="./assets/profile-hero.svg" alt="Juan Manuel Torres — Geospatial Software, Territorial Intelligence and AI Systems" width="100%" />
 </p>
 
@@ -21,6 +11,20 @@
 
 <p align="center">
   <img src="./assets/profile-rotating-tagline.svg" alt="GeoPlatform, Anti IA and territorial intelligence rotating tagline" width="100%" />
+</p>
+
+<p align="center">
+  <sub>◈ TERRITORIAL PARTY · ARGENTINA ◈</sub>
+</p>
+
+<p align="center">
+  <img src="./assets/scanner_agent.gif" alt="Scanner territorial agent" width="94" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="./assets/scanner_drone.gif" alt="Territorial scanner drone" width="94" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="./assets/shadow_wraith.gif" alt="Territorial uncertainty wraith" width="94" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="./assets/field_agent.gif" alt="Field territorial agent" width="94" />
 </p>
 
 <br />
