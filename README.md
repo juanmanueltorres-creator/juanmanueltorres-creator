@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/profile-hero.svg" alt="Juan Manuel Torres — Geospatial Software, Territorial Intelligence and AI Systems" width="100%" />
+  <img src="./assets/profile-hero.svg" alt="Juan Manuel Torres — Geospatial Software, Territorial Intelligence and AI Systems" width="90%" />
 </p>
 
 <p align="center">
@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="./assets/profile-rotating-tagline.svg" alt="GeoPlatform, Anti IA and territorial intelligence rotating tagline" width="100%" />
+  <img src="./assets/profile-rotating-tagline.svg" alt="GeoPlatform, Anti IA and territorial intelligence rotating tagline" width="88%" />
 </p>
 
 <p align="center">
@@ -18,27 +18,27 @@
 </p>
 
 <p align="center">
-  <img src="./assets/scanner_agent.gif" alt="Scanner territorial agent" width="94" />
+  <img src="./assets/scanner_agent.gif" alt="Scanner territorial agent" width="76" />
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="./assets/scanner_drone.gif" alt="Territorial scanner drone" width="94" />
+  <img src="./assets/scanner_drone.gif" alt="Territorial scanner drone" width="76" />
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="./assets/shadow_wraith.gif" alt="Territorial uncertainty wraith" width="94" />
+  <img src="./assets/shadow_wraith.gif" alt="Territorial uncertainty wraith" width="76" />
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="./assets/field_agent.gif" alt="Field territorial agent" width="94" />
+  <img src="./assets/field_agent.gif" alt="Field territorial agent" width="76" />
 </p>
 
 <br />
 
 <p align="center">
-  <img src="./assets/act-i-frame-top.svg" alt="Act I — GeoPlatform" width="100%" />
+  <img src="./assets/act-i-frame-top.svg" alt="Act I — GeoPlatform" width="88%" />
 </p>
 <p align="center">
   <a href="https://sanjuangeo.vercel.app/">
-    <img src="./assets/geoplatform-preview.png" alt="GeoPlatform territorial intelligence interface" width="82%" />
+    <img src="./assets/geoplatform-preview.png" alt="GeoPlatform territorial intelligence interface" width="70%" />
   </a>
 </p>
 <p align="center">
-  <img src="./assets/product-frame-bottom.svg" alt="Selected work frame" width="100%" />
+  <img src="./assets/product-frame-bottom.svg" alt="Selected work frame" width="88%" />
 </p>
 <p align="center">
   <sub><strong>Operational geospatial software</strong> for mining, environment, routes, spatial signals, and decision context · <a href="https://sanjuangeo.vercel.app/">open platform →</a></sub>
@@ -47,15 +47,15 @@
 <br />
 
 <p align="center">
-  <img src="./assets/act-ii-frame-top.svg" alt="Act II — Pulso Territorial" width="100%" />
+  <img src="./assets/act-ii-frame-top.svg" alt="Act II — Pulso Territorial" width="88%" />
 </p>
 <p align="center">
   <a href="https://juanmanueltorres-creator.github.io/pulso-publico-argentina/">
-    <img src="./assets/pulso_territorial.png" alt="Pulso Territorial — public territorial signals for Argentina" width="82%" />
+    <img src="./assets/pulso_territorial.png" alt="Pulso Territorial — public territorial signals for Argentina" width="58%" />
   </a>
 </p>
 <p align="center">
-  <img src="./assets/product-frame-bottom.svg" alt="Selected work frame" width="100%" />
+  <img src="./assets/product-frame-bottom.svg" alt="Selected work frame" width="88%" />
 </p>
 <p align="center">
   <sub><strong>Live public territorial signals for Argentina</strong> · traceable sources · seismicity · thermal anomalies · <a href="https://juanmanueltorres-creator.github.io/pulso-publico-argentina/">open pulse →</a></sub>
@@ -64,20 +64,20 @@
 <br />
 
 <p align="center">
-  <img src="./assets/act-iii-frame-top.svg" alt="Act III — Anti IA incoming" width="100%" />
+  <img src="./assets/act-iii-frame-top.svg" alt="Act III — Anti IA incoming" width="88%" />
 </p>
 <p align="center">
-  <img src="./assets/anti-ia-preview.png" alt="Anti IA conceptual interface — incoming" width="82%" />
+  <img src="./assets/anti-ia-preview.png" alt="Anti IA conceptual interface — incoming" width="70%" />
 </p>
 <p align="center">
-  <img src="./assets/product-frame-bottom.svg" alt="Selected work frame" width="100%" />
+  <img src="./assets/product-frame-bottom.svg" alt="Selected work frame" width="88%" />
 </p>
 <p align="center">
   <sub><strong>Incoming · experimental direction</strong> · evidence · context · territory</sub><br />
   <em>“Una coordenada no es un punto.”</em>
 </p>
 
-<p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
+<p align="center"><img src="./assets/section-ornament.svg" alt="" width="88%" /></p>
 
 ## LORE
 
@@ -96,7 +96,7 @@ My geology and mining background shapes how I design software: a map is not just
 
 
 
-<p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
+<p align="center"><img src="./assets/section-ornament.svg" alt="" width="88%" /></p>
 
 ## BUILD PATHS
 
@@ -131,7 +131,7 @@ LLM workflows that use **real tools and sources**, validate outputs, and keep hu
 </tr>
 </table>
 
-<p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
+<p align="center"><img src="./assets/section-ornament.svg" alt="" width="88%" /></p>
 
 ## SKILL TREE
 
@@ -178,19 +178,19 @@ LLM workflows that use **real tools and sources**, validate outputs, and keep hu
 ![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=flat-square&logo=vitest&logoColor=white)
 ![RLS](https://img.shields.io/badge/RLS-Access_Control-455a64?style=flat-square)
 
-<p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
+<p align="center"><img src="./assets/section-ornament.svg" alt="" width="88%" /></p>
 
 ## PLAYER STATS
 
 <p align="center">
-  <img src="./assets/player-stats.svg" alt="Automated public GitHub player stats" width="100%" />
+  <img src="./assets/player-stats.svg" alt="Automated public GitHub player stats" width="88%" />
 </p>
 
 <p align="center">
   <sub>Generated inside this repository by GitHub Actions every six hours — no external stats-card provider.</sub>
 </p>
 
-<p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
+<p align="center"><img src="./assets/section-ornament.svg" alt="" width="88%" /></p>
 
 ## SELECTED WORK
 
@@ -221,7 +221,7 @@ LLM workflows that use **real tools and sources**, validate outputs, and keep hu
 </tr>
 </table>
 
-<p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
+<p align="center"><img src="./assets/section-ornament.svg" alt="" width="88%" /></p>
 
 ## QUEST LOG
 
@@ -240,7 +240,7 @@ That principle connects my work across GeoPlatform, geospatial backends, and Ant
 
 </details>
 
-<p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
+<p align="center"><img src="./assets/section-ornament.svg" alt="" width="88%" /></p>
 
 ## CONTACT
 
@@ -253,5 +253,5 @@ That principle connects my work across GeoPlatform, geospatial backends, and Ant
 <br />
 
 <p align="center">
-  <img src="./assets/profile-footer.svg" alt="The map is not the territory — GeoPlatform, Anti IA, Territorial Intelligence" width="100%" />
+  <img src="./assets/profile-footer.svg" alt="The map is not the territory — GeoPlatform, Anti IA, Territorial Intelligence" width="88%" />
 </p>
