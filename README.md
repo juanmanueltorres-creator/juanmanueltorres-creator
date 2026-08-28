@@ -21,11 +21,18 @@
 
 <p align="center">
   <a href="https://sanjuangeo.vercel.app/">
-    <img src="./assets/geoplatform-preview.svg" alt="GeoPlatform territorial intelligence interface" width="100%" />
+    <img src="./assets/geoplatform-preview.png" alt="GeoPlatform territorial intelligence interface" width="100%" />
   </a>
 </p>
 <p align="center">
-  <sub><strong>GEOPlatform / LIVE PRODUCT</strong> · Spatial signals · 2D/3D · territorial context · <a href="https://sanjuangeo.vercel.app/">open platform →</a></sub>
+  <sub><strong>GeoPlatform / LIVE PRODUCT</strong> · Spatial signals · 2D/3D · territorial context · <a href="https://sanjuangeo.vercel.app/">open platform →</a></sub>
+</p>
+
+<p align="center">
+  <img src="./assets/anti-ia-preview.png" alt="Anti IA conceptual interface" width="100%" />
+</p>
+<p align="center">
+  <sub><strong>Anti IA / CONCEPT DIRECTION</strong> · Atlas vivo · evidence · context · territory · “Una coordenada no es un punto.”</sub>
 </p>
 
 <p align="center">
