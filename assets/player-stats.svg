@@ -23,11 +23,26 @@
   <rect x="8" y="8" width="1084" height="174" rx="11" fill="none" stroke="#211a14"/>
   <text x="36" y="34" class="kicker">PLAYER STATS · AUTOMATED PUBLIC GITHUB SIGNAL</text>
   <line x1="36" y1="54" x2="1064" y2="54" stroke="url(#gold)" stroke-width="1.2" opacity=".65"/>
-  <g text-anchor="middle"><text x="115" y="108" class="value">59</text><text x="115" y="139" class="label">FOLLOWERS</text></g>
-  <g text-anchor="middle"><text x="330" y="108" class="value">AUTO</text><text x="330" y="139" class="label">PUBLIC REPOS</text></g>
-  <g text-anchor="middle"><text x="545" y="108" class="value">AUTO</text><text x="545" y="139" class="label">OWNED STARS</text></g>
-  <g text-anchor="middle"><text x="780" y="108" class="value">AUTO</text><text x="780" y="139" class="label">GEOPLATFORM COMMITS · 365D</text></g>
-  <g text-anchor="middle"><text x="1000" y="108" class="value">AUTO</text><text x="1000" y="139" class="label">LAST SHIP</text></g>
+  <g text-anchor="middle">
+    <text x="115" y="108" class="value">59</text>
+    <text x="115" y="139" class="label">FOLLOWERS</text>
+  </g>
+  <g text-anchor="middle">
+    <text x="330" y="108" class="value">3</text>
+    <text x="330" y="139" class="label">PUBLIC REPOS</text>
+  </g>
+  <g text-anchor="middle">
+    <text x="545" y="108" class="value">0</text>
+    <text x="545" y="139" class="label">OWNED STARS</text>
+  </g>
+  <g text-anchor="middle">
+    <text x="780" y="108" class="value">62</text>
+    <text x="780" y="139" class="label">PUBLIC COMMITS · 365D</text>
+  </g>
+  <g text-anchor="middle">
+    <text x="1000" y="108" class="value">2026-08-28</text>
+    <text x="1000" y="139" class="label">LAST SHIP</text>
+  </g>
   <line x1="36" y1="158" x2="1064" y2="158" stroke="#3e3022" stroke-width="1"/>
   <text x="550" y="176" text-anchor="middle" class="foot">SYNCED BY GITHUB ACTIONS · NO THIRD-PARTY STATS PROVIDER</text>
 </svg>
