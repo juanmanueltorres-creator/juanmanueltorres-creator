@@ -37,12 +37,13 @@
     <img src="./assets/geoplatform-preview.png" alt="GeoPlatform territorial intelligence interface" width="70%" />
   </a>
 </p>
-<p align="center">
-  <img src="./assets/product-frame-bottom.svg" alt="Selected work frame" width="88%" />
 </p>
 <p align="center">
   <sub><strong>Operational geospatial software</strong> for mining, environment, routes, spatial signals, and decision context · <a href="https://sanjuangeo.vercel.app/">open platform →</a></sub>
 </p>
+<p align="center">
+  <img src="./assets/product-frame-bottom.svg" alt="Selected work frame" width="88%" />
+
 
 <br />
 
@@ -55,11 +56,12 @@
   </a>
 </p>
 <p align="center">
-  <img src="./assets/product-frame-bottom.svg" alt="Selected work frame" width="88%" />
-</p>
-<p align="center">
   <sub><strong>Live public territorial signals for Argentina</strong> · traceable sources · seismicity · thermal anomalies · <a href="https://juanmanueltorres-creator.github.io/pulso-publico-argentina/">open pulse →</a></sub>
 </p>
+<p align="center">
+  <img src="./assets/product-frame-bottom.svg" alt="Selected work frame" width="88%" />
+</p>
+
 
 <br />
 
