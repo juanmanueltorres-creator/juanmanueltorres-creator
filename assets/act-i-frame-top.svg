@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="48" viewBox="0 0 1100 48" role="img" aria-label="Act I GeoPlatform frame">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3a2b1d"/><stop offset=".5" stop-color="#d0ad6c"/><stop offset="1" stop-color="#3a2b1d"/></linearGradient></defs>
+  <rect x="1" y="1" width="1098" height="46" rx="10" fill="#0b0907" stroke="#3a2c20"/>
+  <path d="M24 36 H1076" stroke="url(#g)" stroke-width="1" opacity=".72"/>
+  <text x="28" y="28" fill="#a99069" font-family="Courier New, monospace" font-size="10.5" font-weight="700" letter-spacing="2.2">ACT I · LIVE PRODUCT</text>
+  <text x="550" y="30" text-anchor="middle" fill="#efe4d0" font-family="Georgia, Times New Roman, serif" font-size="22" font-weight="700" letter-spacing="1.2">GEOPLATFORM</text>
+  <text x="1072" y="28" text-anchor="end" fill="#d0ad6c" font-family="Courier New, monospace" font-size="10.5" font-weight="700" letter-spacing="2">TERRITORIAL INTELLIGENCE</text>
+</svg>
