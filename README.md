@@ -1,5 +1,11 @@
 <p align="center">
-  <img src="./assets/territorial-agents-banner.png" alt="Territorial agents — Argentina pixel art encounter" width="100%" />
+  <img src="./assets/scanner_agent.gif" alt="Scanner territorial agent" width="105" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="./assets/field_agent.gif" alt="Field territorial agent" width="105" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="./assets/shadow_wraith.gif" alt="Territorial uncertainty wraith" width="105" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="./assets/scanner_drone.gif" alt="Territorial scanner drone" width="105" />
 </p>
 
 <p align="center">
