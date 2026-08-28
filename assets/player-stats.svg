@@ -28,15 +28,15 @@
     <text x="115" y="139" class="label">FOLLOWERS</text>
   </g>
   <g text-anchor="middle">
-    <text x="330" y="108" class="value">4</text>
+    <text x="330" y="108" class="value">5</text>
     <text x="330" y="139" class="label">PUBLIC REPOS</text>
   </g>
   <g text-anchor="middle">
-    <text x="545" y="108" class="value">4</text>
+    <text x="545" y="108" class="value">5</text>
     <text x="545" y="139" class="label">ACTIVE OWN REPOS · 90D</text>
   </g>
   <g text-anchor="middle">
-    <text x="780" y="108" class="value">121</text>
+    <text x="780" y="108" class="value">126</text>
     <text x="780" y="139" class="label">OWN PUBLIC COMMITS · 365D</text>
   </g>
   <g text-anchor="middle">
