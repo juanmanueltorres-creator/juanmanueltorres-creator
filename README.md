@@ -51,7 +51,7 @@
 </p>
 <p align="center">
   <a href="https://juanmanueltorres-creator.github.io/pulso-publico-argentina/">
-    <img src="./assets/pulso-territorial-preview.jpg" alt="Pulso Territorial — public territorial signals for Argentina" width="82%" />
+    <img src="./assets/pulso_territorial.png" alt="Pulso Territorial — public territorial signals for Argentina" width="82%" />
   </a>
 </p>
 <p align="center">
@@ -247,7 +247,7 @@ That principle connects my work across GeoPlatform, geospatial backends, and Ant
 <p align="center">
   <strong>Córdoba, Argentina</strong><br />
   <code>juan.manuel.torres@mi.unc.edu.ar</code><br />
-  <a href="https://www.linkedin.com/in/juanmtorres23/">LinkedIn</a> · <a href="https://juanmtorres.vercel.app/">Portfolio</a> · <a href="https://sanjuangeo.vercel.app/">GeoPlatform</a>
+  <a href="https://www.linkedin.com/in/juanmanueltorres23/">LinkedIn</a> · <a href="https://juanmtorres.vercel.app/">Portfolio</a> · <a href="https://sanjuangeo.vercel.app/">GeoPlatform</a>
 </p>
 
 <br />
