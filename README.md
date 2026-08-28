@@ -1,14 +1,12 @@
-<h1 align="center">Juan Manuel Torres</h1>
-
 <p align="center">
-  <strong>Geospatial Software Developer · Backend & Data · Territorial Intelligence · Agentic Workflows</strong>
+  <img src="./assets/profile-hero.svg" alt="Juan Manuel Torres — Geospatial Software, Territorial Intelligence and AI Systems" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/juanmtorres23/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Profile-5b4735?style=flat-square&labelColor=12100d&logo=linkedin&logoColor=ffffff"></a>
-  <a href="https://juanmtorres.vercel.app/"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-juanmtorres.vercel.app-6f4627?style=flat-square&labelColor=12100d&logo=vercel&logoColor=ffffff"></a>
-  <a href="https://sanjuangeo.vercel.app/"><img alt="GeoPlatform" src="https://img.shields.io/badge/GeoPlatform-Live-8f2f2f?style=flat-square&labelColor=12100d"></a>
-  <a href="https://github.com/juanmanueltorres-creator/geo-agent-langgraph"><img alt="Geo Agent" src="https://img.shields.io/badge/Geo_Agent-LangGraph-4c4037?style=flat-square&labelColor=12100d&logo=github&logoColor=ffffff"></a>
+  <a href="https://www.linkedin.com/in/juanmtorres23/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Profile-c4a46a?style=flat-square&labelColor=11100d&logo=linkedin&logoColor=efe4d0"></a>
+  <a href="https://juanmtorres.vercel.app/"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-juanmtorres.vercel.app-a87a47?style=flat-square&labelColor=11100d&logo=vercel&logoColor=efe4d0"></a>
+  <a href="https://sanjuangeo.vercel.app/"><img alt="GeoPlatform" src="https://img.shields.io/badge/GeoPlatform-Live-8f2d2d?style=flat-square&labelColor=11100d"></a>
+  <a href="https://github.com/juanmanueltorres-creator/geo-agent-langgraph"><img alt="Geo Agent" src="https://img.shields.io/badge/Geo_Agent-LangGraph-6f604d?style=flat-square&labelColor=11100d&logo=github&logoColor=efe4d0"></a>
 </p>
 
 <p align="center">
@@ -18,207 +16,177 @@
 <br />
 
 <p align="center">
-  <sub>ACT I · LIVE PRODUCT</sub>
+  <img src="./assets/act-i-frame-top.svg" alt="Act I — GeoPlatform" width="100%" />
 </p>
-
-<h2 align="center">GeoPlatform</h2>
-
-<p align="center">
-  <img alt="LIVE" src="https://img.shields.io/badge/LIVE-c99755?style=flat-square&labelColor=12100d" />
-  &nbsp; Territorial Intelligence &nbsp;·&nbsp; 2D/3D &nbsp;·&nbsp; Spatial Signals
-  &nbsp;·&nbsp; <a href="https://sanjuangeo.vercel.app/"><strong>Open platform →</strong></a>
-</p>
-
 <p align="center">
   <a href="https://sanjuangeo.vercel.app/">
     <img src="./assets/geoplatform-preview.png" alt="GeoPlatform territorial intelligence interface" width="100%" />
   </a>
 </p>
+<p align="center">
+  <img src="./assets/product-frame-bottom.svg" alt="Selected work frame" width="100%" />
+</p>
+<p align="center">
+  <sub><strong>Operational geospatial software</strong> for mining, environment, routes, spatial signals, and decision context · <a href="https://sanjuangeo.vercel.app/">open platform →</a></sub>
+</p>
 
 <br />
 
 <p align="center">
-  <sub>ACT II · EXPERIMENTAL DIRECTION</sub>
+  <img src="./assets/act-ii-frame-top.svg" alt="Act II — Anti IA" width="100%" />
 </p>
-
-<h2 align="center">Anti IA</h2>
-
-<p align="center">
-  <img alt="EXPERIMENTAL" src="https://img.shields.io/badge/EXPERIMENTAL-8f2f2f?style=flat-square&labelColor=12100d" />
-  &nbsp; Evidence &nbsp;·&nbsp; Context &nbsp;·&nbsp; Territory
-</p>
-
 <p align="center">
   <img src="./assets/anti-ia-preview.png" alt="Anti IA conceptual interface" width="100%" />
 </p>
-
+<p align="center">
+  <img src="./assets/product-frame-bottom.svg" alt="Selected work frame" width="100%" />
+</p>
 <p align="center">
   <em>“Una coordenada no es un punto.”</em>
 </p>
 
----
+<p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
 
-## About
+## LORE
 
-I work at the intersection of **geosciences, spatial data, backend engineering, and AI-assisted software**.
+```text
+CLASS       Geospatial Software Developer
+ORIGIN      Geology · Mining
+DOMAIN      Territory · Spatial Data · Evidence
+BUILD       FastAPI · PostGIS · React · Cesium
+AI          LLMs · MCP · LangGraph · Tool Calling
+FOCUS       Territorial Intelligence · Operational Context
+```
 
-My background in **geology and mining** shapes how I build systems: the map is not just a visualization layer — it is an interface for querying, validating, connecting, and interpreting what is happening around an area of interest.
+I build software at the intersection of **geosciences, spatial data, backend engineering, and AI-assisted systems**.
+
+My geology and mining background shapes how I design software: a map is not just a visualization layer — it is an interface for **querying, validating, connecting, and interpreting what is happening around an area of interest**.
 
 > **Territory → evidence → spatial data → software → decision context.**
 
-## What I build
+<p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
+
+## BUILD PATHS
 
 <table>
 <tr>
 <td width="33%" valign="top">
 
-### 🌍 GeoPlatform
-
+### GeoPlatform
 Territorial intelligence for **mining, environment, routes, and operational context**.
 
-`2D/3D` · `PostGIS` · `Satellite` · `Reports` · `AI-assisted`
+`2D/3D` · `PostGIS` · `Satellite` · `Reports`
 
 <a href="https://sanjuangeo.vercel.app/"><strong>Open platform →</strong></a>
 
 </td>
 <td width="33%" valign="top">
 
-### 🗺️ Spatial systems
-
+### Spatial Systems
 Backends that connect **territory, APIs, data models, access control, and traceable context**.
 
-`FastAPI` · `PostGIS` · `OGC` · `Integrations` · `APIs`
+`FastAPI` · `PostGIS` · `OGC` · `REST`
 
 </td>
 <td width="33%" valign="top">
 
-### 🧠 Agentic workflows
+### Agentic Systems
+LLM workflows that use **real tools and sources**, validate outputs, and keep humans in the loop.
 
-LLM systems that use **real tools and real sources**, validate outputs, and keep humans in the loop.
-
-`LLMs` · `MCP` · `LangGraph` · `Tool Calling` · `Guardrails`
+`MCP` · `LangGraph` · `Tool Calling` · `Guardrails`
 
 </td>
 </tr>
 </table>
 
-## Core stack
+<p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
 
-### Geospatial & Domain
+## SKILL TREE
 
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![PostGIS](https://img.shields.io/badge/PostGIS-Spatial_Data-336791?style=flat-square)
-![GIS](https://img.shields.io/badge/GIS-Geospatial-456b55?style=flat-square)
-![Leaflet](https://img.shields.io/badge/Leaflet-199900?style=flat-square&logo=leaflet&logoColor=white)
-![CesiumJS](https://img.shields.io/badge/CesiumJS-2D%2F3D-6CADDF?style=flat-square)
-![Google Earth Engine](https://img.shields.io/badge/Google_Earth_Engine-4285F4?style=flat-square&logo=googleearth&logoColor=white)
-![OGC](https://img.shields.io/badge/OGC-WMS%2FWFS-45535e?style=flat-square)
-![GeoJSON](https://img.shields.io/badge/GeoJSON%2FKML-Data-6b705c?style=flat-square)
+<p align="center">
+  <img src="./assets/skill-tree.svg" alt="Geospatial software skill tree" width="100%" />
+</p>
 
-### Backend & Data
+**Geospatial** — `PostGIS` · `Leaflet` · `Cesium` · `Google Earth Engine` · `OGC`  
+**Backend & Data** — `Python` · `FastAPI` · `SQL` · `Supabase` · `REST APIs`  
+**AI Systems** — `LLMs` · `MCP` · `LangGraph` · `Tool Calling` · `Guardrails`  
+**Production** — `Docker` · `GitHub Actions` · `pytest` · `Vitest` · `RLS`
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-Data-4f5d75?style=flat-square)
-![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white)
-![REST](https://img.shields.io/badge/REST_APIs-Integration-59636e?style=flat-square)
-![Data Architecture](https://img.shields.io/badge/Data_Architecture-Pipelines-7b6854?style=flat-square)
+<p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
 
-### Frontend & Product
+## PLAYER STATS
 
-![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
-![2D/3D](https://img.shields.io/badge/2D%2F3D-Interfaces-8f6747?style=flat-square)
-![Territorial UX](https://img.shields.io/badge/Territorial-UX-5f574f?style=flat-square)
+<p align="center">
+  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=juanmanueltorres-creator&show_icons=true&include_all_commits=true&hide_rank=true&custom_title=PUBLIC%20GITHUB%20STATS&title_color=d0ad6c&text_color=e8dfcf&icon_color=9b3d32&border_color=5d452c&bg_color=0d0b08&border_radius=4&number_format=long" alt="Juan Manuel Torres public GitHub stats" />
+  <img width="49%" src="https://streak-stats.demolab.com?user=juanmanueltorres-creator&hide_border=false&border=5D452C&background=0D0B08&ring=D0AD6C&fire=9B3D32&currStreakLabel=D0AD6C&sideLabels=E8DFCF&dates=8A7E6C&sideNums=F4EAD7&currStreakNum=F4EAD7" alt="Juan Manuel Torres GitHub contribution streak" />
+</p>
 
-### AI Systems
+<p align="center">
+  <sub>Automated public GitHub activity. Provider cards are cached and may update with delay.</sub>
+</p>
 
-![LLMs](https://img.shields.io/badge/LLMs-AI_Systems-7a5af8?style=flat-square)
-![MCP](https://img.shields.io/badge/MCP-Tool_Orchestration-6d597a?style=flat-square)
-![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
-![LangGraph](https://img.shields.io/badge/LangGraph-Agentic_Workflows-31363b?style=flat-square)
-![Tool Calling](https://img.shields.io/badge/Tool_Calling-Context_Engineering-735751?style=flat-square)
-![Human in the loop](https://img.shields.io/badge/Human--in--the--loop-Guardrails-4c6256?style=flat-square)
+<p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
 
-### Production & Reliability
-
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
-![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white)
-![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=flat-square&logo=vitest&logoColor=white)
-![RLS](https://img.shields.io/badge/RLS-Access_Control-455a64?style=flat-square)
-![Observability](https://img.shields.io/badge/Observability-Reliability-76583d?style=flat-square)
-
-## Featured work
+## SELECTED WORK
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### [GeoPlatform](https://sanjuangeo.vercel.app/)
+### 01 / [GeoPlatform](https://sanjuangeo.vercel.app/)
+**Territorial intelligence platform** for mining, environment, and operational context.
 
-**Territorial intelligence platform** focused on mining, environment, and operational context.
-
-**Highlights**
 - FastAPI + PostgreSQL/PostGIS spatial backend
 - Leaflet + Cesium 2D/3D interfaces
 - Satellite, weather, environmental, and public territorial data
-- Traceable context and reporting workflows
-- Authentication, access control, integrations, and production safeguards
+- Traceable reporting and access-control workflows
 
 </td>
 <td width="50%" valign="top">
 
-### [geo-agent-langgraph](https://github.com/juanmanueltorres-creator/geo-agent-langgraph)
+### 02 / [geo-agent-langgraph](https://github.com/juanmanueltorres-creator/geo-agent-langgraph)
+**Minimal geospatial AI agent** built around real tools and deterministic validation.
 
-**Minimal geospatial AI agent** built to understand how agentic systems work in real software.
-
-**Highlights**
 - LangChain + LangGraph workflow
 - Real weather, elevation, and territorial APIs
-- Deterministic validation and retry logic
-- Tool-enabled LLM execution
-- Emphasis on real context over AI-only answers
+- Retry and validation logic
+- Context over AI-only answers
 
 </td>
 </tr>
 </table>
 
-## Current focus
+<p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
 
-```text
-GEOSCIENCES  →  SPATIAL DATA  →  BACKEND  →  AI SYSTEMS  →  PRODUCT
-     │               │              │             │              │
- territory        PostGIS        FastAPI       tools/LLMs     decisions
-```
+## QUEST LOG
 
-- Building **production-style geospatial software**
-- Strengthening **Python, backend engineering, data architecture, and integrations**
-- Exploring **AI systems that operate on real tools, evidence, and context**
-- Designing products that reduce uncertainty around **territory, evidence, and decisions**
+- **Ship production-grade geospatial software** without breaking existing workflows.
+- Strengthen **Python, backend engineering, data architecture, and integrations**.
+- Build AI systems grounded in **tools, evidence, context, and human review**.
+- Turn territorial uncertainty into **usable software and decision context**.
 
 <details>
 <summary><strong>Why geospatial?</strong></summary>
 <br />
 
-Because a coordinate alone rarely explains a problem. Useful territorial software needs to connect the point with its **surrounding geology, environment, infrastructure, time, evidence, uncertainty, and operational context**.
+Because a coordinate alone rarely explains a problem. Useful territorial software needs to connect the point with its **geology, environment, infrastructure, time, evidence, uncertainty, and operational context**.
 
-That idea connects my work across GeoPlatform, geospatial backends, and Anti IA.
+That principle connects my work across GeoPlatform, geospatial backends, and Anti IA.
 
 </details>
 
-## Contact
+<p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
 
-<p>
-  📍 Córdoba, Argentina<br />
-  ✉️ <code>juan.manuel.torres@mi.unc.edu.ar</code><br />
-  🔗 <a href="https://www.linkedin.com/in/juanmtorres23/">linkedin.com/in/juanmtorres23</a>
-</p>
-
----
+## CONTACT
 
 <p align="center">
-  <strong>GeoPlatform · Anti IA · Territorial Intelligence</strong><br />
-  <sub>Mining foundations → Geosciences → Geospatial systems → Software & data → Automation → AI systems → Product</sub>
+  <strong>Córdoba, Argentina</strong><br />
+  <code>juan.manuel.torres@mi.unc.edu.ar</code><br />
+  <a href="https://www.linkedin.com/in/juanmtorres23/">LinkedIn</a> · <a href="https://juanmtorres.vercel.app/">Portfolio</a> · <a href="https://sanjuangeo.vercel.app/">GeoPlatform</a>
+</p>
+
+<br />
+
+<p align="center">
+  <img src="./assets/profile-footer.svg" alt="The map is not the territory — GeoPlatform, Anti IA, Territorial Intelligence" width="100%" />
 </p>
