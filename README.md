@@ -107,22 +107,57 @@ LLM workflows that use **real tools and sources**, validate outputs, and keep hu
   <img src="./assets/skill-tree.svg" alt="Geospatial software skill tree" width="100%" />
 </p>
 
-**Geospatial** — `PostGIS` · `Leaflet` · `Cesium` · `Google Earth Engine` · `OGC`  
-**Backend & Data** — `Python` · `FastAPI` · `SQL` · `Supabase` · `REST APIs`  
-**AI Systems** — `LLMs` · `MCP` · `LangGraph` · `Tool Calling` · `Guardrails`  
-**Production** — `Docker` · `GitHub Actions` · `pytest` · `Vitest` · `RLS`
+<p align="center">
+  <sub><strong>GEOSPATIAL</strong></sub><br />
+  <img alt="PostGIS" src="https://img.shields.io/badge/PostGIS-c4a46a?style=flat-square&logo=postgresql&logoColor=11100d" />
+  <img alt="Leaflet" src="https://img.shields.io/badge/Leaflet-c4a46a?style=flat-square&logo=leaflet&logoColor=11100d" />
+  <img alt="Cesium" src="https://img.shields.io/badge/Cesium-c4a46a?style=flat-square" />
+  <img alt="Google Earth Engine" src="https://img.shields.io/badge/Google_Earth_Engine-c4a46a?style=flat-square&logo=googleearth&logoColor=11100d" />
+  <img alt="OGC" src="https://img.shields.io/badge/OGC-c4a46a?style=flat-square" />
+</p>
+
+<p align="center">
+  <sub><strong>BACKEND &amp; DATA</strong></sub><br />
+  <img alt="Python" src="https://img.shields.io/badge/Python-a87a47?style=flat-square&logo=python&logoColor=efe4d0" />
+  <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-a87a47?style=flat-square&logo=fastapi&logoColor=efe4d0" />
+  <img alt="SQL" src="https://img.shields.io/badge/SQL-a87a47?style=flat-square" />
+  <img alt="Supabase" src="https://img.shields.io/badge/Supabase-a87a47?style=flat-square&logo=supabase&logoColor=efe4d0" />
+  <img alt="REST APIs" src="https://img.shields.io/badge/REST_APIs-a87a47?style=flat-square" />
+</p>
+
+<p align="center">
+  <sub><strong>AI SYSTEMS</strong></sub><br />
+  <img alt="LLMs" src="https://img.shields.io/badge/LLMs-8f2d2d?style=flat-square" />
+  <img alt="MCP" src="https://img.shields.io/badge/MCP-8f2d2d?style=flat-square" />
+  <img alt="LangGraph" src="https://img.shields.io/badge/LangGraph-8f2d2d?style=flat-square" />
+  <img alt="Tool Calling" src="https://img.shields.io/badge/Tool_Calling-8f2d2d?style=flat-square" />
+  <img alt="Guardrails" src="https://img.shields.io/badge/Guardrails-8f2d2d?style=flat-square" />
+</p>
+
+<p align="center">
+  <sub><strong>PRODUCTION</strong></sub><br />
+  <img alt="Docker" src="https://img.shields.io/badge/Docker-6f604d?style=flat-square&logo=docker&logoColor=efe4d0" />
+  <img alt="GitHub Actions" src="https://img.shields.io/badge/GitHub_Actions-6f604d?style=flat-square&logo=githubactions&logoColor=efe4d0" />
+  <img alt="pytest" src="https://img.shields.io/badge/pytest-6f604d?style=flat-square&logo=pytest&logoColor=efe4d0" />
+  <img alt="Vitest" src="https://img.shields.io/badge/Vitest-6f604d?style=flat-square&logo=vitest&logoColor=efe4d0" />
+  <img alt="RLS" src="https://img.shields.io/badge/RLS-6f604d?style=flat-square" />
+</p>
 
 <p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
 
 ## PLAYER STATS
 
 <p align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=juanmanueltorres-creator&show_icons=true&include_all_commits=true&hide_rank=true&custom_title=PUBLIC%20GITHUB%20STATS&title_color=d0ad6c&text_color=e8dfcf&icon_color=9b3d32&border_color=5d452c&bg_color=0d0b08&border_radius=4&number_format=long" alt="Juan Manuel Torres public GitHub stats" />
-  <img width="49%" src="https://streak-stats.demolab.com?user=juanmanueltorres-creator&hide_border=false&border=5D452C&background=0D0B08&ring=D0AD6C&fire=9B3D32&currStreakLabel=D0AD6C&sideLabels=E8DFCF&dates=8A7E6C&sideNums=F4EAD7&currStreakNum=F4EAD7" alt="Juan Manuel Torres GitHub contribution streak" />
+  <img alt="GitHub followers" src="https://img.shields.io/github/followers/juanmanueltorres-creator?style=for-the-badge&logo=github&label=FOLLOWERS&labelColor=11100d&color=c4a46a" />
+  <img alt="Public GitHub stars" src="https://img.shields.io/github/stars/juanmanueltorres-creator?affiliations=OWNER&style=for-the-badge&logo=github&label=PUBLIC%20STARS&labelColor=11100d&color=a87a47" />
+</p>
+<p align="center">
+  <img alt="GeoPlatform yearly commit activity" src="https://img.shields.io/github/commit-activity/y/juanmanueltorres-creator/Geo_Platform?style=for-the-badge&logo=git&label=GEOPLATFORM%20COMMITS%20%2F%20YEAR&labelColor=11100d&color=8f2d2d" />
+  <img alt="GeoPlatform last commit" src="https://img.shields.io/github/last-commit/juanmanueltorres-creator/Geo_Platform?style=for-the-badge&logo=github&label=LAST%20SHIP&labelColor=11100d&color=6f604d" />
 </p>
 
 <p align="center">
-  <sub>Automated public GitHub activity. Provider cards are cached and may update with delay.</sub>
+  <sub>Automated from public GitHub metadata via Shields.io. Values are cached and may update with delay.</sub>
 </p>
 
 <p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
