@@ -1,211 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="86" viewBox="0 0 1100 86" role="img" aria-labelledby="title desc">
-  <title id="title">Juan Manuel Torres — animated profile signal</title>
-  <desc id="desc">GeoPlatform, Anti IA, geosciences, spatial data and territorial intelligence shown as a staggered animated profile signal.</desc>
-
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="104" viewBox="0 0 1100 104" role="img" aria-labelledby="title desc">
+  <title id="title">Juan Manuel Torres — territorial archive</title>
+  <desc id="desc">Dark cinematic banner for GeoPlatform, Anti IA and territorial intelligence.</desc>
   <defs>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#33d1ff"/>
-      <stop offset="0.5" stop-color="#b56cff"/>
-      <stop offset="1" stop-color="#ff4fb7"/>
+    <linearGradient id="ember" x1="0" x2="1">
+      <stop offset="0" stop-color="#6f4627"/>
+      <stop offset=".34" stop-color="#c99755"/>
+      <stop offset=".58" stop-color="#e5d2a8"/>
+      <stop offset=".82" stop-color="#8f2f2f"/>
+      <stop offset="1" stop-color="#4b1919"/>
     </linearGradient>
-
-    <linearGradient id="accentSoft" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#162437"/>
-      <stop offset="0.5" stop-color="#211a38"/>
-      <stop offset="1" stop-color="#30182e"/>
+    <linearGradient id="void" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#080706"/>
+      <stop offset=".52" stop-color="#120f0c"/>
+      <stop offset="1" stop-color="#160b0b"/>
     </linearGradient>
-
+    <radialGradient id="warmth">
+      <stop offset="0" stop-color="#6f4627" stop-opacity=".16"/>
+      <stop offset=".62" stop-color="#27170f" stop-opacity=".06"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
     <style>
-      .bg {
-        fill: #0d1117;
-        stroke: #30363d;
-        stroke-width: 1;
-      }
-
-      .inner {
-        fill: url(#accentSoft);
-        opacity: .23;
-      }
-
-      .kicker {
-        fill: #c8d4eb;
-        font-family: "Courier New", "Lucida Console", Monaco, monospace;
-        font-size: 10.5px;
-        font-weight: 700;
-        letter-spacing: 2.35px;
-      }
-
-      .phrase {
-        fill: #f4f8ff;
-        font-family: "Arial Black", "Franklin Gothic Heavy", Impact, "Segoe UI", sans-serif;
-        font-size: 20px;
-        font-weight: 900;
-        letter-spacing: .15px;
-        paint-order: stroke fill;
-        stroke: #070b12;
-        stroke-width: .75px;
-      }
-
-      .char {
-        transform-box: fill-box;
-        transform-origin: center;
-      }
-
-      .p1 .char {
-        opacity: 1;
-        animation: char1 12s cubic-bezier(.18,.72,.22,1) infinite;
-      }
-
-      .p2 .char {
-        opacity: 0;
-        animation: char2 12s cubic-bezier(.18,.72,.22,1) infinite;
-      }
-
-      .p3 .char {
-        opacity: 0;
-        animation: char3 12s cubic-bezier(.18,.72,.22,1) infinite;
-      }
-
-      @keyframes char1 {
-        0%   { opacity: 0; transform: translateY(8px) scale(.94); }
-        5%   { opacity: 1; transform: translateY(-2px) scale(1.02); }
-        8%   { opacity: 1; transform: translateY(0) scale(1); }
-        24%  { opacity: 1; transform: translateY(0) scale(1); }
-        27%  { opacity: .92; transform: translateX(-1px); }
-        30%,100% { opacity: 0; transform: translateY(-5px); }
-      }
-
-      @keyframes char2 {
-        0%,32% { opacity: 0; transform: translateY(8px) scale(.94); }
-        37%  { opacity: 1; transform: translateY(-2px) scale(1.02); }
-        40%  { opacity: 1; transform: translateY(0) scale(1); }
-        57%  { opacity: 1; transform: translateY(0) scale(1); }
-        60%  { opacity: .92; transform: translateX(1px); }
-        63%,100% { opacity: 0; transform: translateY(-5px); }
-      }
-
-      @keyframes char3 {
-        0%,65% { opacity: 0; transform: translateY(8px) scale(.94); }
-        70%  { opacity: 1; transform: translateY(-2px) scale(1.02); }
-        73%  { opacity: 1; transform: translateY(0) scale(1); }
-        90%  { opacity: 1; transform: translateY(0) scale(1); }
-        93%  { opacity: .92; transform: translateX(-1px); }
-        96%,100% { opacity: 0; transform: translateY(-5px); }
-      }
-
-      .ghost {
-        font-family: "Arial Black", "Franklin Gothic Heavy", Impact, "Segoe UI", sans-serif;
-        font-size: 20px;
-        font-weight: 900;
-        letter-spacing: .15px;
-        opacity: 0;
-      }
-
-      .cyan { fill: #33d1ff; }
-      .pink { fill: #ff4fb7; }
-
-      .g1a { animation: ghost1a 12s linear infinite; }
-      .g1b { animation: ghost1b 12s linear infinite; }
-      .g2a { animation: ghost2a 12s linear infinite; }
-      .g2b { animation: ghost2b 12s linear infinite; }
-      .g3a { animation: ghost3a 12s linear infinite; }
-      .g3b { animation: ghost3b 12s linear infinite; }
-
-      @keyframes ghost1a {
-        0%,25%,30%,100% { opacity:0; transform:translateX(0); }
-        26.5% { opacity:.32; transform:translateX(-3px); }
-        28% { opacity:.14; transform:translateX(2px); }
-      }
-      @keyframes ghost1b {
-        0%,25%,30%,100% { opacity:0; transform:translateX(0); }
-        27% { opacity:.28; transform:translateX(3px); }
-        28.5% { opacity:.10; transform:translateX(-2px); }
-      }
-      @keyframes ghost2a {
-        0%,58%,63%,100% { opacity:0; transform:translateX(0); }
-        59.5% { opacity:.32; transform:translateX(-3px); }
-        61% { opacity:.14; transform:translateX(2px); }
-      }
-      @keyframes ghost2b {
-        0%,58%,63%,100% { opacity:0; transform:translateX(0); }
-        60% { opacity:.28; transform:translateX(3px); }
-        61.5% { opacity:.10; transform:translateX(-2px); }
-      }
-      @keyframes ghost3a {
-        0%,91%,96%,100% { opacity:0; transform:translateX(0); }
-        92.5% { opacity:.32; transform:translateX(-3px); }
-        94% { opacity:.14; transform:translateX(2px); }
-      }
-      @keyframes ghost3b {
-        0%,91%,96%,100% { opacity:0; transform:translateX(0); }
-        93% { opacity:.28; transform:translateX(3px); }
-        94.5% { opacity:.10; transform:translateX(-2px); }
-      }
-
-      .rail {
-        stroke: url(#accent);
-        stroke-width: 1.8;
-        stroke-linecap: round;
-        opacity: .82;
-        filter: drop-shadow(0 0 7px rgba(120,110,255,.18));
-      }
-
-      .scan {
-        stroke: url(#accent);
-        stroke-width: 3;
-        stroke-linecap: round;
-        stroke-dasharray: 72 500;
-        opacity: 0;
-        filter: drop-shadow(0 0 8px rgba(181,108,255,.28));
-        animation: scanCycle 12s linear infinite;
-      }
-
-      @keyframes scanCycle {
-        0%,24% { opacity:0; stroke-dashoffset:470; }
-        26% { opacity:.9; stroke-dashoffset:470; }
-        30% { opacity:0; stroke-dashoffset:-470; }
-        31%,57% { opacity:0; stroke-dashoffset:470; }
-        59% { opacity:.9; stroke-dashoffset:470; }
-        63% { opacity:0; stroke-dashoffset:-470; }
-        64%,90% { opacity:0; stroke-dashoffset:470; }
-        92% { opacity:.9; stroke-dashoffset:470; }
-        96% { opacity:0; stroke-dashoffset:-470; }
-        100% { opacity:0; stroke-dashoffset:470; }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .char, .ghost, .scan {
-          animation: none !important;
-          transform: none !important;
-        }
-        .p1 .char { opacity: 1 !important; }
-        .p2 .char, .p3 .char, .ghost, .scan { opacity: 0 !important; }
-      }
+      .bg{fill:url(#void);stroke:#3a2b20;stroke-width:1}
+      .inner{fill:url(#warmth);stroke:#2d241d;stroke-width:1}
+      .cut{stroke:#c99755;stroke-width:1;opacity:.34}
+      .kicker{fill:#9f8e75;font-family:"Courier New",monospace;font-size:10px;font-weight:700;letter-spacing:2.8px}
+      .phrase{fill:#eadfc9;font-family:Georgia,"Times New Roman",serif;font-size:24px;font-weight:700;letter-spacing:.35px;paint-order:stroke fill;stroke:#050403;stroke-width:.8px;filter:drop-shadow(0 0 8px rgba(201,151,85,.12))}
+      .etch{fill:none;stroke:url(#ember);stroke-width:.55px;opacity:0;stroke-dasharray:9 7;filter:drop-shadow(0 0 5px rgba(143,47,47,.2))}
+      .p1{animation:act1 13.5s ease-in-out infinite}.p2{animation:act2 13.5s ease-in-out infinite;opacity:0}.p3{animation:act3 13.5s ease-in-out infinite;opacity:0}
+      .e1{animation:etch1 13.5s linear infinite}.e2{animation:etch2 13.5s linear infinite}.e3{animation:etch3 13.5s linear infinite}
+      @keyframes act1{0%{opacity:0;transform:translateY(7px)}5%,25%{opacity:1;transform:translateY(0)}28%{opacity:.55}31%,100%{opacity:0;transform:translateY(-4px)}}
+      @keyframes act2{0%,33%{opacity:0;transform:translateY(7px)}38%,58%{opacity:1;transform:translateY(0)}61%{opacity:.55}64%,100%{opacity:0;transform:translateY(-4px)}}
+      @keyframes act3{0%,66%{opacity:0;transform:translateY(7px)}71%,91%{opacity:1;transform:translateY(0)}94%{opacity:.55}97%,100%{opacity:0;transform:translateY(-4px)}}
+      @keyframes etch1{0%,2%,31%,100%{opacity:0;stroke-dashoffset:80}6%{opacity:.55;stroke-dashoffset:0}12%,25%{opacity:.12;stroke-dashoffset:-20}}
+      @keyframes etch2{0%,35%,64%,100%{opacity:0;stroke-dashoffset:80}39%{opacity:.55;stroke-dashoffset:0}45%,58%{opacity:.12;stroke-dashoffset:-20}}
+      @keyframes etch3{0%,68%,97%,100%{opacity:0;stroke-dashoffset:80}72%{opacity:.55;stroke-dashoffset:0}78%,91%{opacity:.12;stroke-dashoffset:-20}}
+      .rail{stroke:url(#ember);stroke-width:1.2;opacity:.62}.scan{stroke:url(#ember);stroke-width:2.5;stroke-dasharray:70 600;opacity:0;filter:drop-shadow(0 0 7px rgba(201,151,85,.24));animation:scan 13.5s linear infinite}
+      @keyframes scan{0%,26%{opacity:0;stroke-dashoffset:520}28%{opacity:.75}31%{opacity:0;stroke-dashoffset:-520}32%,59%{opacity:0;stroke-dashoffset:520}61%{opacity:.75}64%{opacity:0;stroke-dashoffset:-520}65%,92%{opacity:0;stroke-dashoffset:520}94%{opacity:.75}97%,100%{opacity:0;stroke-dashoffset:-520}}
+      @media (prefers-reduced-motion:reduce){.p1,.p2,.p3,.e1,.e2,.e3,.scan{animation:none!important;transform:none!important}.p1{opacity:1!important}.p2,.p3,.etch,.scan{opacity:0!important}}
     </style>
   </defs>
-
-  <rect class="bg" x="1" y="1" width="1098" height="84" rx="16"/>
-  <rect class="inner" x="12" y="12" width="1076" height="60" rx="12"/>
-
-  <text x="550" y="22" text-anchor="middle" class="kicker">
-    BUILDING AT THE INTERSECTION OF TERRITORY · DATA · SOFTWARE
-  </text>
-
-  <g aria-hidden="true">
-    <text x="550" y="51" text-anchor="middle" class="ghost cyan g1a">GeoPlatform · Anti IA · Territorial Intelligence</text>
-    <text x="550" y="51" text-anchor="middle" class="ghost pink g1b">GeoPlatform · Anti IA · Territorial Intelligence</text>
-    <text x="550" y="51" text-anchor="middle" class="ghost cyan g2a">Geosciences · Spatial Data · AI-assisted Software</text>
-    <text x="550" y="51" text-anchor="middle" class="ghost pink g2b">Geosciences · Spatial Data · AI-assisted Software</text>
-    <text x="550" y="51" text-anchor="middle" class="ghost cyan g3a">Maps, data and context for territorial intelligence</text>
-    <text x="550" y="51" text-anchor="middle" class="ghost pink g3b">Maps, data and context for territorial intelligence</text>
+  <rect class="bg" x="1" y="1" width="1098" height="102" rx="15"/>
+  <rect class="inner" x="10" y="10" width="1080" height="84" rx="11"/>
+  <path class="cut" d="M28 22h84m876 0h84M28 82h84m876 0h84M28 22v12m1044-12v12M28 70v12m1044-12v12"/>
+  <text x="550" y="27" text-anchor="middle" class="kicker">ARCHIVE OF TERRITORY · DATA · SOFTWARE</text>
+  <g>
+    <text x="550" y="61" text-anchor="middle" class="phrase p1">GeoPlatform · Anti IA · Territorial Intelligence</text>
+    <text x="550" y="61" text-anchor="middle" class="etch e1">GeoPlatform · Anti IA · Territorial Intelligence</text>
+    <text x="550" y="61" text-anchor="middle" class="phrase p2">Geosciences · Spatial Data · AI-assisted Software</text>
+    <text x="550" y="61" text-anchor="middle" class="etch e2">Geosciences · Spatial Data · AI-assisted Software</text>
+    <text x="550" y="61" text-anchor="middle" class="phrase p3">Maps, data and context for territorial intelligence</text>
+    <text x="550" y="61" text-anchor="middle" class="etch e3">Maps, data and context for territorial intelligence</text>
   </g>
-
-  <g aria-live="polite">
-    <text x="550" y="51" text-anchor="middle" class="phrase p1"><tspan class="char" style="animation-delay:0.000s">G</tspan><tspan class="char" style="animation-delay:0.012s">e</tspan><tspan class="char" style="animation-delay:0.024s">o</tspan><tspan class="char" style="animation-delay:0.036s">P</tspan><tspan class="char" style="animation-delay:0.048s">l</tspan><tspan class="char" style="animation-delay:0.060s">a</tspan><tspan class="char" style="animation-delay:0.072s">t</tspan><tspan class="char" style="animation-delay:0.084s">f</tspan><tspan class="char" style="animation-delay:0.096s">o</tspan><tspan class="char" style="animation-delay:0.108s">r</tspan><tspan class="char" style="animation-delay:0.120s">m</tspan><tspan class="char" style="animation-delay:0.132s">&#160;</tspan><tspan class="char" style="animation-delay:0.144s">·</tspan><tspan class="char" style="animation-delay:0.156s">&#160;</tspan><tspan class="char" style="animation-delay:0.168s">A</tspan><tspan class="char" style="animation-delay:0.180s">n</tspan><tspan class="char" style="animation-delay:0.192s">t</tspan><tspan class="char" style="animation-delay:0.204s">i</tspan><tspan class="char" style="animation-delay:0.216s">&#160;</tspan><tspan class="char" style="animation-delay:0.228s">I</tspan><tspan class="char" style="animation-delay:0.240s">A</tspan><tspan class="char" style="animation-delay:0.252s">&#160;</tspan><tspan class="char" style="animation-delay:0.264s">·</tspan><tspan class="char" style="animation-delay:0.276s">&#160;</tspan><tspan class="char" style="animation-delay:0.288s">T</tspan><tspan class="char" style="animation-delay:0.300s">e</tspan><tspan class="char" style="animation-delay:0.312s">r</tspan><tspan class="char" style="animation-delay:0.324s">r</tspan><tspan class="char" style="animation-delay:0.336s">i</tspan><tspan class="char" style="animation-delay:0.348s">t</tspan><tspan class="char" style="animation-delay:0.360s">o</tspan><tspan class="char" style="animation-delay:0.372s">r</tspan><tspan class="char" style="animation-delay:0.384s">i</tspan><tspan class="char" style="animation-delay:0.396s">a</tspan><tspan class="char" style="animation-delay:0.408s">l</tspan><tspan class="char" style="animation-delay:0.420s">&#160;</tspan><tspan class="char" style="animation-delay:0.432s">I</tspan><tspan class="char" style="animation-delay:0.444s">n</tspan><tspan class="char" style="animation-delay:0.456s">t</tspan><tspan class="char" style="animation-delay:0.468s">e</tspan><tspan class="char" style="animation-delay:0.480s">l</tspan><tspan class="char" style="animation-delay:0.492s">l</tspan><tspan class="char" style="animation-delay:0.504s">i</tspan><tspan class="char" style="animation-delay:0.516s">g</tspan><tspan class="char" style="animation-delay:0.528s">e</tspan><tspan class="char" style="animation-delay:0.540s">n</tspan><tspan class="char" style="animation-delay:0.552s">c</tspan><tspan class="char" style="animation-delay:0.564s">e</tspan></text>
-    <text x="550" y="51" text-anchor="middle" class="phrase p2"><tspan class="char" style="animation-delay:0.000s">G</tspan><tspan class="char" style="animation-delay:0.012s">e</tspan><tspan class="char" style="animation-delay:0.024s">o</tspan><tspan class="char" style="animation-delay:0.036s">s</tspan><tspan class="char" style="animation-delay:0.048s">c</tspan><tspan class="char" style="animation-delay:0.060s">i</tspan><tspan class="char" style="animation-delay:0.072s">e</tspan><tspan class="char" style="animation-delay:0.084s">n</tspan><tspan class="char" style="animation-delay:0.096s">c</tspan><tspan class="char" style="animation-delay:0.108s">e</tspan><tspan class="char" style="animation-delay:0.120s">s</tspan><tspan class="char" style="animation-delay:0.132s">&#160;</tspan><tspan class="char" style="animation-delay:0.144s">·</tspan><tspan class="char" style="animation-delay:0.156s">&#160;</tspan><tspan class="char" style="animation-delay:0.168s">S</tspan><tspan class="char" style="animation-delay:0.180s">p</tspan><tspan class="char" style="animation-delay:0.192s">a</tspan><tspan class="char" style="animation-delay:0.204s">t</tspan><tspan class="char" style="animation-delay:0.216s">i</tspan><tspan class="char" style="animation-delay:0.228s">a</tspan><tspan class="char" style="animation-delay:0.240s">l</tspan><tspan class="char" style="animation-delay:0.252s">&#160;</tspan><tspan class="char" style="animation-delay:0.264s">D</tspan><tspan class="char" style="animation-delay:0.276s">a</tspan><tspan class="char" style="animation-delay:0.288s">t</tspan><tspan class="char" style="animation-delay:0.300s">a</tspan><tspan class="char" style="animation-delay:0.312s">&#160;</tspan><tspan class="char" style="animation-delay:0.324s">·</tspan><tspan class="char" style="animation-delay:0.336s">&#160;</tspan><tspan class="char" style="animation-delay:0.348s">A</tspan><tspan class="char" style="animation-delay:0.360s">I</tspan><tspan class="char" style="animation-delay:0.372s">-</tspan><tspan class="char" style="animation-delay:0.384s">a</tspan><tspan class="char" style="animation-delay:0.396s">s</tspan><tspan class="char" style="animation-delay:0.408s">s</tspan><tspan class="char" style="animation-delay:0.420s">i</tspan><tspan class="char" style="animation-delay:0.432s">s</tspan><tspan class="char" style="animation-delay:0.444s">t</tspan><tspan class="char" style="animation-delay:0.456s">e</tspan><tspan class="char" style="animation-delay:0.468s">d</tspan><tspan class="char" style="animation-delay:0.480s">&#160;</tspan><tspan class="char" style="animation-delay:0.492s">S</tspan><tspan class="char" style="animation-delay:0.504s">o</tspan><tspan class="char" style="animation-delay:0.516s">f</tspan><tspan class="char" style="animation-delay:0.528s">t</tspan><tspan class="char" style="animation-delay:0.540s">w</tspan><tspan class="char" style="animation-delay:0.552s">a</tspan><tspan class="char" style="animation-delay:0.564s">r</tspan><tspan class="char" style="animation-delay:0.576s">e</tspan></text>
-    <text x="550" y="51" text-anchor="middle" class="phrase p3"><tspan class="char" style="animation-delay:0.000s">M</tspan><tspan class="char" style="animation-delay:0.012s">a</tspan><tspan class="char" style="animation-delay:0.024s">p</tspan><tspan class="char" style="animation-delay:0.036s">s</tspan><tspan class="char" style="animation-delay:0.048s">,</tspan><tspan class="char" style="animation-delay:0.060s">&#160;</tspan><tspan class="char" style="animation-delay:0.072s">d</tspan><tspan class="char" style="animation-delay:0.084s">a</tspan><tspan class="char" style="animation-delay:0.096s">t</tspan><tspan class="char" style="animation-delay:0.108s">a</tspan><tspan class="char" style="animation-delay:0.120s">&#160;</tspan><tspan class="char" style="animation-delay:0.132s">a</tspan><tspan class="char" style="animation-delay:0.144s">n</tspan><tspan class="char" style="animation-delay:0.156s">d</tspan><tspan class="char" style="animation-delay:0.168s">&#160;</tspan><tspan class="char" style="animation-delay:0.180s">c</tspan><tspan class="char" style="animation-delay:0.192s">o</tspan><tspan class="char" style="animation-delay:0.204s">n</tspan><tspan class="char" style="animation-delay:0.216s">t</tspan><tspan class="char" style="animation-delay:0.228s">e</tspan><tspan class="char" style="animation-delay:0.240s">x</tspan><tspan class="char" style="animation-delay:0.252s">t</tspan><tspan class="char" style="animation-delay:0.264s">&#160;</tspan><tspan class="char" style="animation-delay:0.276s">f</tspan><tspan class="char" style="animation-delay:0.288s">o</tspan><tspan class="char" style="animation-delay:0.300s">r</tspan><tspan class="char" style="animation-delay:0.312s">&#160;</tspan><tspan class="char" style="animation-delay:0.324s">t</tspan><tspan class="char" style="animation-delay:0.336s">e</tspan><tspan class="char" style="animation-delay:0.348s">r</tspan><tspan class="char" style="animation-delay:0.360s">r</tspan><tspan class="char" style="animation-delay:0.372s">i</tspan><tspan class="char" style="animation-delay:0.384s">t</tspan><tspan class="char" style="animation-delay:0.396s">o</tspan><tspan class="char" style="animation-delay:0.408s">r</tspan><tspan class="char" style="animation-delay:0.420s">i</tspan><tspan class="char" style="animation-delay:0.432s">a</tspan><tspan class="char" style="animation-delay:0.444s">l</tspan><tspan class="char" style="animation-delay:0.456s">&#160;</tspan><tspan class="char" style="animation-delay:0.468s">i</tspan><tspan class="char" style="animation-delay:0.480s">n</tspan><tspan class="char" style="animation-delay:0.492s">t</tspan><tspan class="char" style="animation-delay:0.504s">e</tspan><tspan class="char" style="animation-delay:0.516s">l</tspan><tspan class="char" style="animation-delay:0.528s">l</tspan><tspan class="char" style="animation-delay:0.540s">i</tspan><tspan class="char" style="animation-delay:0.552s">g</tspan><tspan class="char" style="animation-delay:0.564s">e</tspan><tspan class="char" style="animation-delay:0.576s">n</tspan><tspan class="char" style="animation-delay:0.588s">c</tspan><tspan class="char" style="animation-delay:0.600s">e</tspan></text>
-  </g>
-
-  <line class="rail" x1="330" y1="66" x2="770" y2="66"/>
-  <line class="scan" x1="330" y1="66" x2="770" y2="66"/>
+  <line class="rail" x1="260" y1="79" x2="840" y2="79"/>
+  <line class="scan" x1="260" y1="79" x2="840" y2="79"/>
 </svg>
