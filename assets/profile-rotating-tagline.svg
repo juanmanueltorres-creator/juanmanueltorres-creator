@@ -4,14 +4,22 @@
 
   <defs>
     <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#8f6747"/>
-      <stop offset="0.5" stop-color="#d2a06a"/>
-      <stop offset="1" stop-color="#8f6747"/>
+      <stop offset="0" stop-color="#33d1ff"/>
+      <stop offset="0.5" stop-color="#b56cff"/>
+      <stop offset="1" stop-color="#ff4fb7"/>
+    </linearGradient>
+    <linearGradient id="accentSoft" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1a2638"/>
+      <stop offset="0.5" stop-color="#241d3a"/>
+      <stop offset="1" stop-color="#311a31"/>
     </linearGradient>
     <style>
       .bg { fill: #0d1117; stroke: #30363d; stroke-width: 1; }
-      .rail { stroke: url(#accent); stroke-width: 2; stroke-linecap: round; }
-      .dot { fill: #d2a06a; }
+      .inner { fill: url(#accentSoft); opacity: .22; }
+      .rail { stroke: url(#accent); stroke-width: 2.2; stroke-linecap: round; }
+      .dotL { fill: #33d1ff; }
+      .dotM { fill: #b56cff; }
+      .dotR { fill: #ff4fb7; }
       .label {
         fill: #f0f6fc;
         font-family: Inter, Segoe UI, Arial, sans-serif;
@@ -20,7 +28,7 @@
         letter-spacing: .25px;
       }
       .mono {
-        fill: #8b949e;
+        fill: #98a6c0;
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
         font-size: 10px;
         font-weight: 600;
@@ -29,42 +37,45 @@
       .line1 { animation: show1 12s ease-in-out infinite; }
       .line2 { animation: show2 12s ease-in-out infinite; opacity: 0; }
       .line3 { animation: show3 12s ease-in-out infinite; opacity: 0; }
-      .pulse { animation: pulse 2.4s ease-in-out infinite; transform-origin: 56px 39px; }
       @keyframes show1 {
-        0%, 27% { opacity: 1; transform: translateY(0); }
-        31%, 96% { opacity: 0; transform: translateY(-5px); }
-        100% { opacity: 1; transform: translateY(0); }
+        0%, 24% { opacity: 1; }
+        30%, 100% { opacity: 0; }
       }
       @keyframes show2 {
-        0%, 29% { opacity: 0; transform: translateY(5px); }
-        34%, 60% { opacity: 1; transform: translateY(0); }
-        65%, 100% { opacity: 0; transform: translateY(-5px); }
+        0%, 30% { opacity: 0; }
+        35%, 57% { opacity: 1; }
+        63%, 100% { opacity: 0; }
       }
       @keyframes show3 {
-        0%, 63% { opacity: 0; transform: translateY(5px); }
-        68%, 94% { opacity: 1; transform: translateY(0); }
-        99%, 100% { opacity: 0; transform: translateY(-5px); }
+        0%, 63% { opacity: 0; }
+        68%, 90% { opacity: 1; }
+        96%, 100% { opacity: 0; }
       }
-      @keyframes pulse {
-        0%,100% { opacity: .45; transform: scale(.8); }
-        50% { opacity: 1; transform: scale(1.12); }
-      }
+      .glowSoft { filter: drop-shadow(0 0 8px rgba(86, 168, 255, 0.15)); }
+      .glowRail { filter: drop-shadow(0 0 8px rgba(120, 110, 255, 0.16)); }
+      .glowText { filter: drop-shadow(0 0 7px rgba(181, 108, 255, 0.10)); }
       @media (prefers-reduced-motion: reduce) {
         .line1 { animation: none; opacity: 1; }
         .line2, .line3 { animation: none; opacity: 0; }
-        .pulse { animation: none; }
       }
     </style>
   </defs>
 
-  <rect x="1" y="1" width="1098" height="76" rx="14" class="bg"/>
-  <line x1="28" y1="18" x2="28" y2="60" class="rail"/>
-  <circle cx="56" cy="39" r="4" class="dot pulse"/>
-  <text x="80" y="23" class="mono">BUILDING AT THE INTERSECTION OF TERRITORY · DATA · SOFTWARE</text>
+  <rect class="bg" x="1" y="1" width="1098" height="76" rx="16"/>
+  <rect class="inner" x="12" y="12" width="1076" height="54" rx="12"/>
 
-  <g aria-live="polite">
-    <text x="80" y="52" class="label line1">GeoPlatform · Anti IA · Territorial Intelligence</text>
-    <text x="80" y="52" class="label line2">Geosciences · Spatial Data · AI-assisted Software</text>
-    <text x="80" y="52" class="label line3">Maps, data and context for territorial intelligence</text>
+  <text x="550" y="21" text-anchor="middle" class="mono">BUILDING AT THE INTERSECTION OF TERRITORY · DATA · SOFTWARE</text>
+
+  <g class="glowRail">
+    <line class="rail" x1="315" y1="58" x2="785" y2="58"/>
+    <circle class="dotL glowSoft" cx="315" cy="58" r="4"/>
+    <circle class="dotM glowSoft" cx="550" cy="58" r="3" opacity=".85"/>
+    <circle class="dotR glowSoft" cx="785" cy="58" r="4"/>
+  </g>
+
+  <g class="glowText" aria-live="polite">
+    <text x="550" y="46" text-anchor="middle" class="label line1">GeoPlatform · Anti IA · Territorial Intelligence</text>
+    <text x="550" y="46" text-anchor="middle" class="label line2">Geosciences · Spatial Data · AI-assisted Software</text>
+    <text x="550" y="46" text-anchor="middle" class="label line3">Maps, data and context for territorial intelligence</text>
   </g>
 </svg>
