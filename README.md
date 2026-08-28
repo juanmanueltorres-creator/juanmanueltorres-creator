@@ -103,10 +103,6 @@ LLM workflows that use **real tools and sources**, validate outputs, and keep hu
 
 ## SKILL TREE
 
-<p align="center">
-  <img src="./assets/skill-tree.svg" alt="Geospatial software skill tree" width="100%" />
-</p>
-
 ### Geospatial & Domain
 
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
