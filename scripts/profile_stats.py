@@ -8,7 +8,6 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 USERNAME = "juanmanueltorres-creator"
-REPO = "Geo_Platform"
 API = "https://api.github.com"
 
 
@@ -26,23 +25,32 @@ def _request_json(url: str, token: str) -> object:
         return json.load(response)
 
 
-def _count_commits_last_365(token: str) -> int:
+def _count_commits_last_365(token: str, repos: list[dict]) -> int:
     since = (datetime.now(timezone.utc) - timedelta(days=365)).isoformat()
-    count = 0
-    page = 1
-    while True:
-        url = (
-            f"{API}/repos/{USERNAME}/{REPO}/commits"
-            f"?author={USERNAME}&since={since}&per_page=100&page={page}"
-        )
-        items = _request_json(url, token)
-        if not isinstance(items, list):
-            break
-        count += len(items)
-        if len(items) < 100:
-            break
-        page += 1
-    return count
+    total = 0
+    for repo in repos:
+        if repo.get("fork"):
+            continue
+        name = repo.get("name")
+        if not name:
+            continue
+        page = 1
+        while True:
+            url = (
+                f"{API}/repos/{USERNAME}/{name}/commits"
+                f"?author={USERNAME}&since={since}&per_page=100&page={page}"
+            )
+            try:
+                items = _request_json(url, token)
+            except Exception:
+                break
+            if not isinstance(items, list):
+                break
+            total += len(items)
+            if len(items) < 100:
+                break
+            page += 1
+    return total
 
 
 def fetch_stats(token: str) -> dict[str, int | str]:
@@ -50,25 +58,17 @@ def fetch_stats(token: str) -> dict[str, int | str]:
     repos = _request_json(
         f"{API}/users/{USERNAME}/repos?type=owner&sort=updated&per_page=100", token
     )
-    latest = _request_json(
-        f"{API}/repos/{USERNAME}/{REPO}/commits?per_page=1", token
-    )
 
-    stars = 0
-    if isinstance(repos, list):
-        stars = sum(int(repo.get("stargazers_count", 0)) for repo in repos)
-
-    last_ship = "—"
-    if isinstance(latest, list) and latest:
-        date_value = latest[0].get("commit", {}).get("committer", {}).get("date")
-        if date_value:
-            last_ship = str(date_value)[:10]
+    public_repos = repos if isinstance(repos, list) else []
+    stars = sum(int(repo.get("stargazers_count", 0)) for repo in public_repos)
+    pushed = [str(repo.get("pushed_at")) for repo in public_repos if repo.get("pushed_at")]
+    last_ship = max(pushed)[:10] if pushed else "—"
 
     return {
         "followers": int(user.get("followers", 0)),
         "public_repos": int(user.get("public_repos", 0)),
         "stars": stars,
-        "commits_365": _count_commits_last_365(token),
+        "commits_365": _count_commits_last_365(token, public_repos),
         "last_ship": last_ship,
     }
 
@@ -78,7 +78,7 @@ def render_svg(stats: dict[str, int | str]) -> str:
         ("FOLLOWERS", str(stats["followers"])),
         ("PUBLIC REPOS", str(stats["public_repos"])),
         ("OWNED STARS", str(stats["stars"])),
-        ("GEOPLATFORM COMMITS · 365D", str(stats["commits_365"])),
+        ("PUBLIC COMMITS · 365D", str(stats["commits_365"])),
         ("LAST SHIP", str(stats["last_ship"])),
     ]
     xs = [115, 330, 545, 780, 1000]
