@@ -5,14 +5,10 @@
 </p>
 
 <p align="center">
-  
-</p>
-
-<p align="center">
-  <a href="https://www.linkedin.com/in/juanmtorres23/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Profile-2580ff?style=flat-square&labelColor=111827&logo=linkedin&logoColor=ffffff"></a>
-  <a href="https://juanmtorres.vercel.app/"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-juanmtorres.vercel.app-7c3aed?style=flat-square&labelColor=111827&logo=vercel&logoColor=ffffff"></a>
-  <a href="https://sanjuangeo.vercel.app/"><img alt="GeoPlatform" src="https://img.shields.io/badge/GeoPlatform-Live-ec4899?style=flat-square&labelColor=111827"></a>
-  <a href="https://github.com/juanmanueltorres-creator/geo-agent-langgraph"><img alt="Geo Agent" src="https://img.shields.io/badge/Geo_Agent-LangGraph-6d28d9?style=flat-square&labelColor=111827&logo=github&logoColor=ffffff"></a>
+  <a href="https://www.linkedin.com/in/juanmtorres23/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Profile-5b4735?style=flat-square&labelColor=12100d&logo=linkedin&logoColor=ffffff"></a>
+  <a href="https://juanmtorres.vercel.app/"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-juanmtorres.vercel.app-6f4627?style=flat-square&labelColor=12100d&logo=vercel&logoColor=ffffff"></a>
+  <a href="https://sanjuangeo.vercel.app/"><img alt="GeoPlatform" src="https://img.shields.io/badge/GeoPlatform-Live-8f2f2f?style=flat-square&labelColor=12100d"></a>
+  <a href="https://github.com/juanmanueltorres-creator/geo-agent-langgraph"><img alt="Geo Agent" src="https://img.shields.io/badge/Geo_Agent-LangGraph-4c4037?style=flat-square&labelColor=12100d&logo=github&logoColor=ffffff"></a>
 </p>
 
 <p align="center">
@@ -22,11 +18,15 @@
 <br />
 
 <p align="center">
-  <strong>GeoPlatform</strong>
-  &nbsp;
-  <img alt="LIVE" src="https://img.shields.io/badge/LIVE-33d1ff?style=flat-square&labelColor=111827" />
-  &nbsp;·&nbsp; Territorial Intelligence &nbsp;·&nbsp; 2D/3D &nbsp;·&nbsp; Spatial Signals &nbsp;·&nbsp;
-  <a href="https://sanjuangeo.vercel.app/"><strong>Open platform →</strong></a>
+  <sub>ACT I · LIVE PRODUCT</sub>
+</p>
+
+<h2 align="center">GeoPlatform</h2>
+
+<p align="center">
+  <img alt="LIVE" src="https://img.shields.io/badge/LIVE-c99755?style=flat-square&labelColor=12100d" />
+  &nbsp; Territorial Intelligence &nbsp;·&nbsp; 2D/3D &nbsp;·&nbsp; Spatial Signals
+  &nbsp;·&nbsp; <a href="https://sanjuangeo.vercel.app/"><strong>Open platform →</strong></a>
 </p>
 
 <p align="center">
@@ -38,10 +38,14 @@
 <br />
 
 <p align="center">
-  <strong>Anti IA</strong>
-  &nbsp;
-  <img alt="EXPERIMENTAL" src="https://img.shields.io/badge/EXPERIMENTAL-b56cff?style=flat-square&labelColor=111827" />
-  &nbsp;·&nbsp; Evidence &nbsp;·&nbsp; Context &nbsp;·&nbsp; Territory
+  <sub>ACT II · EXPERIMENTAL DIRECTION</sub>
+</p>
+
+<h2 align="center">Anti IA</h2>
+
+<p align="center">
+  <img alt="EXPERIMENTAL" src="https://img.shields.io/badge/EXPERIMENTAL-8f2f2f?style=flat-square&labelColor=12100d" />
+  &nbsp; Evidence &nbsp;·&nbsp; Context &nbsp;·&nbsp; Territory
 </p>
 
 <p align="center">
@@ -51,6 +55,8 @@
 <p align="center">
   <em>“Una coordenada no es un punto.”</em>
 </p>
+
+---
 
 ## About
 
