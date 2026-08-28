@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  I build software that turns scattered territorial and operational data into clear, traceable context for decision-making.
+  
 </p>
 
 <p align="center">
