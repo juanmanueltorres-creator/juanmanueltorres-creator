@@ -1,4 +1,8 @@
 <p align="center">
+  <img src="./assets/territorial-agents-banner.png" alt="Territorial agents — Argentina pixel art encounter" width="100%" />
+</p>
+
+<p align="center">
   <img src="./assets/profile-hero.svg" alt="Juan Manuel Torres — Geospatial Software, Territorial Intelligence and AI Systems" width="100%" />
 </p>
 
