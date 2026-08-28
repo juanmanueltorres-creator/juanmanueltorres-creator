@@ -62,7 +62,7 @@ I build software at the intersection of **geosciences, spatial data, backend eng
 
 My geology and mining background shapes how I design software: a map is not just a visualization layer — it is an interface for **querying, validating, connecting, and interpreting what is happening around an area of interest**.
 
-> **Territory → evidence → spatial data → software → decision context.**
+
 
 <p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
 
