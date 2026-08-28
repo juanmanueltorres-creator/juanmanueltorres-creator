@@ -20,6 +20,15 @@
 </p>
 
 <p align="center">
+  <a href="https://sanjuangeo.vercel.app/">
+    <img src="./assets/geoplatform-preview.svg" alt="GeoPlatform territorial intelligence interface" width="100%" />
+  </a>
+</p>
+<p align="center">
+  <sub><strong>GEOPlatform / LIVE PRODUCT</strong> · Spatial signals · 2D/3D · territorial context · <a href="https://sanjuangeo.vercel.app/">open platform →</a></sub>
+</p>
+
+<p align="center">
   <img src="./assets/profile-system-map.svg" alt="Territory to software system map" width="100%" />
 </p>
 
