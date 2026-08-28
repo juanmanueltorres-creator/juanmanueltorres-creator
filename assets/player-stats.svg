@@ -28,7 +28,7 @@
     <text x="115" y="139" class="label">FOLLOWERS</text>
   </g>
   <g text-anchor="middle">
-    <text x="330" y="108" class="value">3</text>
+    <text x="330" y="108" class="value">4</text>
     <text x="330" y="139" class="label">PUBLIC REPOS</text>
   </g>
   <g text-anchor="middle">
@@ -36,7 +36,7 @@
     <text x="545" y="139" class="label">OWNED STARS</text>
   </g>
   <g text-anchor="middle">
-    <text x="780" y="108" class="value">62</text>
+    <text x="780" y="108" class="value">109</text>
     <text x="780" y="139" class="label">PUBLIC COMMITS · 365D</text>
   </g>
   <g text-anchor="middle">
