@@ -1,0 +1,37 @@
+name: Refresh profile player stats
+
+on:
+  push:
+    paths:
+      - 'scripts/profile_stats.py'
+      - '.github/workflows/profile-stats.yml'
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout profile repository
+        uses: actions/checkout@v4
+
+      - name: Render public GitHub stats
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/profile_stats.py
+
+      - name: Commit refreshed stats
+        run: |
+          if git diff --quiet -- assets/player-stats.svg; then
+            echo "No stats changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/player-stats.svg
+          git commit -m "Refresh profile player stats"
+          git push
