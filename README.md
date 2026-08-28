@@ -34,7 +34,7 @@
 </p>
 <p align="center">
   <a href="https://sanjuangeo.vercel.app/">
-    <img src="./assets/geoplatform-preview.png" alt="GeoPlatform territorial intelligence interface" width="100%" />
+    <img src="./assets/geoplatform-preview-card.svg" alt="GeoPlatform territorial intelligence interface" width="100%" />
   </a>
 </p>
 <p align="center">
@@ -51,7 +51,7 @@
 </p>
 <p align="center">
   <a href="https://juanmanueltorres-creator.github.io/pulso-publico-argentina/">
-    <img src="./assets/pulso-territorial-preview.jpg" alt="Pulso Territorial — public territorial signals for Argentina" width="100%" />
+    <img src="./assets/pulso-territorial-preview-card.svg" alt="Pulso Territorial — public territorial signals for Argentina" width="100%" />
   </a>
 </p>
 <p align="center">
@@ -67,7 +67,7 @@
   <img src="./assets/act-iii-frame-top.svg" alt="Act III — Anti IA incoming" width="100%" />
 </p>
 <p align="center">
-  <img src="./assets/anti-ia-preview.png" alt="Anti IA conceptual interface — incoming" width="100%" />
+  <img src="./assets/anti-ia-preview-card.svg" alt="Anti IA conceptual interface — incoming" width="100%" />
 </p>
 <p align="center">
   <img src="./assets/product-frame-bottom.svg" alt="Selected work frame" width="100%" />
