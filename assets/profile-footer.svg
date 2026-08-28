@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="150" viewBox="0 0 1100 150" role="img" aria-labelledby="title desc">
+  <title id="title">Profile closing banner</title>
+  <desc id="desc">Dark editorial closing banner for GeoPlatform and Anti IA.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#070706"/><stop offset=".6" stop-color="#0c0907"/><stop offset="1" stop-color="#140907"/></linearGradient>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3c2b1c"/><stop offset=".5" stop-color="#c6a266"/><stop offset="1" stop-color="#3c2b1c"/></linearGradient>
+  </defs>
+  <rect width="1100" height="150" rx="15" fill="url(#bg)" stroke="#30251b"/>
+  <path d="M80 40 H430 M670 40 H1020 M80 112 H430 M670 112 H1020" stroke="url(#g)" stroke-width="1" opacity=".62"/>
+  <path d="M550 28 l10 10 -10 10 -10-10z" fill="#0d0b08" stroke="#9b7548"/>
+  <text x="550" y="79" text-anchor="middle" fill="#eee3d0" font-family="Georgia, Times New Roman, serif" font-size="29" font-weight="700" letter-spacing="1.5">THE MAP IS NOT THE TERRITORY.</text>
+  <text x="550" y="103" text-anchor="middle" fill="#a9916c" font-family="Courier New, monospace" font-size="10.5" font-weight="700" letter-spacing="2.3">GEOPLATFORM · ANTI IA · TERRITORIAL INTELLIGENCE</text>
+  <text x="550" y="132" text-anchor="middle" fill="#6f6355" font-family="Courier New, monospace" font-size="9" letter-spacing="2">END OF CURRENT ACT // BUILD CONTINUES</text>
+</svg>
