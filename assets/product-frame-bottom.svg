@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="34" viewBox="0 0 1100 34" role="img" aria-label="Decorative product frame footer">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2c2118"/><stop offset=".5" stop-color="#9b7548"/><stop offset="1" stop-color="#2c2118"/></linearGradient></defs>
+  <rect x="1" y="1" width="1098" height="32" rx="9" fill="#090807" stroke="#2e251d"/>
+  <path d="M24 10 H520 M580 10 H1076" stroke="url(#g)" stroke-width="1" opacity=".55"/>
+  <path d="M550 4 l8 8 -8 8 -8-8z" fill="#0d0b08" stroke="#9b7548"/>
+  <circle cx="550" cy="12" r="1.8" fill="#7f1d1d"/>
+  <text x="550" y="28" text-anchor="middle" fill="#766b5d" font-family="Courier New, monospace" font-size="8.5" letter-spacing="2">SELECTED WORK · CURRENT BUILD</text>
+</svg>
