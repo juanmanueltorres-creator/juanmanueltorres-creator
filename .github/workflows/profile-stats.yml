@@ -2,9 +2,10 @@ name: Refresh profile player stats
 
 on:
   push:
-    paths:
-      - 'scripts/profile_stats.py'
-      - '.github/workflows/profile-stats.yml'
+    branches:
+      - main
+    paths-ignore:
+      - 'assets/player-stats.svg'
   schedule:
     - cron: '17 */6 * * *'
   workflow_dispatch:
@@ -12,12 +13,20 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: profile-player-stats
+  cancel-in-progress: true
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout profile repository
         uses: actions/checkout@v4
+
+      - name: Verify stats renderer
+        run: python -m unittest discover -s tests -p 'test_profile_stats.py'
 
       - name: Render public GitHub stats
         env:
