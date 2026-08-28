@@ -12,11 +12,17 @@
       <stop offset="0.5" stop-color="#d2b173"/>
       <stop offset="1" stop-color="#5f4226"/>
     </linearGradient>
+    <linearGradient id="titleMetal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff3dc"/>
+      <stop offset="0.28" stop-color="#d8b976"/>
+      <stop offset="0.53" stop-color="#f7ead0"/>
+      <stop offset="0.76" stop-color="#b9874d"/>
+      <stop offset="1" stop-color="#755033"/>
+    </linearGradient>
     <radialGradient id="ember" cx="50%" cy="55%" r="60%">
       <stop offset="0" stop-color="#7f1d1d" stop-opacity=".2"/>
       <stop offset="1" stop-color="#7f1d1d" stop-opacity="0"/>
     </radialGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
   </defs>
   <rect width="1100" height="200" rx="16" fill="url(#bg)"/>
   <rect x="7" y="7" width="1086" height="186" rx="13" fill="none" stroke="#2f261c"/>
@@ -24,8 +30,13 @@
   <path d="M36 52 H310 M790 52 H1064" stroke="url(#gold)" stroke-width="1.2" opacity=".75"/>
   <path d="M36 148 H310 M790 148 H1064" stroke="url(#gold)" stroke-width="1.2" opacity=".5"/>
   <path d="M36 36 l12 12 -12 12 M1064 36 l-12 12 12 12 M36 140 l12 12 -12 12 M1064 140 l-12 12 12 12" fill="none" stroke="#8b6238" stroke-width="1.2" opacity=".75"/>
+
   <text x="550" y="48" text-anchor="middle" fill="#b99a63" font-family="Courier New, monospace" font-size="11" font-weight="700" letter-spacing="3.2">GEOLOGIST ORIGIN · SOFTWARE BUILD · ARGENTINA</text>
-  <text x="550" y="105" text-anchor="middle" fill="#f0e6d4" font-family="Georgia, Times New Roman, serif" font-size="46" font-weight="700" letter-spacing="2.2" filter="url(#glow)">JUAN MANUEL TORRES</text>
-  <text x="550" y="137" text-anchor="middle" fill="#d7c9b2" font-family="Georgia, Times New Roman, serif" font-size="16" letter-spacing=".8">Geospatial Software · Territorial Intelligence · AI Systems</text>
+
+  <text x="551.5" y="107" text-anchor="middle" fill="#260d09" stroke="#050403" stroke-width="3" font-family="Palatino Linotype, Book Antiqua, Georgia, serif" font-size="47" font-weight="700" letter-spacing="1.5">JUAN MANUEL TORRES</text>
+  <text x="550" y="104" text-anchor="middle" fill="url(#titleMetal)" stroke="#4a2c18" stroke-width="1.15" paint-order="stroke fill" font-family="Palatino Linotype, Book Antiqua, Georgia, serif" font-size="47" font-weight="700" letter-spacing="1.5">JUAN MANUEL TORRES</text>
+  <text x="550" y="103" text-anchor="middle" fill="none" stroke="#fff1d4" stroke-width=".35" opacity=".55" font-family="Palatino Linotype, Book Antiqua, Georgia, serif" font-size="47" font-weight="700" letter-spacing="1.5">JUAN MANUEL TORRES</text>
+
+  <text x="550" y="137" text-anchor="middle" fill="#d7c9b2" font-family="Palatino Linotype, Book Antiqua, Georgia, serif" font-size="16" font-style="italic" letter-spacing=".55">Geospatial Software · Territorial Intelligence · AI Systems</text>
   <text x="550" y="169" text-anchor="middle" fill="#8f8171" font-family="Courier New, monospace" font-size="10.5" letter-spacing="2.2">TERRITORY → EVIDENCE → SPATIAL DATA → SOFTWARE → DECISION CONTEXT</text>
 </svg>
