@@ -47,33 +47,34 @@
 <br />
 
 <p align="center">
-  <img src="./assets/act-ii-frame-top.svg" alt="Act II — Anti IA" width="100%" />
-</p>
-<p align="center">
-  <img src="./assets/anti-ia-preview.png" alt="Anti IA conceptual interface" width="100%" />
-</p>
-<p align="center">
-  <img src="./assets/product-frame-bottom.svg" alt="Selected work frame" width="100%" />
-</p>
-<p align="center">
-  <em>“Una coordenada no es un punto.”</em>
-</p>
-
-<br />
-
-<p align="center">
-  <img src="./assets/act-iii-frame-top.svg" alt="Act III — Pulso Territorial" width="100%" />
+  <img src="./assets/act-ii-frame-top.svg" alt="Act II — Pulso Territorial" width="100%" />
 </p>
 <p align="center">
   <a href="https://juanmanueltorres-creator.github.io/pulso-publico-argentina/">
-    <img src="./assets/pulso_territorial.png" alt="Pulso Territorial — public territorial signals for Argentina" width="100%" />
+    <img src="./assets/pulso-territorial-preview.jpg" alt="Pulso Territorial — public territorial signals for Argentina" width="100%" />
   </a>
 </p>
 <p align="center">
   <img src="./assets/product-frame-bottom.svg" alt="Selected work frame" width="100%" />
 </p>
 <p align="center">
-  <sub><strong>Public territorial signals for Argentina</strong> · traceable sources · seismicity · thermal anomalies · <a href="https://juanmanueltorres-creator.github.io/pulso-publico-argentina/">open pulse →</a></sub>
+  <sub><strong>Live public territorial signals for Argentina</strong> · traceable sources · seismicity · thermal anomalies · <a href="https://juanmanueltorres-creator.github.io/pulso-publico-argentina/">open pulse →</a></sub>
+</p>
+
+<br />
+
+<p align="center">
+  <img src="./assets/act-iii-frame-top.svg" alt="Act III — Anti IA incoming" width="100%" />
+</p>
+<p align="center">
+  <img src="./assets/anti-ia-preview.png" alt="Anti IA conceptual interface — incoming" width="100%" />
+</p>
+<p align="center">
+  <img src="./assets/product-frame-bottom.svg" alt="Selected work frame" width="100%" />
+</p>
+<p align="center">
+  <sub><strong>Incoming · experimental direction</strong> · evidence · context · territory</sub><br />
+  <em>“Una coordenada no es un punto.”</em>
 </p>
 
 <p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>

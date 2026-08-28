@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="48" viewBox="0 0 1100 48" role="img" aria-label="Act II Anti IA frame">
-  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2b1c18"/><stop offset=".5" stop-color="#9d4a3e"/><stop offset="1" stop-color="#2b1c18"/></linearGradient></defs>
-  <rect x="1" y="1" width="1098" height="46" rx="10" fill="#0b0907" stroke="#36231f"/>
-  <path d="M24 36 H1076" stroke="url(#g)" stroke-width="1" opacity=".8"/>
-  <text x="28" y="28" fill="#a78975" font-family="Courier New, monospace" font-size="10.5" font-weight="700" letter-spacing="2.2">ACT II · EXPERIMENTAL DIRECTION</text>
-  <text x="550" y="30" text-anchor="middle" fill="#efe4d0" font-family="Georgia, Times New Roman, serif" font-size="22" font-weight="700" letter-spacing="1.2">ANTI IA</text>
-  <text x="1072" y="28" text-anchor="end" fill="#a95b4d" font-family="Courier New, monospace" font-size="10.5" font-weight="700" letter-spacing="2">EVIDENCE · CONTEXT · TERRITORY</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="48" viewBox="0 0 1100 48" role="img" aria-label="Act II Pulso Territorial frame">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2d2415"/><stop offset=".5" stop-color="#d79a36"/><stop offset="1" stop-color="#2d2415"/></linearGradient></defs>
+  <rect x="1" y="1" width="1098" height="46" rx="10" fill="#0b0906" stroke="#3a2c18"/>
+  <path d="M24 36 H1076" stroke="url(#g)" stroke-width="1" opacity=".82"/>
+  <text x="28" y="28" fill="#b49355" font-family="Courier New, monospace" font-size="10.5" font-weight="700" letter-spacing="2.2">ACT II · LIVE PRODUCT</text>
+  <text x="550" y="30" text-anchor="middle" fill="#f2e6cf" font-family="Georgia, Times New Roman, serif" font-size="22" font-weight="700" letter-spacing="1.2">PULSO TERRITORIAL</text>
+  <text x="1072" y="28" text-anchor="end" fill="#d79a36" font-family="Courier New, monospace" font-size="10.5" font-weight="700" letter-spacing="2">PUBLIC SIGNALS · ARGENTINA</text>
 </svg>
