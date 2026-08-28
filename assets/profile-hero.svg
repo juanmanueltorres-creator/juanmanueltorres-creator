@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="200" viewBox="0 0 1100 200" role="img" aria-labelledby="title desc">
+  <title id="title">Juan Manuel Torres — cinematic profile hero</title>
+  <desc id="desc">Dark editorial geospatial profile hero with aged gold, bone, and crimson accents.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070706"/>
+      <stop offset="0.55" stop-color="#0d0b08"/>
+      <stop offset="1" stop-color="#130a08"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5f4226"/>
+      <stop offset="0.5" stop-color="#d2b173"/>
+      <stop offset="1" stop-color="#5f4226"/>
+    </linearGradient>
+    <radialGradient id="ember" cx="50%" cy="55%" r="60%">
+      <stop offset="0" stop-color="#7f1d1d" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#7f1d1d" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1100" height="200" rx="16" fill="url(#bg)"/>
+  <rect x="7" y="7" width="1086" height="186" rx="13" fill="none" stroke="#2f261c"/>
+  <rect x="16" y="16" width="1068" height="168" rx="10" fill="url(#ember)" opacity=".9"/>
+  <path d="M36 52 H310 M790 52 H1064" stroke="url(#gold)" stroke-width="1.2" opacity=".75"/>
+  <path d="M36 148 H310 M790 148 H1064" stroke="url(#gold)" stroke-width="1.2" opacity=".5"/>
+  <path d="M36 36 l12 12 -12 12 M1064 36 l-12 12 12 12 M36 140 l12 12 -12 12 M1064 140 l-12 12 12 12" fill="none" stroke="#8b6238" stroke-width="1.2" opacity=".75"/>
+  <text x="550" y="48" text-anchor="middle" fill="#b99a63" font-family="Courier New, monospace" font-size="11" font-weight="700" letter-spacing="3.2">GEOLOGIST ORIGIN · SOFTWARE BUILD · ARGENTINA</text>
+  <text x="550" y="105" text-anchor="middle" fill="#f0e6d4" font-family="Georgia, Times New Roman, serif" font-size="46" font-weight="700" letter-spacing="2.2" filter="url(#glow)">JUAN MANUEL TORRES</text>
+  <text x="550" y="137" text-anchor="middle" fill="#d7c9b2" font-family="Georgia, Times New Roman, serif" font-size="16" letter-spacing=".8">Geospatial Software · Territorial Intelligence · AI Systems</text>
+  <text x="550" y="169" text-anchor="middle" fill="#8f8171" font-family="Courier New, monospace" font-size="10.5" letter-spacing="2.2">TERRITORY → EVIDENCE → SPATIAL DATA → SOFTWARE → DECISION CONTEXT</text>
+</svg>
