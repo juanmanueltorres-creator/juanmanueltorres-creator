@@ -16,8 +16,8 @@
     <circle cx="735" cy="122" r="18" fill="url(#node)" stroke="#9b7548"/>
     <circle cx="995" cy="122" r="18" fill="url(#node)" stroke="#9b7548"/>
   </g>
-  <g fill="#efe4d0" font-family="Georgia, Times New Roman, serif" font-size="15" font-weight="700" text-anchor="middle">
-    <text x="105" y="82">GEOSCIENCES</text><text x="315" y="82">SPATIAL SYSTEMS</text><text x="525" y="82">BACKEND & DATA</text><text x="735" y="82">AI SYSTEMS</text><text x="995" y="82">PRODUCT</text>
+  <g fill="#efe4d0" font-family="Palatino Linotype, Book Antiqua, Georgia, serif" font-size="15" font-weight="700" text-anchor="middle">
+    <text x="105" y="82">GEOSCIENCES</text><text x="315" y="82">SPATIAL SYSTEMS</text><text x="525" y="82">BACKEND &amp; DATA</text><text x="735" y="82">AI SYSTEMS</text><text x="995" y="82">PRODUCT</text>
   </g>
   <g fill="#8e8171" font-family="Courier New, monospace" font-size="9.5" text-anchor="middle">
     <text x="105" y="158">geology · mining</text><text x="105" y="175">territory · evidence</text>
