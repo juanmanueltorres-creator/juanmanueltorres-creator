@@ -107,57 +107,59 @@ LLM workflows that use **real tools and sources**, validate outputs, and keep hu
   <img src="./assets/skill-tree.svg" alt="Geospatial software skill tree" width="100%" />
 </p>
 
-<p align="center">
-  <sub><strong>GEOSPATIAL</strong></sub><br />
-  <img alt="PostGIS" src="https://img.shields.io/badge/PostGIS-c4a46a?style=flat-square&logo=postgresql&logoColor=11100d" />
-  <img alt="Leaflet" src="https://img.shields.io/badge/Leaflet-c4a46a?style=flat-square&logo=leaflet&logoColor=11100d" />
-  <img alt="Cesium" src="https://img.shields.io/badge/Cesium-c4a46a?style=flat-square" />
-  <img alt="Google Earth Engine" src="https://img.shields.io/badge/Google_Earth_Engine-c4a46a?style=flat-square&logo=googleearth&logoColor=11100d" />
-  <img alt="OGC" src="https://img.shields.io/badge/OGC-c4a46a?style=flat-square" />
-</p>
+### Geospatial & Domain
 
-<p align="center">
-  <sub><strong>BACKEND &amp; DATA</strong></sub><br />
-  <img alt="Python" src="https://img.shields.io/badge/Python-a87a47?style=flat-square&logo=python&logoColor=efe4d0" />
-  <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-a87a47?style=flat-square&logo=fastapi&logoColor=efe4d0" />
-  <img alt="SQL" src="https://img.shields.io/badge/SQL-a87a47?style=flat-square" />
-  <img alt="Supabase" src="https://img.shields.io/badge/Supabase-a87a47?style=flat-square&logo=supabase&logoColor=efe4d0" />
-  <img alt="REST APIs" src="https://img.shields.io/badge/REST_APIs-a87a47?style=flat-square" />
-</p>
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
+![PostGIS](https://img.shields.io/badge/PostGIS-Spatial_Data-336791?style=flat-square&logo=postgresql&logoColor=white)
+![GIS](https://img.shields.io/badge/GIS-Geospatial-456b55?style=flat-square)
+![Leaflet](https://img.shields.io/badge/Leaflet-199900?style=flat-square&logo=leaflet&logoColor=white)
+![CesiumJS](https://img.shields.io/badge/CesiumJS-2D%2F3D-6CADDF?style=flat-square)
+![Google Earth Engine](https://img.shields.io/badge/Google_Earth_Engine-4285F4?style=flat-square&logo=googleearth&logoColor=white)
+![OGC](https://img.shields.io/badge/OGC-WMS%2FWFS-45535e?style=flat-square)
 
-<p align="center">
-  <sub><strong>AI SYSTEMS</strong></sub><br />
-  <img alt="LLMs" src="https://img.shields.io/badge/LLMs-8f2d2d?style=flat-square" />
-  <img alt="MCP" src="https://img.shields.io/badge/MCP-8f2d2d?style=flat-square" />
-  <img alt="LangGraph" src="https://img.shields.io/badge/LangGraph-8f2d2d?style=flat-square" />
-  <img alt="Tool Calling" src="https://img.shields.io/badge/Tool_Calling-8f2d2d?style=flat-square" />
-  <img alt="Guardrails" src="https://img.shields.io/badge/Guardrails-8f2d2d?style=flat-square" />
-</p>
+### Backend & Data
 
-<p align="center">
-  <sub><strong>PRODUCTION</strong></sub><br />
-  <img alt="Docker" src="https://img.shields.io/badge/Docker-6f604d?style=flat-square&logo=docker&logoColor=efe4d0" />
-  <img alt="GitHub Actions" src="https://img.shields.io/badge/GitHub_Actions-6f604d?style=flat-square&logo=githubactions&logoColor=efe4d0" />
-  <img alt="pytest" src="https://img.shields.io/badge/pytest-6f604d?style=flat-square&logo=pytest&logoColor=efe4d0" />
-  <img alt="Vitest" src="https://img.shields.io/badge/Vitest-6f604d?style=flat-square&logo=vitest&logoColor=efe4d0" />
-  <img alt="RLS" src="https://img.shields.io/badge/RLS-6f604d?style=flat-square" />
-</p>
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=FFD43B)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-Data-4f5d75?style=flat-square)
+![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white)
+![REST](https://img.shields.io/badge/REST_APIs-Integration-59636e?style=flat-square)
+
+### Frontend & Product
+
+![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=FFD62E)
+![2D/3D](https://img.shields.io/badge/2D%2F3D-Interfaces-8f6747?style=flat-square)
+![Territorial UX](https://img.shields.io/badge/Territorial-UX-5f574f?style=flat-square)
+
+### AI Systems
+
+![LLMs](https://img.shields.io/badge/LLMs-AI_Systems-7a5af8?style=flat-square)
+![MCP](https://img.shields.io/badge/MCP-Tool_Orchestration-6d597a?style=flat-square)
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
+![LangGraph](https://img.shields.io/badge/LangGraph-Agentic_Workflows-31363b?style=flat-square)
+![Tool Calling](https://img.shields.io/badge/Tool_Calling-Context_Engineering-735751?style=flat-square)
+![Guardrails](https://img.shields.io/badge/Guardrails-Human_in_the_loop-4c6256?style=flat-square)
+
+### Production & Reliability
+
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
+![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=flat-square&logo=vitest&logoColor=white)
+![RLS](https://img.shields.io/badge/RLS-Access_Control-455a64?style=flat-square)
 
 <p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
 
 ## PLAYER STATS
 
 <p align="center">
-  <img alt="GitHub followers" src="https://img.shields.io/github/followers/juanmanueltorres-creator?style=for-the-badge&logo=github&label=FOLLOWERS&labelColor=11100d&color=c4a46a" />
-  <img alt="Public GitHub stars" src="https://img.shields.io/github/stars/juanmanueltorres-creator?affiliations=OWNER&style=for-the-badge&logo=github&label=PUBLIC%20STARS&labelColor=11100d&color=a87a47" />
-</p>
-<p align="center">
-  <img alt="GeoPlatform yearly commit activity" src="https://img.shields.io/github/commit-activity/y/juanmanueltorres-creator/Geo_Platform?style=for-the-badge&logo=git&label=GEOPLATFORM%20COMMITS%20%2F%20YEAR&labelColor=11100d&color=8f2d2d" />
-  <img alt="GeoPlatform last commit" src="https://img.shields.io/github/last-commit/juanmanueltorres-creator/Geo_Platform?style=for-the-badge&logo=github&label=LAST%20SHIP&labelColor=11100d&color=6f604d" />
+  <img src="./assets/player-stats.svg" alt="Automated public GitHub player stats" width="100%" />
 </p>
 
 <p align="center">
-  <sub>Automated from public GitHub metadata via Shields.io. Values are cached and may update with delay.</sub>
+  <sub>Generated inside this repository by GitHub Actions every six hours — no external stats-card provider.</sub>
 </p>
 
 <p align="center"><img src="./assets/section-ornament.svg" alt="" width="100%" /></p>
