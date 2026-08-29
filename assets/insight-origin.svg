@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="230" viewBox="0 0 1100 230" role="img" aria-labelledby="title desc">
+  <title id="title">InsightLaboratory origin chapter — public activity since May 2023</title>
+  <desc id="desc">Animated timeline showing the evolution from portfolio and web experiments through geospatial and AI-assisted workflows into the current GitHub profile.</desc>
+  <defs>
+    <linearGradient id="border" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2b2118"/>
+      <stop offset="0.45" stop-color="#c5a26a"/>
+      <stop offset="1" stop-color="#7f1d1d"/>
+    </linearGradient>
+    <linearGradient id="scan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c5a26a" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#efe4d0" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#c5a26a" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect x="12" y="12" width="1076" height="206" rx="18" fill="#0d0b08" stroke="url(#border)" stroke-width="1.5"/>
+  <rect x="24" y="24" width="1052" height="182" rx="14" fill="none" stroke="#2b2118"/>
+
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="54" y="68" font-size="16" font-weight="700" letter-spacing="2.5" fill="#c5a26a">🌍 ORIGIN CHAPTER</text>
+    <text x="54" y="105" font-size="32" font-weight="800" fill="#efe4d0">InsightLaboratory</text>
+    <text x="54" y="132" font-size="15" fill="#b8aa96">public GitHub activity since</text>
+    <text x="245" y="132" font-size="18" font-weight="800" fill="#c5a26a">MAY 2023</text>
+
+    <g transform="translate(54 166)" font-size="13" font-weight="650">
+      <rect x="0" y="-22" width="150" height="34" rx="8" fill="#17130f" stroke="#4a3928"/>
+      <text x="16" y="0" fill="#efe4d0">🧪 Portfolio Lab</text>
+      <rect x="162" y="-22" width="135" height="34" rx="8" fill="#17130f" stroke="#4a3928"/>
+      <text x="177" y="0" fill="#efe4d0">⚛ React / Web</text>
+      <rect x="309" y="-22" width="160" height="34" rx="8" fill="#17130f" stroke="#4a3928"/>
+      <text x="325" y="0" fill="#efe4d0">🗺 Geospatial</text>
+      <rect x="481" y="-22" width="174" height="34" rx="8" fill="#17130f" stroke="#4a3928"/>
+      <text x="497" y="0" fill="#efe4d0">🤖 AI Workflows</text>
+    </g>
+
+    <g transform="translate(765 55)">
+      <circle cx="22" cy="22" r="18" fill="#17130f" stroke="#a67c46" stroke-width="1.5" filter="url(#softGlow)">
+        <animate attributeName="r" values="17;20;17" dur="2.4s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-opacity" values="0.45;1;0.45" dur="2.4s" repeatCount="indefinite"/>
+      </circle>
+      <text x="22" y="29" text-anchor="middle" font-size="22">🌐</text>
+      <text x="55" y="17" font-size="12" letter-spacing="1.8" fill="#8f8170">EVOLUTION</text>
+      <text x="55" y="40" font-size="15" font-weight="700" fill="#efe4d0">lab → systems → product</text>
+    </g>
+
+    <path d="M765 125 H1018" stroke="#4a3928" stroke-width="2"/>
+    <circle cx="782" cy="125" r="5" fill="#c5a26a">
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="858" cy="125" r="5" fill="#a67c46">
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="1.8s" begin="0.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="934" cy="125" r="5" fill="#8f2d2d">
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="1.8s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1018" cy="125" r="6" fill="#c5a26a" filter="url(#softGlow)">
+      <animate attributeName="r" values="5;8;5" dur="1.8s" begin="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="765" y="153" font-size="12" fill="#8f8170">2023</text>
+    <text x="993" y="153" font-size="12" fill="#c5a26a">NOW</text>
+    <text x="765" y="184" font-size="15" font-weight="700" fill="#efe4d0">InsightLaboratory → juanmanueltorres-creator</text>
+  </g>
+
+  <rect x="24" y="24" width="170" height="2" fill="url(#scan)" opacity="0.85">
+    <animate attributeName="x" values="24;882;24" dur="6s" repeatCount="indefinite"/>
+  </rect>
+</svg>
