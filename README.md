@@ -96,7 +96,11 @@ I build software at the intersection of **geosciences, spatial data, backend eng
 
 My geology and mining background shapes how I design software: a map is not just a visualization layer — it is an interface for **querying, validating, connecting, and interpreting what is happening around an area of interest**.
 
+### Previous chapter
 
+Before this account, I built under **[@InsightLaboratory](https://github.com/InsightLaboratory)**. Public GitHub activity there dates back to **May 2023**, including early web, React, and geospatial experiments that preceded the work collected here.
+
+`InsightLaboratory → juanmanueltorres-creator`
 
 <p align="center"><img src="./assets/section-ornament.svg" alt="" width="88%" /></p>
 
@@ -249,7 +253,7 @@ That principle connects my work across GeoPlatform, geospatial backends, and Ant
 <p align="center">
   <strong>Córdoba, Argentina</strong><br />
   <code>juan.manuel.torres@mi.unc.edu.ar</code><br />
-  <a href="https://www.linkedin.com/in/juanmanueltorres23/">LinkedIn</a> · <a href="https://juanmtorres.vercel.app/">Portfolio</a> · <a href="https://sanjuangeo.vercel.app/">GeoPlatform</a>
+  <a href="https://www.linkedin.com/in/juanmtorres23/">LinkedIn</a> · <a href="https://juanmtorres.vercel.app/">Portfolio</a> · <a href="https://sanjuangeo.vercel.app/">GeoPlatform</a>
 </p>
 
 <br />
