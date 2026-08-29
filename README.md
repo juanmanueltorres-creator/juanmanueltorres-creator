@@ -96,11 +96,34 @@ I build software at the intersection of **geosciences, spatial data, backend eng
 
 My geology and mining background shapes how I design software: a map is not just a visualization layer — it is an interface for **querying, validating, connecting, and interpreting what is happening around an area of interest**.
 
-### Previous chapter
+## 🌍 ORIGIN CHAPTER · INSIGHTLABORATORY
 
-Before this account, I built under **[@InsightLaboratory](https://github.com/InsightLaboratory)**. Public GitHub activity there dates back to **May 2023**, including early web, React, and geospatial experiments that preceded the work collected here.
+<p align="center">
+  <a href="https://github.com/InsightLaboratory">
+    <img src="./assets/insight-origin.svg" alt="InsightLaboratory origin chapter — public GitHub activity since May 2023" width="88%" />
+  </a>
+</p>
 
-`InsightLaboratory → juanmanueltorres-creator`
+<p align="center">
+  <a href="https://github.com/InsightLaboratory"><img alt="Previous GitHub account" src="https://img.shields.io/badge/InsightLaboratory-Previous_GitHub-c5a26a?style=flat-square&labelColor=11100d&logo=github&logoColor=efe4d0"></a>
+  <img alt="Public activity since May 2023" src="https://img.shields.io/badge/Since-May_2023-a87a47?style=flat-square&labelColor=11100d&logo=github&logoColor=efe4d0">
+  <img alt="Portfolio laboratory" src="https://img.shields.io/badge/Portfolio-Laboratory-6f604d?style=flat-square&labelColor=11100d&logo=vercel&logoColor=efe4d0">
+  <img alt="Early React work" src="https://img.shields.io/badge/React-Early_Work-4f5d75?style=flat-square&labelColor=11100d&logo=react&logoColor=61DAFB">
+  <img alt="Geospatial exploration" src="https://img.shields.io/badge/Geospatial-Exploration-456b55?style=flat-square&labelColor=11100d&logo=openstreetmap&logoColor=efe4d0">
+  <img alt="AI assisted workflows" src="https://img.shields.io/badge/AI-Assisted_Workflows-6d597a?style=flat-square&labelColor=11100d&logo=openai&logoColor=efe4d0">
+</p>
+
+> 🧪 **InsightLaboratory** was my first public laboratory for building on the web. It is where I started shaping my portfolio, experimenting with React, connecting geospatial ideas with software, and exploring early AI-assisted workflows.
+>
+> 🧭 That work became part of the foundation for the systems and products collected in this profile today.
+
+<p align="center">
+  <strong>🌱 2023 · Portfolio & Web</strong> &nbsp;→&nbsp; <strong>⚛️ React</strong> &nbsp;→&nbsp; <strong>🗺️ Geospatial</strong> &nbsp;→&nbsp; <strong>🤖 AI Workflows</strong> &nbsp;→&nbsp; <strong>🚀 Current Build</strong>
+</p>
+
+<p align="center">
+  <code>InsightLaboratory → juanmanueltorres-creator</code>
+</p>
 
 <p align="center"><img src="./assets/section-ornament.svg" alt="" width="88%" /></p>
 
