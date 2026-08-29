@@ -24,19 +24,19 @@
   <text x="36" y="34" class="kicker">PLAYER STATS · PUBLIC GITHUB SIGNAL</text>
   <line x1="36" y1="54" x2="1064" y2="54" stroke="url(#gold)" stroke-width="1.2" opacity=".65"/>
   <g text-anchor="middle">
-    <text x="115" y="108" class="value">63</text>
+    <text x="115" y="108" class="value">64</text>
     <text x="115" y="139" class="label">FOLLOWERS</text>
   </g>
   <g text-anchor="middle">
-    <text x="330" y="108" class="value">6</text>
+    <text x="330" y="108" class="value">8</text>
     <text x="330" y="139" class="label">PUBLIC REPOS</text>
   </g>
   <g text-anchor="middle">
-    <text x="545" y="108" class="value">6</text>
+    <text x="545" y="108" class="value">8</text>
     <text x="545" y="139" class="label">ACTIVE OWN REPOS · 90D</text>
   </g>
   <g text-anchor="middle">
-    <text x="780" y="108" class="value">255</text>
+    <text x="780" y="108" class="value">262</text>
     <text x="780" y="139" class="label">OWN PUBLIC COMMITS · 365D</text>
   </g>
   <g text-anchor="middle">
