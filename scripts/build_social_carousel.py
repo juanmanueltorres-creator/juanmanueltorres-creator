@@ -23,6 +23,17 @@ MUTED = "#b9a58a"
 MUTED_2 = "#8e7c67"
 TAG_BG = "#191510"
 
+CONTENT_X = 72
+CONTENT_WIDTH = 936
+MEDIA_INSET = 24
+MEDIA_X = CONTENT_X + MEDIA_INSET
+MEDIA_WIDTH = CONTENT_WIDTH - (MEDIA_INSET * 2)
+TOOL_CARD_WIDTH = 404
+TOOL_CARD_HEIGHT = 410
+TOOL_CARD_GAP_X = 72
+TOOL_CARD_GAP_Y = 30
+LINK_PILL_WIDTH = 136
+
 
 class CarouselError(Exception):
     pass
@@ -233,6 +244,10 @@ def _wrap_text(text: str, line_length: int) -> list[str]:
     return lines
 
 
+def _last_baseline(y: int, line_count: int, line_height: int) -> int:
+    return y + max(0, line_count - 1) * line_height
+
+
 def _text_block(lines: Iterable[str], x: int, y: int, line_height: int, css_class: str) -> str:
     tspans = []
     for idx, line in enumerate(lines):
@@ -241,13 +256,29 @@ def _text_block(lines: Iterable[str], x: int, y: int, line_height: int, css_clas
     return f'<text x="{x}" y="{y}" class="{css_class}">' + "".join(tspans) + "</text>"
 
 
+def _pill_width(item: str) -> int:
+    return 24 + max(70, len(item) * 9)
+
+
+def _stack_pill_rows(items: list[str], max_width: int) -> int:
+    rows = 1
+    cursor = 0
+    for item in items:
+        width = _pill_width(item)
+        if cursor + width > max_width:
+            rows += 1
+            cursor = 0
+        cursor += width + 10
+    return rows
+
+
 def _stack_pills(items: list[str], x: int, y: int, max_width: int) -> str:
     parts: list[str] = []
     cursor_x = x
     cursor_y = y
     for item in items:
         label = escape(item)
-        width = 24 + max(70, len(item) * 9)
+        width = _pill_width(item)
         if cursor_x + width > x + max_width:
             cursor_x = x
             cursor_y += 34
@@ -268,14 +299,13 @@ def _link_pills(project: ProjectSlide, x: int, y: int) -> str:
     parts: list[str] = []
     cursor_x = x
     for label, url in links:
-        width = 124 if label == "open app" else 130
         parts.append(
             f'<a href="{escape(url, quote=True)}">'
-            f'<rect x="{cursor_x}" y="{y}" rx="14" ry="14" width="{width}" height="32" fill="{TAG_BG}" stroke="{ACCENT}" />'
-            f'<text x="{cursor_x + width / 2}" y="{y + 21}" class="pill-link" text-anchor="middle">{escape(label)} →</text>'
+            f'<rect x="{cursor_x}" y="{y}" rx="14" ry="14" width="{LINK_PILL_WIDTH}" height="32" fill="{TAG_BG}" stroke="{ACCENT}" />'
+            f'<text x="{cursor_x + LINK_PILL_WIDTH / 2}" y="{y + 21}" class="pill-link" text-anchor="middle">{escape(label)} →</text>'
             f'</a>'
         )
-        cursor_x += width + 12
+        cursor_x += LINK_PILL_WIDTH + 12
     return "".join(parts)
 
 
@@ -293,20 +323,20 @@ def _svg_shell(body: str) -> str:
       <stop offset="100%" stop-color="#5d4025"/>
     </linearGradient>
     <style>
-      .eyebrow {{ fill:{ACCENT}; font:700 18px "Courier New", monospace; letter-spacing:2.4px; }}
-      .title {{ fill:{TEXT}; font:700 56px Georgia, "Palatino Linotype", serif; }}
-      .subtitle {{ fill:{MUTED}; font:400 26px Georgia, serif; }}
-      .slide-number {{ fill:{MUTED_2}; font:700 16px "Courier New", monospace; letter-spacing:1.8px; }}
-      .kicker {{ fill:{ACCENT}; font:700 14px "Courier New", monospace; letter-spacing:1.8px; }}
-      .project-title {{ fill:{TEXT}; font:700 44px Georgia, serif; }}
-      .body {{ fill:{MUTED}; font:400 24px Georgia, serif; }}
-      .label {{ fill:{MUTED_2}; font:700 14px "Courier New", monospace; letter-spacing:1.4px; }}
-      .status {{ fill:{TEXT}; font:700 15px "Courier New", monospace; letter-spacing:1.4px; }}
-      .pill {{ fill:{TEXT}; font:700 13px "Courier New", monospace; letter-spacing:0.4px; }}
-      .pill-link {{ fill:{ACCENT}; font:700 13px "Courier New", monospace; letter-spacing:0.4px; }}
-      .tool-title {{ fill:{TEXT}; font:700 27px Georgia, serif; }}
-      .tool-body {{ fill:{MUTED}; font:400 18px Georgia, serif; }}
-      .footer {{ fill:{MUTED_2}; font:700 14px "Courier New", monospace; letter-spacing:1.4px; }}
+      .eyebrow {{ fill:{ACCENT}; font-family:"Courier New", monospace; font-size:18px; font-weight:700; letter-spacing:2.4px; }}
+      .title {{ fill:{TEXT}; font-family:Georgia, serif; font-size:56px; font-weight:700; }}
+      .subtitle {{ fill:{MUTED}; font-family:Georgia, serif; font-size:26px; font-weight:400; }}
+      .slide-number {{ fill:{MUTED_2}; font-family:"Courier New", monospace; font-size:16px; font-weight:700; letter-spacing:1.8px; }}
+      .kicker {{ fill:{ACCENT}; font-family:"Courier New", monospace; font-size:14px; font-weight:700; letter-spacing:1.8px; }}
+      .project-title {{ fill:{TEXT}; font-family:Georgia, serif; font-size:44px; font-weight:700; }}
+      .body {{ fill:{MUTED}; font-family:Georgia, serif; font-size:24px; font-weight:400; }}
+      .label {{ fill:{MUTED_2}; font-family:"Courier New", monospace; font-size:14px; font-weight:700; letter-spacing:1.4px; }}
+      .status {{ fill:{TEXT}; font-family:"Courier New", monospace; font-size:15px; font-weight:700; letter-spacing:1.4px; }}
+      .pill {{ fill:{TEXT}; font-family:"Courier New", monospace; font-size:13px; font-weight:700; letter-spacing:0.4px; }}
+      .pill-link {{ fill:{ACCENT}; font-family:"Courier New", monospace; font-size:13px; font-weight:700; letter-spacing:0.4px; }}
+      .tool-title {{ fill:{TEXT}; font-family:Georgia, serif; font-size:27px; font-weight:700; }}
+      .tool-body {{ fill:{MUTED}; font-family:Georgia, serif; font-size:18px; font-weight:400; }}
+      .footer {{ fill:{MUTED_2}; font-family:"Courier New", monospace; font-size:14px; font-weight:700; letter-spacing:1.4px; }}
     </style>
   </defs>
   <rect width="100%" height="100%" fill="url(#bg)"/>
@@ -317,20 +347,26 @@ def _svg_shell(body: str) -> str:
 
 def render_cover(meta: CarouselMetadata) -> str:
     cover = meta.cover
+    title_lines = _wrap_text(cover["title"], 22)
+    subtitle_lines = _wrap_text(cover["subtitle"], 38)
+    title_y = 250
+    subtitle_y = _last_baseline(title_y, len(title_lines), 66) + 48
+    card_y = max(560, _last_baseline(subtitle_y, len(subtitle_lines), 34) + 48)
+
     body = f'''
-    <text x="72" y="104" class="eyebrow">{escape(cover['eyebrow'])}</text>
-    <line x1="72" y1="126" x2="1008" y2="126" stroke="url(#goldLine)" stroke-width="1.5" opacity="0.8" />
-    {_text_block(_wrap_text(cover['title'], 20), 72, 250, 66, 'title')}
-    {_text_block(_wrap_text(cover['subtitle'], 38), 72, 430, 34, 'subtitle')}
-    <rect x="72" y="535" width="936" height="520" rx="28" fill="{SURFACE}" stroke="{BORDER}"/>
-    <text x="108" y="608" class="kicker">SELECTED BUILDS</text>
-    <line x1="108" y1="626" x2="972" y2="626" stroke="{BORDER}" stroke-width="1"/>
-    <text x="108" y="690" class="project-title">GeoPlatform · Pulso · Anti IA</text>
-    <text x="108" y="742" class="body">FleetFlow Sim · Atlas Geotech</text>
-    <text x="108" y="826" class="label">GEOSPATIAL · TERRITORY · EVIDENCE · OPERATIONS</text>
-    <text x="108" y="902" class="body">A compact visual atlas of my public-facing software builds.</text>
-    <text x="72" y="1248" class="footer">{escape(cover['footer'])}</text>
-    <text x="1008" y="1248" class="slide-number" text-anchor="end">01 / 07</text>
+    <text x="{CONTENT_X}" y="104" class="eyebrow">{escape(cover['eyebrow'])}</text>
+    <line x1="{CONTENT_X}" y1="126" x2="{CONTENT_X + CONTENT_WIDTH}" y2="126" stroke="url(#goldLine)" stroke-width="1.5" opacity="0.8" />
+    {_text_block(title_lines, CONTENT_X, title_y, 66, 'title')}
+    {_text_block(subtitle_lines, CONTENT_X, subtitle_y, 34, 'subtitle')}
+    <rect x="{CONTENT_X}" y="{card_y}" width="{CONTENT_WIDTH}" height="480" rx="28" fill="{SURFACE}" stroke="{BORDER}"/>
+    <text x="108" y="{card_y + 73}" class="kicker">SELECTED BUILDS</text>
+    <line x1="108" y1="{card_y + 91}" x2="972" y2="{card_y + 91}" stroke="{BORDER}" stroke-width="1"/>
+    <text x="108" y="{card_y + 155}" class="project-title">GeoPlatform · Pulso · Anti IA</text>
+    <text x="108" y="{card_y + 207}" class="body">FleetFlow Sim · Atlas Geotech</text>
+    <text x="108" y="{card_y + 291}" class="label">GEOSPATIAL · TERRITORY · EVIDENCE · OPERATIONS</text>
+    <text x="108" y="{card_y + 367}" class="body">A compact visual atlas of my public-facing software builds.</text>
+    <text x="{CONTENT_X}" y="1248" class="footer">{escape(cover['footer'])}</text>
+    <text x="{CONTENT_X + CONTENT_WIDTH}" y="1248" class="slide-number" text-anchor="end">01 / 07</text>
     '''
     return _svg_shell(body)
 
@@ -338,20 +374,28 @@ def render_cover(meta: CarouselMetadata) -> str:
 def render_project_slide(project: ProjectSlide, index: int, total: int, repo_root: Path) -> str:
     screenshot_uri = _data_uri(repo_root / project.screenshot)
     preserve = _image_position_preserve(project.image_position, project.image_fit)
+    description_lines = _wrap_text(project.description, 46)
+    description_y = 902
+    stack_label_y = max(1036, _last_baseline(description_y, len(description_lines), 31) + 36)
+    stack_y = stack_label_y + 22
+    stack_rows = _stack_pill_rows(project.stack, CONTENT_WIDTH)
+    stack_bottom = stack_y + 28 + (stack_rows - 1) * 34
+    links_y = max(1182, stack_bottom + 36)
+
     body = f'''
-    <text x="72" y="102" class="eyebrow">SELECTED BUILD</text>
-    <line x1="72" y1="124" x2="1008" y2="124" stroke="url(#goldLine)" stroke-width="1.5" opacity="0.8" />
-    <text x="72" y="196" class="project-title">{escape(project.name)}</text>
-    <rect x="72" y="246" width="936" height="520" rx="28" fill="{SURFACE}" stroke="{BORDER}"/>
-    <clipPath id="shot-clip"><rect x="96" y="270" width="888" height="472" rx="20" ry="20" /></clipPath>
-    <image href="{screenshot_uri}" x="96" y="270" width="888" height="472" preserveAspectRatio="{preserve}" clip-path="url(#shot-clip)"/>
-    <text x="72" y="818" class="label">STATUS</text>
-    <text x="72" y="840" class="status">{escape(project.status)}</text>
-    {_text_block(_wrap_text(project.description, 46), 72, 902, 31, 'body')}
-    <text x="72" y="1036" class="label">STACK</text>
-    {_stack_pills(project.stack, 72, 1058, 936)}
-    {_link_pills(project, 72, 1182)}
-    <text x="1008" y="1248" class="slide-number" text-anchor="end">{index:02d} / {total:02d}</text>
+    <text x="{CONTENT_X}" y="102" class="eyebrow">SELECTED BUILD</text>
+    <line x1="{CONTENT_X}" y1="124" x2="{CONTENT_X + CONTENT_WIDTH}" y2="124" stroke="url(#goldLine)" stroke-width="1.5" opacity="0.8" />
+    <text x="{CONTENT_X}" y="196" class="project-title">{escape(project.name)}</text>
+    <rect x="{CONTENT_X}" y="246" width="{CONTENT_WIDTH}" height="520" rx="28" fill="{SURFACE}" stroke="{BORDER}"/>
+    <clipPath id="shot-clip"><rect x="{MEDIA_X}" y="270" width="{MEDIA_WIDTH}" height="472" rx="20" ry="20" /></clipPath>
+    <image href="{screenshot_uri}" x="{MEDIA_X}" y="270" width="{MEDIA_WIDTH}" height="472" preserveAspectRatio="{preserve}" clip-path="url(#shot-clip)"/>
+    <text x="{CONTENT_X}" y="818" class="label">STATUS</text>
+    <text x="{CONTENT_X}" y="840" class="status">{escape(project.status)}</text>
+    {_text_block(description_lines, CONTENT_X, description_y, 31, 'body')}
+    <text x="{CONTENT_X}" y="{stack_label_y}" class="label">STACK</text>
+    {_stack_pills(project.stack, CONTENT_X, stack_y, CONTENT_WIDTH)}
+    {_link_pills(project, CONTENT_X, links_y)}
+    <text x="{CONTENT_X + CONTENT_WIDTH}" y="1248" class="slide-number" text-anchor="end">{index:02d} / {total:02d}</text>
     '''
     return _svg_shell(body)
 
@@ -359,30 +403,49 @@ def render_project_slide(project: ProjectSlide, index: int, total: int, repo_roo
 def render_more_systems(meta: CarouselMetadata, index: int, total: int) -> str:
     more = meta.more_systems
     items: list[ToolCard] = more["items"]
+    subtitle_lines = _wrap_text(more["subtitle"], 46)
+    subtitle_y = 250
+    first_row_y = max(350, _last_baseline(subtitle_y, len(subtitle_lines), 30) + 40)
+    second_row_y = first_row_y + TOOL_CARD_HEIGHT + TOOL_CARD_GAP_Y
+    right_x = CONTENT_X + TOOL_CARD_WIDTH + TOOL_CARD_GAP_X
+
     body_parts = [
-        f'<text x="72" y="104" class="eyebrow">{escape(more["eyebrow"])}</text>',
-        '<line x1="72" y1="126" x2="1008" y2="126" stroke="url(#goldLine)" stroke-width="1.5" opacity="0.8" />',
-        f'<text x="72" y="198" class="project-title">{escape(more["title"])}</text>',
-        _text_block(_wrap_text(more["subtitle"], 46), 72, 250, 30, "body"),
+        f'<text x="{CONTENT_X}" y="104" class="eyebrow">{escape(more["eyebrow"])}</text>',
+        f'<line x1="{CONTENT_X}" y1="126" x2="{CONTENT_X + CONTENT_WIDTH}" y2="126" stroke="url(#goldLine)" stroke-width="1.5" opacity="0.8" />',
+        f'<text x="{CONTENT_X}" y="198" class="project-title">{escape(more["title"])}</text>',
+        _text_block(subtitle_lines, CONTENT_X, subtitle_y, 30, "body"),
     ]
-    card_positions = [(72, 340), (548, 340), (72, 760), (548, 760)]
+    card_positions = [
+        (CONTENT_X, first_row_y),
+        (right_x, first_row_y),
+        (CONTENT_X, second_row_y),
+        (right_x, second_row_y),
+    ]
     for card, (x, y) in zip(items, card_positions):
+        description_lines = _wrap_text(card.description, 24)
+        description_y = y + 96
+        description_bottom = _last_baseline(description_y, len(description_lines), 26)
+        stack_y = max(y + 210, description_bottom + 20)
+        stack_rows = _stack_pill_rows(card.stack, 348)
+        stack_bottom = stack_y + 28 + (stack_rows - 1) * 34
+        repo_y = max(y + 268, stack_bottom + 12)
+
         parts = [
-            f'<rect x="{x}" y="{y}" width="404" height="330" rx="24" fill="{SURFACE_2}" stroke="{BORDER}" />',
+            f'<rect x="{x}" y="{y}" width="{TOOL_CARD_WIDTH}" height="{TOOL_CARD_HEIGHT}" rx="24" fill="{SURFACE_2}" stroke="{BORDER}" />',
             f'<text x="{x + 28}" y="{y + 54}" class="tool-title">{escape(card.name)}</text>',
-            _text_block(_wrap_text(card.description, 24), x + 28, y + 96, 26, 'tool-body'),
-            _stack_pills(card.stack, x + 28, y + 210, 348),
+            _text_block(description_lines, x + 28, description_y, 26, 'tool-body'),
+            _stack_pills(card.stack, x + 28, stack_y, 348),
         ]
         if card.repo_url:
             parts.append(
                 f'<a href="{escape(card.repo_url, quote=True)}">'
-                f'<rect x="{x + 28}" y="{y + 268}" rx="14" ry="14" width="136" height="32" fill="{TAG_BG}" stroke="{ACCENT}" />'
-                f'<text x="{x + 96}" y="{y + 289}" class="pill-link" text-anchor="middle">repository →</text>'
+                f'<rect x="{x + 28}" y="{repo_y}" rx="14" ry="14" width="{LINK_PILL_WIDTH}" height="32" fill="{TAG_BG}" stroke="{ACCENT}" />'
+                f'<text x="{x + 28 + LINK_PILL_WIDTH / 2}" y="{repo_y + 21}" class="pill-link" text-anchor="middle">repository →</text>'
                 f'</a>'
             )
         body_parts.append("".join(parts))
     body_parts.append(
-        f'<text x="1008" y="1248" class="slide-number" text-anchor="end">{index:02d} / {total:02d}</text>'
+        f'<text x="{CONTENT_X + CONTENT_WIDTH}" y="1248" class="slide-number" text-anchor="end">{index:02d} / {total:02d}</text>'
     )
     return _svg_shell("".join(body_parts))
 
