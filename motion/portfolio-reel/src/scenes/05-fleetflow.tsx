@@ -1,6 +1,7 @@
 import {
   Circle,
   Img,
+  Layout,
   Line,
   makeScene2D,
   Rect,
@@ -14,7 +15,6 @@ import {
   waitFor,
 } from '@motion-canvas/core';
 import {ASSET_URLS} from '../shared/assets';
-import {CONTENT_LEFT, CONTENT_RIGHT} from '../shared/layout';
 import {carouselMetadata, getProject} from '../shared/metadata';
 import {countMetric} from '../shared/primitives/CountMetric';
 import {drawPath} from '../shared/primitives/DrawPath';
@@ -58,27 +58,31 @@ export default makeScene2D(function* (view) {
         stroke={THEME.color.borderSoft}
         lineWidth={2}
       />
-      <Txt
-        text={project.name}
-        left={[CONTENT_LEFT, -570]}
+      <Layout
+        layout
         width={936}
-        fill={THEME.color.text}
-        fontFamily={THEME.font.display}
-        fontSize={48}
-        fontWeight={700}
-        textAlign={'left'}
-      />
-      <Txt
-        text={project.status}
-        right={[CONTENT_RIGHT, -570]}
-        width={420}
-        fill={THEME.color.accent}
-        fontFamily={THEME.font.mono}
-        fontSize={15}
-        fontWeight={700}
-        letterSpacing={1.4}
-        textAlign={'right'}
-      />
+        height={76}
+        y={-570}
+        direction={'row'}
+        alignItems={'center'}
+        justifyContent={'space-between'}
+      >
+        <Txt
+          text={project.name}
+          fill={THEME.color.text}
+          fontFamily={THEME.font.display}
+          fontSize={48}
+          fontWeight={700}
+        />
+        <Txt
+          text={project.status}
+          fill={THEME.color.accent}
+          fontFamily={THEME.font.mono}
+          fontSize={15}
+          fontWeight={700}
+          letterSpacing={1.4}
+        />
+      </Layout>
 
       <Rect ref={schematic} y={0} width={936} height={760}>
         <Txt
