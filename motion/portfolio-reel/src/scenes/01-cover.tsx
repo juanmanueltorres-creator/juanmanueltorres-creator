@@ -5,7 +5,7 @@ import {
   sequence,
   waitFor,
 } from '@motion-canvas/core';
-import {leftAlignedCenterX} from '../shared/layout';
+import {CONTENT_LEFT} from '../shared/layout';
 import {carouselMetadata} from '../shared/metadata';
 import {drawPath} from '../shared/primitives/DrawPath';
 import {revealText} from '../shared/primitives/RevealText';
@@ -54,8 +54,7 @@ export default makeScene2D(function* (view) {
 
       <Txt
         text={carouselMetadata.cover.eyebrow}
-        x={leftAlignedCenterX(936)}
-        y={-570}
+        left={[CONTENT_LEFT, -570]}
         width={936}
         fill={THEME.color.accent}
         fontFamily={THEME.font.mono}
@@ -133,8 +132,7 @@ export default makeScene2D(function* (view) {
       <Txt
         ref={title}
         text={carouselMetadata.cover.title}
-        x={leftAlignedCenterX(900)}
-        y={60}
+        left={[CONTENT_LEFT, 60]}
         width={900}
         fill={THEME.color.text}
         fontFamily={THEME.font.display}
@@ -147,8 +145,7 @@ export default makeScene2D(function* (view) {
       <Txt
         ref={subtitle}
         text={carouselMetadata.cover.subtitle}
-        x={leftAlignedCenterX(850)}
-        y={305}
+        left={[CONTENT_LEFT, 305]}
         width={850}
         fill={THEME.color.muted}
         fontFamily={THEME.font.display}
@@ -160,8 +157,7 @@ export default makeScene2D(function* (view) {
       <Txt
         ref={footer}
         text={carouselMetadata.cover.footer}
-        x={leftAlignedCenterX(936)}
-        y={565}
+        left={[CONTENT_LEFT, 565]}
         width={936}
         fill={THEME.color.muted2}
         fontFamily={THEME.font.mono}
