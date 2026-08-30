@@ -18,7 +18,9 @@ export const THEME = Object.freeze({
   space: {
     outer: 72,
     contentWidth: 936,
-    screenshotWidth: 888,
-    screenshotHeight: 500,
+    screenshotWidth: 936,
+    screenshotHeight: 560,
+    screenshotY: 35,
+    captionY: 410,
   },
 });
