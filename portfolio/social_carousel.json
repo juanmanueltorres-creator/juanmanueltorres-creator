@@ -1,0 +1,98 @@
+{
+  "cover": {
+    "eyebrow": "JUAN MANUEL TORRES",
+    "title": "Software built around territory, evidence and operations.",
+    "subtitle": "A compact visual atlas of geospatial products, applied tools and spatial systems.",
+    "footer": "github.com/juanmanueltorres-creator · juanmtorres.vercel.app"
+  },
+  "projects": [
+    {
+      "id": "geoplatform",
+      "name": "GeoPlatform",
+      "description": "A 2D/3D workspace for checking what is happening around a place: mining data, satellite imagery, weather, earthquakes, routes and field context.",
+      "status": "LIVE APPLICATION",
+      "stack": ["React", "TypeScript", "FastAPI", "PostGIS", "Leaflet", "Cesium"],
+      "screenshot": "assets/geoplatform-preview.png",
+      "live_url": "https://sanjuangeo.vercel.app/",
+      "image_fit": "slice",
+      "image_position": "center"
+    },
+    {
+      "id": "pulso",
+      "name": "Pulso Público Argentina",
+      "description": "A public map of recent signals across Argentina: earthquakes, thermal detections, weather and national indicators, with the source and update time visible.",
+      "status": "LIVE · OPEN SOURCE",
+      "stack": ["React", "TypeScript", "MapLibre", "Public Data"],
+      "screenshot": "assets/pulso_territorial.png",
+      "live_url": "https://juanmanueltorres-creator.github.io/pulso-publico-argentina/",
+      "repo_url": "https://github.com/juanmanueltorres-creator/pulso-publico-argentina",
+      "image_fit": "slice",
+      "image_position": "center"
+    },
+    {
+      "id": "anti-ia",
+      "name": "Anti IA",
+      "description": "An evidence-first interface for territorial questions. Pick a case, see what is known, what is missing, what supports it and what question should come next.",
+      "status": "EXPERIMENTAL PRODUCT",
+      "stack": ["React", "Territorial Cases", "Evidence", "Local Persistence"],
+      "screenshot": "assets/anti-ia-preview.png",
+      "image_fit": "slice",
+      "image_position": "center"
+    },
+    {
+      "id": "fleetflow",
+      "name": "FleetFlow Sim",
+      "description": "A delivery fleet simulator set in Córdoba. Vehicles follow routes, stop at deliveries, carry packages and expose distance, fuel and fleet KPIs while the simulation runs.",
+      "status": "LIVE · OPEN SOURCE",
+      "stack": ["React", "TypeScript", "MapLibre", "Turf"],
+      "screenshot": "assets/fleetflowsim.png",
+      "live_url": "https://juanmanueltorres-creator.github.io/fleetflow-sim/",
+      "repo_url": "https://github.com/juanmanueltorres-creator/fleetflow-sim",
+      "image_fit": "slice",
+      "image_position": "center"
+    },
+    {
+      "id": "atlas",
+      "name": "Atlas Geotech",
+      "description": "An interactive mining atlas for exploring Argentine projects by province, mineral, project stage, company and capital origin.",
+      "status": "LIVE APPLICATION · PUBLIC REPOSITORY",
+      "stack": ["R", "Shiny", "sf", "dplyr"],
+      "screenshot": "assets/atlasgeotech.png",
+      "live_url": "https://atlas-geotech.onrender.com/",
+      "repo_url": "https://github.com/juanmanueltorres-creator/atlas-geotech",
+      "image_fit": "slice",
+      "image_position": "center"
+    }
+  ],
+  "more_systems": {
+    "eyebrow": "MORE SYSTEMS",
+    "title": "Small tools, local systems and experiments.",
+    "subtitle": "A second layer of builds focused on workflows, question structuring, media production and agent experiments.",
+    "items": [
+      {
+        "name": "Opportunity OS",
+        "description": "A local-first job-search system for finding opportunities, tracking target companies, generating evidence-backed CVs and organizing outreach.",
+        "stack": ["Python", "FastAPI", "SQLite", "Gmail Adapter"],
+        "repo_url": "https://github.com/juanmanueltorres-creator/opportunity-os"
+      },
+      {
+        "name": "Question Radar",
+        "description": "A Python tool that turns questions into structured data and shows what assumptions, evidence or next questions are missing.",
+        "stack": ["Python", "SQLite", "CLI", "170 tests"],
+        "repo_url": "https://github.com/juanmanueltorres-creator/question-radar"
+      },
+      {
+        "name": "Screen2Social",
+        "description": "A local pipeline that turns OBS screen recordings into a ready-to-post video, thumbnail, metadata and optional local transcript.",
+        "stack": ["Python", "FFmpeg", "OBS WebSocket", "whisper.cpp"],
+        "repo_url": "https://github.com/juanmanueltorres-creator/screen2social"
+      },
+      {
+        "name": "Geo Agent",
+        "description": "A small geospatial agent experiment built around tools, external sources and validation instead of AI-only answers.",
+        "stack": ["LangChain", "LangGraph", "Tool Calling"],
+        "repo_url": "https://github.com/juanmanueltorres-creator/geo-agent-langgraph"
+      }
+    ]
+  }
+}
