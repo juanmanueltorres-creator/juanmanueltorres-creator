@@ -8,6 +8,7 @@
   <a href="https://sanjuangeo.vercel.app/"><img alt="GeoPlatform" src="https://img.shields.io/badge/GeoPlatform-Live-8f2d2d?style=flat-square&labelColor=11100d"></a>
   <a href="https://juanmanueltorres-creator.github.io/pulso-publico-argentina/"><img alt="Pulso Publico" src="https://img.shields.io/badge/Pulso_Publico-Live-456b55?style=flat-square&labelColor=11100d"></a>
   <a href="https://juanmanueltorres-creator.github.io/fleetflow-sim/"><img alt="FleetFlow Sim" src="https://img.shields.io/badge/FleetFlow-Live-4f5d75?style=flat-square&labelColor=11100d"></a>
+  <a href="https://atlas-geotech.onrender.com/"><img alt="Atlas Geotech" src="https://img.shields.io/badge/Atlas_Geotech-Live-a87a47?style=flat-square&labelColor=11100d"></a>
 </p>
 
 <p align="center">
@@ -97,19 +98,19 @@
 
 <p align="center"><img src="./assets/product-frame-bottom.svg" alt="" width="80%" /></p>
 
-### 05 / [Atlas Geotech](https://github.com/juanmanueltorres-creator/atlas-geotech)
+### 05 / [Atlas Geotech](https://atlas-geotech.onrender.com/)
 
 <p align="center">
-  <a href="https://github.com/juanmanueltorres-creator/atlas-geotech">
+  <a href="https://atlas-geotech.onrender.com/">
     <img src="./assets/atlasgeotech.png" alt="Atlas Geotech mining atlas built with R and Shiny" width="58%" />
   </a>
 </p>
 
 <p align="center">
-  <strong>PUBLIC REPOSITORY</strong><br />
+  <strong>LIVE APPLICATION · PUBLIC REPOSITORY</strong><br />
   <sub>An interactive mining atlas for exploring Argentine projects by province, mineral, project stage, company and capital origin.</sub><br />
   <sub><code>R</code> · <code>Shiny</code> · <code>sf</code> · <code>dplyr</code></sub><br />
-  <sub><a href="https://github.com/juanmanueltorres-creator/atlas-geotech">repository →</a></sub>
+  <sub><a href="https://atlas-geotech.onrender.com/">open app →</a> · <a href="https://github.com/juanmanueltorres-creator/atlas-geotech">repository →</a></sub>
 </p>
 
 <p align="center"><img src="./assets/product-frame-bottom.svg" alt="" width="80%" /></p>
