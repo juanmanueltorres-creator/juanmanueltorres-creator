@@ -1,6 +1,7 @@
 import {describe, expect, it} from 'vitest';
 import coverSource from '../scenes/01-cover.tsx?raw';
 import geoSource from '../scenes/02-geoplatform.tsx?raw';
+import pulsoSource from '../scenes/03-pulso.tsx?raw';
 
 describe('open editorial anchor scenes', () => {
   it('removes the enclosing frame from Cover', () => {
@@ -10,17 +11,20 @@ describe('open editorial anchor scenes', () => {
     expect(coverSource).toContain('RegistrationMarks');
   });
 
-  it('keeps the territorial motion sparse and directional', () => {
-    expect(coverSource).not.toContain('staggerPoints');
-    expect(coverSource).toContain('Array.from({length: 3}');
-    expect(coverSource).toContain('const traveler = createRef<Circle>()');
-    expect(coverSource).toContain('traveler().position');
-  });
-
   it('moves GeoPlatform off the enterprise shell', () => {
     expect(geoSource).toContain('EditorialHeader');
     expect(geoSource).toContain('ScreenshotSurface');
     expect(geoSource).not.toContain('EnterpriseFrame');
     expect(geoSource).not.toContain('SurfacePanel');
+  });
+
+  it('keeps Pulso signals open, sparse and secondary to the product', () => {
+    expect(pulsoSource).toContain('EditorialHeader');
+    expect(pulsoSource).toContain('ScreenshotSurface');
+    expect(pulsoSource).not.toContain('EnterpriseFrame');
+    expect(pulsoSource).not.toContain('SurfacePanel');
+    expect(pulsoSource).not.toContain('staggerPoints');
+    expect(pulsoSource).toContain('const SIGNAL_POINTS = [');
+    expect(pulsoSource).toContain('SIGNAL · SOURCE · FRESHNESS');
   });
 });
