@@ -14,6 +14,7 @@ import {
   waitFor,
 } from '@motion-canvas/core';
 import {ASSET_URLS} from '../shared/assets';
+import {leftAlignedCenterX, rightAlignedCenterX} from '../shared/layout';
 import {carouselMetadata, getProject} from '../shared/metadata';
 import {countMetric} from '../shared/primitives/CountMetric';
 import {drawPath} from '../shared/primitives/DrawPath';
@@ -59,7 +60,7 @@ export default makeScene2D(function* (view) {
       />
       <Txt
         text={project.name}
-        x={-468}
+        x={leftAlignedCenterX(936)}
         y={-570}
         width={936}
         fill={THEME.color.text}
@@ -70,7 +71,7 @@ export default makeScene2D(function* (view) {
       />
       <Txt
         text={project.status}
-        x={468}
+        x={rightAlignedCenterX(420)}
         y={-570}
         width={420}
         fill={THEME.color.accent}
