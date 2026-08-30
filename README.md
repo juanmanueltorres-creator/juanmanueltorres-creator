@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/profile-hero.svg" alt="Juan Manuel Torres — Geospatial Software, Territorial Intelligence and AI Systems" width="88%" />
+  <img src="./assets/profile-hero.svg" alt="Juan Manuel Torres — Geospatial Software, Decision Technologies and AI Systems" width="88%" />
 </p>
 
 <p align="center">
@@ -12,11 +12,11 @@
 </p>
 
 <p align="center">
-  <img src="./assets/profile-rotating-tagline.svg" alt="GeoPlatform, Anti IA and territorial intelligence rotating tagline" width="82%" />
+  <img src="./assets/profile-rotating-tagline.svg" alt="Geospatial software, evidence, AI systems and decision technologies rotating tagline" width="82%" />
 </p>
 
 <p align="center">
-  <sub>◈ TERRITORIAL PARTY · ARGENTINA ◈</sub>
+  <sub>◈ DECISION TECHNOLOGIES · ARGENTINA ◈</sub>
 </p>
 
 <p align="center">
@@ -120,15 +120,17 @@
 ```text
 CLASS       Geospatial Software Developer
 ORIGIN      Geology · Mining
-DOMAIN      Territory · Spatial Data · Evidence
+DOMAIN      Spatial Data · Evidence · Operations
 BUILD       FastAPI · PostGIS · React · Cesium
 AI          LLMs · MCP · LangGraph · Tool Calling
-FOCUS       Territorial Intelligence · Operational Context
+FOCUS       Decision Technologies · Decision Support
 ```
 
-I build software at the intersection of **geosciences, spatial data, backend engineering, and AI-assisted systems**.
+**Geospatial is one of the technologies. Decision-making is the purpose.**
 
-My geology and mining background shapes how I design software: a map is not just a visualization layer. It is a way to connect a place with **data, time, evidence, uncertainty and operational context**.
+I build technologies for decision making at the intersection of **geosciences, spatial data, backend engineering, simulation, visualization, and AI-assisted systems**.
+
+My geology and mining background shapes how I design software: maps, models, and interfaces are not endpoints. They connect **data, time, evidence, uncertainty, and operational context** so people can make better decisions.
 
 <p align="center"><img src="./assets/section-ornament.svg" alt="" width="80%" /></p>
 
@@ -191,7 +193,7 @@ A small geospatial agent experiment built around tools, external sources and val
 **InsightLaboratory** was my first public laboratory for building on the web. It is where I started experimenting with React, geospatial applications, Google Earth Engine, spatial databases and AI-assisted workflows.
 
 <p align="center">
-  <strong>2023 · Earth Engine</strong> &nbsp;→&nbsp; <strong>React</strong> &nbsp;→&nbsp; <strong>Spatial Databases</strong> &nbsp;→&nbsp; <strong>GeoPlatform</strong> &nbsp;→&nbsp; <strong>Territorial Systems</strong>
+  <strong>2023 · Earth Engine</strong> &nbsp;→&nbsp; <strong>React</strong> &nbsp;→&nbsp; <strong>Spatial Databases</strong> &nbsp;→&nbsp; <strong>GeoPlatform</strong> &nbsp;→&nbsp; <strong>Decision Technologies</strong>
 </p>
 
 <p align="center">
