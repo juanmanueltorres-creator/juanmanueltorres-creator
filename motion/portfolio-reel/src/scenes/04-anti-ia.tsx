@@ -1,7 +1,11 @@
 import {Circle, Img, Layout, Line, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
 import {all, createRef, sequence, waitFor} from '@motion-canvas/core';
 import {ASSET_URLS} from '../shared/assets';
+import {EnterpriseFrame} from '../shared/components/EnterpriseFrame';
+import {StatusChip} from '../shared/components/StatusChip';
+import {SurfacePanel} from '../shared/components/SurfacePanel';
 import {carouselMetadata, getProject} from '../shared/metadata';
+import {MOTION} from '../shared/motion';
 import {drawPath} from '../shared/primitives/DrawPath';
 import {revealText} from '../shared/primitives/RevealText';
 import {
@@ -13,188 +17,159 @@ import {THEME} from '../shared/theme';
 export default makeScene2D(function* (view) {
   const project = getProject(carouselMetadata, 'anti-ia');
   const concept = createRef<Rect>();
+  const evidenceRail = createRef<Layout>();
   const screenshotFrame = createRef<Rect>();
   const coordinate = createRef<Txt>();
   const notKnowledge = createRef<Txt>();
-  const data = createRef<Txt>();
-  const evidence = createRef<Txt>();
-  const question = createRef<Txt>();
   const thesis = createRef<Txt>();
   const dataToEvidence = createRef<Line>();
   const evidenceToQuestion = createRef<Line>();
   const focal = normalizeFocalPosition(project.imagePosition);
 
-  view.fill(THEME.color.background);
+  view.fill(THEME.color.canvas);
   view.add(
-    <>
-      <Rect width={1024} height={1294} radius={24} stroke={THEME.color.borderSoft} lineWidth={2} />
+    <EnterpriseFrame
+      eyebrow={'04 / EVIDENCE-FIRST INTERFACE'}
+      name={project.name}
+      status={project.status}
+      footer={'COORDINATE · EVIDENCE · QUESTION'}
+    >
       <Layout
         layout
         width={936}
-        height={76}
-        y={-570}
-        direction={'row'}
+        height={920}
+        direction={'column'}
+        gap={16}
         alignItems={'center'}
-        justifyContent={'space-between'}
       >
-        <Txt
-          text={project.name}
-          fill={THEME.color.text}
-          fontFamily={THEME.font.display}
-          fontSize={48}
-          fontWeight={700}
-        />
-        <Txt
-          text={project.status}
-          fill={THEME.color.accent}
-          fontFamily={THEME.font.mono}
-          fontSize={15}
-          fontWeight={700}
-          letterSpacing={1.4}
-        />
+        <SurfacePanel
+          ref={concept}
+          width={936}
+          height={176}
+          level={'raised'}
+        >
+          <Layout
+            layout
+            width={880}
+            height={138}
+            direction={'column'}
+            gap={18}
+            alignItems={'start'}
+            justifyContent={'center'}
+          >
+            <Layout layout width={880} height={40} gap={16} alignItems={'center'}>
+              <Circle
+                width={14}
+                height={14}
+                fill={THEME.color.accent}
+              />
+              <Txt
+                ref={coordinate}
+                text={'COORDINATE'}
+                fill={THEME.color.text}
+                fontFamily={THEME.font.mono}
+                fontSize={22}
+                fontWeight={600}
+                letterSpacing={1.2}
+                opacity={0}
+              />
+              <Txt
+                ref={notKnowledge}
+                text={'≠ KNOWLEDGE'}
+                fill={THEME.color.accent}
+                fontFamily={THEME.font.mono}
+                fontSize={22}
+                fontWeight={600}
+                letterSpacing={1.2}
+                opacity={0}
+              />
+            </Layout>
+
+            <Layout
+              ref={evidenceRail}
+              layout
+              width={880}
+              height={42}
+              gap={10}
+              alignItems={'center'}
+              opacity={0}
+            >
+              <StatusChip label={'DATA'} icon={'database'} />
+              <Line
+                ref={dataToEvidence}
+                points={[[0, 0], [64, 0]]}
+                stroke={THEME.color.accentSoft}
+                lineWidth={2}
+                endArrow
+              />
+              <StatusChip label={'EVIDENCE'} icon={'fileText'} active />
+              <Line
+                ref={evidenceToQuestion}
+                points={[[0, 0], [64, 0]]}
+                stroke={THEME.color.accentSoft}
+                lineWidth={2}
+                endArrow
+              />
+              <StatusChip label={'QUESTION'} icon={'network'} />
+            </Layout>
+          </Layout>
+        </SurfacePanel>
+
+        <SurfacePanel
+          width={936}
+          height={74}
+          level={'workspace'}
+        >
+          <Txt
+            ref={thesis}
+            text={'Una coordenada no es un punto.'}
+            fill={THEME.color.text}
+            fontFamily={THEME.font.sans}
+            fontSize={24}
+            fontWeight={500}
+            opacity={0}
+          />
+        </SurfacePanel>
+
+        <Rect
+          ref={screenshotFrame}
+          width={THEME.space.screenshotWidth}
+          height={THEME.space.screenshotHeight}
+          radius={18}
+          clip
+          fill={THEME.color.raised}
+          stroke={THEME.color.border}
+          lineWidth={1}
+          opacity={0}
+        >
+          <Img
+            src={ASSET_URLS[project.screenshot]}
+            width={THEME.space.screenshotWidth + 110}
+            x={focal.x * 44}
+            y={focal.y * 34}
+          />
+        </Rect>
       </Layout>
-
-      <Rect ref={concept} y={-20} width={936} height={760}>
-        <Circle
-          x={-365}
-          y={-205}
-          width={22}
-          height={22}
-          fill={THEME.color.accent}
-        />
-        <Txt
-          ref={coordinate}
-          text={'COORDINATE'}
-          x={-195}
-          y={-205}
-          fill={THEME.color.text}
-          fontFamily={THEME.font.mono}
-          fontSize={26}
-          fontWeight={700}
-          letterSpacing={1.8}
-          opacity={0}
-        />
-        <Txt
-          ref={notKnowledge}
-          text={'≠  KNOWLEDGE'}
-          x={245}
-          y={-205}
-          fill={THEME.color.accent}
-          fontFamily={THEME.font.mono}
-          fontSize={26}
-          fontWeight={700}
-          letterSpacing={1.8}
-          opacity={0}
-        />
-
-        <Txt
-          ref={data}
-          text={'DATA'}
-          x={-300}
-          y={55}
-          fill={THEME.color.text}
-          fontFamily={THEME.font.mono}
-          fontSize={24}
-          fontWeight={700}
-          opacity={0}
-        />
-        <Txt
-          ref={evidence}
-          text={'EVIDENCE'}
-          x={0}
-          y={55}
-          fill={THEME.color.text}
-          fontFamily={THEME.font.mono}
-          fontSize={24}
-          fontWeight={700}
-          opacity={0}
-        />
-        <Txt
-          ref={question}
-          text={'QUESTION'}
-          x={305}
-          y={55}
-          fill={THEME.color.text}
-          fontFamily={THEME.font.mono}
-          fontSize={24}
-          fontWeight={700}
-          opacity={0}
-        />
-        <Line
-          ref={dataToEvidence}
-          points={[[-225, 55], [-105, 55]]}
-          stroke={THEME.color.accent}
-          lineWidth={3}
-          endArrow
-        />
-        <Line
-          ref={evidenceToQuestion}
-          points={[[110, 55], [215, 55]]}
-          stroke={THEME.color.accent}
-          lineWidth={3}
-          endArrow
-        />
-      </Rect>
-
-      <Rect
-        ref={screenshotFrame}
-        y={THEME.space.screenshotY}
-        width={THEME.space.screenshotWidth}
-        height={THEME.space.screenshotHeight}
-        radius={24}
-        clip
-        fill={THEME.color.surface}
-        stroke={THEME.color.border}
-        lineWidth={2}
-        opacity={0}
-      >
-        <Img
-          src={ASSET_URLS[project.screenshot]}
-          width={THEME.space.screenshotWidth + 110}
-          x={focal.x * 44}
-          y={focal.y * 34}
-        />
-      </Rect>
-
-      <Txt
-        ref={thesis}
-        text={'Una coordenada no es un punto.'}
-        y={THEME.space.captionY}
-        width={850}
-        fill={THEME.color.muted}
-        fontFamily={THEME.font.display}
-        fontSize={34}
-        fontStyle={'italic'}
-        textAlign={'center'}
-        opacity={0}
-      />
-    </>,
+    </EnterpriseFrame>,
   );
 
   dataToEvidence().end(0);
   evidenceToQuestion().end(0);
 
   yield* sequence(
-    0.1,
-    revealText(coordinate(), 0.26, 8),
-    revealText(notKnowledge(), 0.3, 8),
+    0.08,
+    revealText(coordinate(), MOTION.component, 8),
+    revealText(notKnowledge(), MOTION.component, 8),
   );
-  yield* sequence(
-    0.075,
-    revealText(data(), 0.22, 8),
-    revealText(evidence(), 0.22, 8),
-    revealText(question(), 0.22, 8),
-  );
+  yield* evidenceRail().opacity(1, MOTION.component, MOTION.easing.enter);
   yield* all(
-    drawPath(dataToEvidence(), 0.24),
-    drawPath(evidenceToQuestion(), 0.3),
+    drawPath(dataToEvidence(), MOTION.micro),
+    drawPath(evidenceToQuestion(), MOTION.component),
   );
-  yield* revealText(thesis(), 0.3, 10);
-  yield* waitFor(0.08);
+  yield* revealText(thesis(), MOTION.component, 8);
   yield* all(
-    concept().opacity(0.06, 0.32),
-    concept().scale(0.97, 0.32),
-    revealScreenshot(screenshotFrame(), 0.38, 1.018),
+    concept().opacity(0.72, MOTION.component, MOTION.easing.continuity),
+    revealScreenshot(screenshotFrame(), MOTION.component, 1.02),
   );
-  yield* waitFor(0.82);
+  yield* waitFor(1.02);
 });
