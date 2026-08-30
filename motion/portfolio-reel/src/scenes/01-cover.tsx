@@ -1,24 +1,24 @@
 import {Circle, Layout, Line, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
-import {all, createRef, sequence, waitFor} from '@motion-canvas/core';
+import {all, chain, createRef, sequence, waitFor} from '@motion-canvas/core';
 import {RegistrationMarks} from '../shared/components/RegistrationMarks';
 import {carouselMetadata} from '../shared/metadata';
 import {MOTION} from '../shared/motion';
 import {drawPath} from '../shared/primitives/DrawPath';
 import {revealText} from '../shared/primitives/RevealText';
-import {staggerPoints} from '../shared/primitives/StaggerPoints';
 import {THEME} from '../shared/theme';
 
 export default makeScene2D(function* (view) {
   const route = createRef<Line>();
+  const traveler = createRef<Circle>();
   const territory = createRef<Txt>();
   const evidence = createRef<Txt>();
   const operations = createRef<Txt>();
   const title = createRef<Txt>();
   const subtitle = createRef<Txt>();
   const footer = createRef<Txt>();
-  const nodeRefs = Array.from({length: 6}, () => createRef<Circle>());
+  const anchorRefs = Array.from({length: 3}, () => createRef<Circle>());
 
-  const routePoints = [
+  const routePoints: [number, number][] = [
     [-404, 20],
     [-286, -40],
     [-142, 24],
@@ -26,16 +26,9 @@ export default makeScene2D(function* (view) {
     [162, 38],
     [300, -18],
     [404, 32],
-  ] as const;
-
-  const nodePoints = [
-    routePoints[0],
-    routePoints[1],
-    routePoints[2],
-    routePoints[4],
-    routePoints[5],
-    routePoints[6],
   ];
+
+  const anchorPoints = [routePoints[0], routePoints[3], routePoints[6]];
 
   view.fill(THEME.color.canvas);
   view.add(
@@ -71,24 +64,33 @@ export default makeScene2D(function* (view) {
       <Rect width={THEME.space.contentWidth} height={230} y={-330}>
         <Line
           ref={route}
-          points={routePoints.map(([x, y]) => [x, y])}
+          points={routePoints}
           stroke={THEME.color.accentSoft}
           lineWidth={2}
           radius={18}
           opacity={0.82}
         />
-        {nodePoints.map((position, index) => (
+        {anchorPoints.map((position, index) => (
           <Circle
-            ref={nodeRefs[index]}
+            ref={anchorRefs[index]}
             x={position[0]}
             y={position[1]}
-            width={index === 3 ? 12 : 9}
-            height={index === 3 ? 12 : 9}
+            width={index === 1 ? 11 : 9}
+            height={index === 1 ? 11 : 9}
             fill={THEME.color.canvas}
-            stroke={index === 3 ? THEME.color.accent : THEME.color.accentSoft}
+            stroke={index === 1 ? THEME.color.accent : THEME.color.accentSoft}
             lineWidth={2}
           />
         ))}
+        <Circle
+          ref={traveler}
+          x={routePoints[0][0]}
+          y={routePoints[0][1]}
+          width={9}
+          height={9}
+          fill={THEME.color.accent}
+          opacity={0}
+        />
       </Rect>
 
       <Line points={[[-310, -194], [-310, -164]]} stroke={THEME.color.border} lineWidth={1} />
@@ -203,9 +205,30 @@ export default makeScene2D(function* (view) {
   title().opacity(0);
   subtitle().opacity(0);
   footer().opacity(0);
+  for (const anchorRef of anchorRefs) {
+    anchorRef().opacity(0);
+    anchorRef().scale(0.78);
+  }
 
   yield* drawPath(route(), MOTION.component);
-  yield* staggerPoints(nodeRefs.map(ref => ref()), 0.03, 6);
+  yield* all(
+    ...anchorRefs.map(anchorRef =>
+      all(
+        anchorRef().opacity(0.82, 0.18, MOTION.easing.enter),
+        anchorRef().scale(1, 0.18, MOTION.easing.enter),
+      ),
+    ),
+    chain(
+      all(
+        traveler().opacity(1, 0.06, MOTION.easing.enter),
+        traveler().position(routePoints[1], 0.06, MOTION.easing.continuity),
+      ),
+      ...routePoints
+        .slice(2)
+        .map(point => traveler().position(point, 0.055, MOTION.easing.continuity)),
+      traveler().opacity(0, 0.08, MOTION.easing.continuity),
+    ),
+  );
   yield* sequence(
     0.05,
     revealText(territory(), 0.18, 8),
@@ -214,7 +237,7 @@ export default makeScene2D(function* (view) {
   );
   yield* all(
     route().opacity(0.34, MOTION.micro),
-    ...nodeRefs.map(ref => ref().opacity(0.4, MOTION.micro)),
+    ...anchorRefs.map(anchorRef => anchorRef().opacity(0.42, MOTION.micro)),
   );
   yield* sequence(
     0.09,
@@ -223,5 +246,5 @@ export default makeScene2D(function* (view) {
   );
   yield* revealText(footer(), 0.2, 5);
   yield* route().opacity(0.18, MOTION.component, MOTION.easing.continuity);
-  yield* waitFor(0.42);
+  yield* waitFor(0.38);
 });
