@@ -1,8 +1,11 @@
-import {Circle, Img, Layout, Line, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
-import {all, createRef, sequence, waitFor} from '@motion-canvas/core';
+import {Circle, Img, Layout, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
+import {all, createRef, waitFor} from '@motion-canvas/core';
 import {ASSET_URLS} from '../shared/assets';
+import {EnterpriseFrame} from '../shared/components/EnterpriseFrame';
+import {StatusChip} from '../shared/components/StatusChip';
+import {SurfacePanel} from '../shared/components/SurfacePanel';
 import {carouselMetadata, getProject} from '../shared/metadata';
-import {revealText} from '../shared/primitives/RevealText';
+import {MOTION} from '../shared/motion';
 import {
   normalizeFocalPosition,
   revealScreenshot,
@@ -11,171 +14,138 @@ import {staggerPoints} from '../shared/primitives/StaggerPoints';
 import {THEME} from '../shared/theme';
 
 const SIGNAL_POINTS = [
-  [-365, -190], [-255, -95], [-130, -220], [10, -125], [165, -220], [325, -125],
-  [-305, 70], [-170, 140], [-20, 45], [130, 125], [265, 35], [365, 150],
+  [-336, -56], [-238, 34], [-126, -72], [-8, 16],
+  [116, -58], [226, 40], [322, -20], [72, 76],
 ] as const;
 
 export default makeScene2D(function* (view) {
   const project = getProject(carouselMetadata, 'pulso');
+  const stateRow = createRef<Layout>();
   const field = createRef<Rect>();
   const screenshotFrame = createRef<Rect>();
   const pointRefs = SIGNAL_POINTS.map(() => createRef<Circle>());
-  const signal = createRef<Txt>();
-  const source = createRef<Txt>();
-  const freshness = createRef<Txt>();
   const focal = normalizeFocalPosition(project.imagePosition);
 
-  view.fill(THEME.color.background);
+  view.fill(THEME.color.canvas);
   view.add(
-    <>
-      <Rect width={1024} height={1294} radius={24} stroke={THEME.color.borderSoft} lineWidth={2} />
+    <EnterpriseFrame
+      eyebrow={'03 / PUBLIC TERRITORIAL SIGNALS'}
+      name={project.name}
+      status={project.status}
+      footer={'EARTHQUAKES · THERMAL · WEATHER · SOURCE · FRESHNESS'}
+    >
       <Layout
         layout
         width={936}
-        height={76}
-        y={-570}
-        direction={'row'}
+        height={920}
+        direction={'column'}
+        gap={18}
         alignItems={'center'}
-        justifyContent={'space-between'}
       >
-        <Txt
-          text={project.name}
-          fill={THEME.color.text}
-          fontFamily={THEME.font.display}
-          fontSize={48}
-          fontWeight={700}
-        />
-        <Txt
-          text={project.status}
-          fill={THEME.color.accent}
-          fontFamily={THEME.font.mono}
-          fontSize={15}
-          fontWeight={700}
-          letterSpacing={1.4}
-        />
-      </Layout>
+        <Layout
+          ref={stateRow}
+          layout
+          width={936}
+          height={42}
+          gap={8}
+          alignItems={'center'}
+          opacity={0}
+        >
+          <StatusChip label={'SIGNAL'} icon={'activity'} active />
+          <StatusChip label={'SOURCE'} icon={'database'} active />
+          <StatusChip label={'FRESHNESS'} icon={'gauge'} />
+        </Layout>
 
-      <Rect ref={field} y={0} width={936} height={760}>
+        <SurfacePanel
+          ref={field}
+          width={936}
+          height={210}
+          level={'raised'}
+        >
+          <Layout
+            layout
+            width={880}
+            height={172}
+            direction={'column'}
+            gap={12}
+            alignItems={'start'}
+          >
+            <Layout
+              layout
+              width={880}
+              height={28}
+              alignItems={'center'}
+              justifyContent={'space-between'}
+            >
+              <Txt
+                text={'PUBLIC SIGNAL FIELD / ARGENTINA'}
+                fill={THEME.color.muted}
+                fontFamily={THEME.font.mono}
+                fontSize={13}
+                fontWeight={600}
+                letterSpacing={1.1}
+              />
+              <Txt
+                text={'PROVENANCE ON'}
+                fill={THEME.color.accent}
+                fontFamily={THEME.font.mono}
+                fontSize={12}
+                fontWeight={600}
+                letterSpacing={0.8}
+              />
+            </Layout>
+            <Rect width={880} height={128}>
+              {SIGNAL_POINTS.map(([x, y], index) => {
+                const ring = index % 3 === 0;
+                return (
+                  <Circle
+                    ref={pointRefs[index]}
+                    x={x}
+                    y={y}
+                    width={ring ? 22 : 12 + (index % 2) * 4}
+                    height={ring ? 22 : 12 + (index % 2) * 4}
+                    fill={ring ? '#00000000' : THEME.color.text}
+                    stroke={ring ? THEME.color.accent : THEME.color.border}
+                    lineWidth={ring ? 2 : 1}
+                    opacity={0}
+                  />
+                );
+              })}
+            </Rect>
+          </Layout>
+        </SurfacePanel>
+
         <Rect
-          width={880}
-          height={510}
-          radius={28}
+          ref={screenshotFrame}
+          width={THEME.space.screenshotWidth}
+          height={THEME.space.screenshotHeight}
+          radius={18}
+          clip
+          fill={THEME.color.raised}
           stroke={THEME.color.border}
-          lineWidth={2}
-          fill={THEME.color.surface}
-          opacity={0.76}
-        />
-        <Txt
-          text={'ABSTRACT SIGNAL FIELD'}
-          x={-395}
-          y={-210}
-          fill={THEME.color.muted2}
-          fontFamily={THEME.font.mono}
-          fontSize={13}
-          fontWeight={700}
-          letterSpacing={1.6}
-          textAlign={'left'}
-        />
-        {SIGNAL_POINTS.map(([x, y], index) => {
-          const ring = index % 4 === 0;
-          return (
-            <Circle
-              ref={pointRefs[index]}
-              x={x}
-              y={y}
-              width={ring ? 26 : 16 + (index % 3) * 4}
-              height={ring ? 26 : 16 + (index % 3) * 4}
-              fill={ring ? '#00000000' : (index % 3 === 0 ? THEME.color.accent : THEME.color.text)}
-              stroke={ring ? THEME.color.accent : undefined}
-              lineWidth={ring ? 3 : 0}
-              opacity={0}
-            />
-          );
-        })}
-
-        <Txt
-          ref={signal}
-          text={'SIGNAL'}
-          x={-280}
-          y={300}
-          fill={THEME.color.text}
-          fontFamily={THEME.font.mono}
-          fontSize={19}
-          fontWeight={700}
-          letterSpacing={1.6}
+          lineWidth={1}
           opacity={0}
-        />
-        <Line points={[[-190, 300], [-95, 300]]} stroke={THEME.color.border} lineWidth={3} endArrow />
-        <Txt
-          ref={source}
-          text={'SOURCE'}
-          x={0}
-          y={300}
-          fill={THEME.color.text}
-          fontFamily={THEME.font.mono}
-          fontSize={19}
-          fontWeight={700}
-          letterSpacing={1.6}
-          opacity={0}
-        />
-        <Line points={[[90, 300], [185, 300]]} stroke={THEME.color.border} lineWidth={3} endArrow />
-        <Txt
-          ref={freshness}
-          text={'FRESHNESS'}
-          x={300}
-          y={300}
-          fill={THEME.color.accent}
-          fontFamily={THEME.font.mono}
-          fontSize={19}
-          fontWeight={700}
-          letterSpacing={1.6}
-          opacity={0}
-        />
-      </Rect>
-
-      <Rect
-        ref={screenshotFrame}
-        y={THEME.space.screenshotY}
-        width={THEME.space.screenshotWidth}
-        height={THEME.space.screenshotHeight}
-        radius={24}
-        clip
-        fill={THEME.color.surface}
-        stroke={THEME.color.border}
-        lineWidth={2}
-        opacity={0}
-      >
-        <Img
-          src={ASSET_URLS[project.screenshot]}
-          width={THEME.space.screenshotWidth + 120}
-          x={focal.x * 44}
-          y={focal.y * 34}
-        />
-      </Rect>
-      <Txt
-        text={'EARTHQUAKES · THERMAL · WEATHER · SOURCE · FRESHNESS'}
-        y={THEME.space.captionY}
-        fill={THEME.color.muted}
-        fontFamily={THEME.font.mono}
-        fontSize={15}
-        fontWeight={700}
-        letterSpacing={0.7}
-      />
-    </>,
+        >
+          <Img
+            src={ASSET_URLS[project.screenshot]}
+            width={THEME.space.screenshotWidth + 120}
+            x={focal.x * 44}
+            y={focal.y * 34}
+          />
+        </Rect>
+      </Layout>
+    </EnterpriseFrame>,
   );
 
-  yield* staggerPoints(pointRefs.map(ref => ref()), 0.04, 16);
-  yield* sequence(
-    0.065,
-    revealText(signal(), 0.18, 8),
-    revealText(source(), 0.18, 8),
-    revealText(freshness(), 0.18, 8),
-  );
-  yield* waitFor(0.08);
+  yield* staggerPoints(pointRefs.map(ref => ref()), 0.035, 14);
   yield* all(
-    field().opacity(0.06, 0.32),
-    field().scale(0.98, 0.32),
-    revealScreenshot(screenshotFrame(), 0.36, 1.018),
+    stateRow().opacity(1, MOTION.component, MOTION.easing.enter),
+    pointRefs[3]().scale(1.35, MOTION.micro, MOTION.easing.enter),
   );
-  yield* waitFor(0.82);
+  yield* pointRefs[3]().scale(1, MOTION.micro, MOTION.easing.continuity);
+  yield* all(
+    field().opacity(0.58, MOTION.component, MOTION.easing.continuity),
+    revealScreenshot(screenshotFrame(), MOTION.component, 1.02),
+  );
+  yield* waitFor(1.02);
 });
