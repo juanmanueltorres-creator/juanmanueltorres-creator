@@ -93,7 +93,7 @@ export default makeScene2D(function* (view) {
         />
         <Line
           ref={route}
-          points={FLEETFLOW_ROUTE}
+          points={FLEETFLOW_ROUTE.map(([x, y]) => [x, y])}
           stroke={THEME.color.accent}
           lineWidth={5}
           radius={18}
