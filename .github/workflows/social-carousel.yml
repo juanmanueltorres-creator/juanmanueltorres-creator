@@ -1,0 +1,54 @@
+name: Social carousel
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "portfolio/social_carousel.json"
+      - "scripts/build_social_carousel.py"
+      - "tests/test_build_social_carousel.py"
+      - "requirements-social.txt"
+      - "assets/geoplatform-preview.png"
+      - "assets/pulso_territorial.png"
+      - "assets/anti-ia-preview.png"
+      - "assets/fleetflowsim.png"
+      - "assets/atlasgeotech.png"
+      - ".github/workflows/social-carousel.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest -r requirements-social.txt
+
+      - name: Run carousel tests
+        run: python -m pytest tests/test_build_social_carousel.py -q
+
+      - name: Generate SVG, PNG and PDF
+        run: python scripts/build_social_carousel.py --png --pdf
+
+      - name: Commit generated publication snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/social/generated/
+          if git diff --cached --quiet; then
+            echo "No carousel changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: refresh social carousel exports"
+          git push
