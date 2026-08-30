@@ -4,6 +4,7 @@ import {normalizePulseRadius} from '../shared/primitives/ScanPulse';
 import {clampProgress} from '../shared/primitives/DrawPath';
 import {boundedPoints} from '../shared/primitives/StaggerPoints';
 import {formatMetric} from '../shared/primitives/CountMetric';
+import {interpolatePolyline} from '../shared/route';
 
 describe('ScreenshotReveal', () => {
   it('maps focal positions deterministically', () => {
@@ -42,5 +43,21 @@ describe('CountMetric', () => {
     expect(formatMetric(12.36, {decimals: 1, suffix: ' km'})).toBe('12.4 km');
     expect(formatMetric(Number.NaN)).toBe('0');
     expect(formatMetric(Number.POSITIVE_INFINITY)).toBe('0');
+  });
+});
+
+describe('route interpolation', () => {
+  const route = [
+    [-10, 0],
+    [0, 0],
+    [0, 20],
+  ] as const;
+
+  it('uses cumulative path length and clamps progress', () => {
+    expect(interpolatePolyline(route, -1)).toEqual({x: -10, y: 0});
+    expect(interpolatePolyline(route, 0)).toEqual({x: -10, y: 0});
+    expect(interpolatePolyline(route, 1 / 3)).toEqual({x: 0, y: 0});
+    expect(interpolatePolyline(route, 1)).toEqual({x: 0, y: 20});
+    expect(interpolatePolyline(route, 2)).toEqual({x: 0, y: 20});
   });
 });
