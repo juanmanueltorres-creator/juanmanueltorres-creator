@@ -7,6 +7,7 @@ import fleetflowSource from '../scenes/05-fleetflow.tsx?raw';
 import atlasSource from '../scenes/06-atlas.tsx?raw';
 import moreSystemsSource from '../scenes/07-more-systems.tsx?raw';
 import {THEME} from '../shared/theme';
+import {MOTION} from '../shared/motion';
 
 const PROJECT_SCENES = [
   ['02-geoplatform.tsx', geoplatformSource],
@@ -69,5 +70,27 @@ describe('motion reel visual contract', () => {
     expect(moreSystemsSource).not.toContain('{systems.map(');
     expect(moreSystemsSource).toContain('for (let index = 0; index < systems.length; index += 1)');
     expect(moreSystemsSource).toContain('view.add(\n      <Layout');
+  });
+
+  it('uses enterprise IBM Plex typography', () => {
+    expect(THEME.font.sans).toBe('IBM Plex Sans');
+    expect(THEME.font.display).toBe('IBM Plex Sans');
+    expect(THEME.font.mono).toBe('IBM Plex Mono');
+  });
+
+  it('defines three explicit enterprise surface levels', () => {
+    expect(THEME.color.canvas).toBeTruthy();
+    expect(THEME.color.workspace).toBeTruthy();
+    expect(THEME.color.raised).toBeTruthy();
+    expect(THEME.color.workspace).not.toBe(THEME.color.raised);
+  });
+
+  it('uses one bounded motion vocabulary', () => {
+    expect(MOTION.micro).toBeGreaterThanOrEqual(0.08);
+    expect(MOTION.micro).toBeLessThanOrEqual(0.18);
+    expect(MOTION.component).toBeGreaterThanOrEqual(0.18);
+    expect(MOTION.component).toBeLessThanOrEqual(0.45);
+    expect(MOTION.scene).toBeGreaterThanOrEqual(0.35);
+    expect(MOTION.scene).toBeLessThanOrEqual(0.7);
   });
 });
