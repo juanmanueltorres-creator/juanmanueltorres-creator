@@ -1,11 +1,10 @@
-import {Circle, Line, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
+import {Circle, Layout, Line, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
 import {
   all,
   createRef,
   sequence,
   waitFor,
 } from '@motion-canvas/core';
-import {CONTENT_LEFT} from '../shared/layout';
 import {carouselMetadata} from '../shared/metadata';
 import {drawPath} from '../shared/primitives/DrawPath';
 import {revealText} from '../shared/primitives/RevealText';
@@ -52,17 +51,24 @@ export default makeScene2D(function* (view) {
         lineWidth={2}
       />
 
-      <Txt
-        text={carouselMetadata.cover.eyebrow}
-        left={[CONTENT_LEFT, -570]}
+      <Layout
+        layout
         width={936}
-        fill={THEME.color.accent}
-        fontFamily={THEME.font.mono}
-        fontSize={18}
-        fontWeight={700}
-        letterSpacing={2.4}
-        textAlign={'left'}
-      />
+        height={44}
+        y={-570}
+        direction={'column'}
+        alignItems={'start'}
+        justifyContent={'center'}
+      >
+        <Txt
+          text={carouselMetadata.cover.eyebrow}
+          fill={THEME.color.accent}
+          fontFamily={THEME.font.mono}
+          fontSize={18}
+          fontWeight={700}
+          letterSpacing={2.4}
+        />
+      </Layout>
       <Line
         points={[[-468, -535], [468, -535]]}
         stroke={THEME.color.border}
@@ -129,43 +135,66 @@ export default makeScene2D(function* (view) {
         letterSpacing={2.2}
       />
 
-      <Txt
-        ref={title}
-        text={carouselMetadata.cover.title}
-        left={[CONTENT_LEFT, 60]}
-        width={900}
-        fill={THEME.color.text}
-        fontFamily={THEME.font.display}
-        fontSize={60}
-        fontWeight={700}
-        lineHeight={72}
-        textWrap
-        textAlign={'left'}
-      />
-      <Txt
-        ref={subtitle}
-        text={carouselMetadata.cover.subtitle}
-        left={[CONTENT_LEFT, 305]}
-        width={850}
-        fill={THEME.color.muted}
-        fontFamily={THEME.font.display}
-        fontSize={26}
-        lineHeight={37}
-        textWrap
-        textAlign={'left'}
-      />
-      <Txt
-        ref={footer}
-        text={carouselMetadata.cover.footer}
-        left={[CONTENT_LEFT, 565]}
+      <Layout
+        layout
         width={936}
-        fill={THEME.color.muted2}
-        fontFamily={THEME.font.mono}
-        fontSize={14}
-        fontWeight={700}
-        letterSpacing={1.2}
-        textAlign={'left'}
-      />
+        height={220}
+        y={60}
+        direction={'column'}
+        alignItems={'start'}
+        justifyContent={'center'}
+      >
+        <Txt
+          ref={title}
+          text={carouselMetadata.cover.title}
+          width={900}
+          fill={THEME.color.text}
+          fontFamily={THEME.font.display}
+          fontSize={60}
+          fontWeight={700}
+          lineHeight={72}
+          textWrap
+        />
+      </Layout>
+      <Layout
+        layout
+        width={936}
+        height={112}
+        y={305}
+        direction={'column'}
+        alignItems={'start'}
+        justifyContent={'center'}
+      >
+        <Txt
+          ref={subtitle}
+          text={carouselMetadata.cover.subtitle}
+          width={850}
+          fill={THEME.color.muted}
+          fontFamily={THEME.font.display}
+          fontSize={26}
+          lineHeight={37}
+          textWrap
+        />
+      </Layout>
+      <Layout
+        layout
+        width={936}
+        height={40}
+        y={565}
+        direction={'column'}
+        alignItems={'start'}
+        justifyContent={'center'}
+      >
+        <Txt
+          ref={footer}
+          text={carouselMetadata.cover.footer}
+          fill={THEME.color.muted2}
+          fontFamily={THEME.font.mono}
+          fontSize={14}
+          fontWeight={700}
+          letterSpacing={1.2}
+        />
+      </Layout>
     </>,
   );
 
