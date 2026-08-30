@@ -10,6 +10,13 @@ describe('open editorial anchor scenes', () => {
     expect(coverSource).toContain('RegistrationMarks');
   });
 
+  it('keeps the territorial motion sparse and directional', () => {
+    expect(coverSource).not.toContain('staggerPoints');
+    expect(coverSource).toContain('Array.from({length: 3}');
+    expect(coverSource).toContain('const traveler = createRef<Circle>()');
+    expect(coverSource).toContain('traveler().position');
+  });
+
   it('moves GeoPlatform off the enterprise shell', () => {
     expect(geoSource).toContain('EditorialHeader');
     expect(geoSource).toContain('ScreenshotSurface');
