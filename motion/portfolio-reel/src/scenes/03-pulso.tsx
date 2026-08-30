@@ -1,7 +1,7 @@
 import {Circle, Img, Line, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
 import {all, createRef, sequence, waitFor} from '@motion-canvas/core';
 import {ASSET_URLS} from '../shared/assets';
-import {leftAlignedCenterX, rightAlignedCenterX} from '../shared/layout';
+import {CONTENT_LEFT, CONTENT_RIGHT} from '../shared/layout';
 import {carouselMetadata, getProject} from '../shared/metadata';
 import {revealText} from '../shared/primitives/RevealText';
 import {
@@ -32,8 +32,7 @@ export default makeScene2D(function* (view) {
       <Rect width={1024} height={1294} radius={24} stroke={THEME.color.borderSoft} lineWidth={2} />
       <Txt
         text={project.name}
-        x={leftAlignedCenterX(936)}
-        y={-570}
+        left={[CONTENT_LEFT, -570]}
         width={936}
         fill={THEME.color.text}
         fontFamily={THEME.font.display}
@@ -43,8 +42,7 @@ export default makeScene2D(function* (view) {
       />
       <Txt
         text={project.status}
-        x={rightAlignedCenterX(420)}
-        y={-570}
+        right={[CONTENT_RIGHT, -570]}
         width={420}
         fill={THEME.color.accent}
         fontFamily={THEME.font.mono}
