@@ -70,3 +70,19 @@ jobs:
             exit "$code"
           fi
           grep -Eq "Local:|ready in" /tmp/motion-dev.log
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run static carousel regression
+        run: |
+          python -m pip install pytest
+          cd ../..
+          python -m pytest tests/test_build_social_carousel.py -q
+
+      - name: Confirm static renderer contract is untouched
+        run: |
+          cd ../..
+          git diff --exit-code origin/main -- portfolio/social_carousel.json scripts/build_social_carousel.py
