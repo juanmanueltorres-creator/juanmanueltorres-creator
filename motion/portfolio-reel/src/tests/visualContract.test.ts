@@ -110,8 +110,10 @@ describe('motion reel visual contract', () => {
     expect(projectHeaderSource).not.toContain('textWrap');
   });
 
-  it('keeps icon and chip styling bounded', () => {
+  it('keeps icon and chip styling bounded and Motion Canvas color-safe', () => {
     expect(techIconSource).toContain('<SVG');
+    expect(techIconSource).not.toContain("fill={'transparent'}");
+    expect(techIconSource).toContain("fill={'#00000000'}");
     expect(statusChipSource).toContain('THEME.color.raised');
   });
 
