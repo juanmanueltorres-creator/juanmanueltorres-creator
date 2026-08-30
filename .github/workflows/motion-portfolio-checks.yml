@@ -40,7 +40,7 @@ jobs:
       - name: Persist generated package lock
         if: github.actor != 'github-actions[bot]'
         run: |
-          if git diff --quiet -- package-lock.json && git diff --cached --quiet -- package-lock.json; then
+          if [ -z "$(git status --porcelain -- package-lock.json)" ]; then
             echo "package-lock.json unchanged"
             exit 0
           fi
@@ -58,3 +58,15 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Dev server smoke
+        run: |
+          set +e
+          timeout 8s npm run dev > /tmp/motion-dev.log 2>&1
+          code=$?
+          set -e
+          cat /tmp/motion-dev.log
+          if [ "$code" -ne 124 ]; then
+            exit "$code"
+          fi
+          grep -Eq "Local:|ready in" /tmp/motion-dev.log
