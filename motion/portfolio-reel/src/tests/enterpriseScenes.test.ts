@@ -11,11 +11,16 @@ describe('scene migration contracts', () => {
     expect(pulsoSource).toContain('PROVENANCE ON');
   });
 
-  it('uses enterprise frame and evidence hierarchy in Anti IA', () => {
-    expect(antiIaSource).toContain('<EnterpriseFrame');
+  it('keeps Anti IA open while preserving the evidence hierarchy', () => {
+    expect(antiIaSource).toContain('EditorialHeader');
+    expect(antiIaSource).toContain('ScreenshotSurface');
+    expect(antiIaSource).not.toContain('<EnterpriseFrame');
+    expect(antiIaSource).not.toContain('SurfacePanel');
+    expect(antiIaSource).not.toContain('StatusChip');
     expect(antiIaSource).toContain('COORDINATE');
     expect(antiIaSource).toContain('EVIDENCE');
     expect(antiIaSource).toContain('QUESTION');
+    expect(antiIaSource).toContain('Una coordenada no es un punto.');
     expect(antiIaSource).not.toContain('textWrap');
   });
 });
