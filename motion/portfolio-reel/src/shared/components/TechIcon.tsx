@@ -14,7 +14,7 @@ export function TechIcon({name, size = 20, ...props}: TechIconProps) {
       width={size}
       height={size}
       stroke={THEME.color.muted}
-      fill={'transparent'}
+      fill={'#00000000'}
       {...props}
     />
   );
