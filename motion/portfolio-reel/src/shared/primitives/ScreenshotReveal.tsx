@@ -1,5 +1,6 @@
 import type {Rect} from '@motion-canvas/2d';
-import {all, easeOutCubic, type ThreadGenerator} from '@motion-canvas/core';
+import {all, type ThreadGenerator} from '@motion-canvas/core';
+import {MOTION} from '../motion';
 import type {ImagePosition} from '../types';
 
 export function normalizeFocalPosition(
@@ -20,22 +21,22 @@ export function normalizeFocalPosition(
   }
 }
 
-function clampStartScale(value: number): number {
+export function clampScreenshotScale(value: number): number {
   if (!Number.isFinite(value)) return 1;
-  return Math.min(1.06, Math.max(1, value));
+  return Math.min(1.03, Math.max(1, value));
 }
 
 export function* revealScreenshot(
   node: Rect,
-  duration = 0.45,
-  startScale = 1.03,
+  duration = MOTION.component,
+  startScale = 1.02,
 ): ThreadGenerator {
-  const safeScale = clampStartScale(startScale);
+  const safeScale = clampScreenshotScale(startScale);
   node.opacity(0);
   node.scale(safeScale);
 
   yield* all(
-    node.opacity(1, duration, easeOutCubic),
-    node.scale(1, duration, easeOutCubic),
+    node.opacity(1, duration, MOTION.easing.enter),
+    node.scale(1, duration, MOTION.easing.enter),
   );
 }

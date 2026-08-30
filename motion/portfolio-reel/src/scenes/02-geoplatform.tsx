@@ -1,8 +1,11 @@
 import {Circle, Img, Layout, Line, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
-import {all, createRef, sequence, waitFor} from '@motion-canvas/core';
+import {all, createRef, waitFor} from '@motion-canvas/core';
 import {ASSET_URLS} from '../shared/assets';
+import {EnterpriseFrame} from '../shared/components/EnterpriseFrame';
+import {StatusChip} from '../shared/components/StatusChip';
+import {SurfacePanel} from '../shared/components/SurfacePanel';
 import {carouselMetadata, getProject} from '../shared/metadata';
-import {revealText} from '../shared/primitives/RevealText';
+import {MOTION} from '../shared/motion';
 import {scanPulse} from '../shared/primitives/ScanPulse';
 import {
   normalizeFocalPosition,
@@ -10,138 +13,133 @@ import {
 } from '../shared/primitives/ScreenshotReveal';
 import {THEME} from '../shared/theme';
 
-const DOMAIN_LABELS = [
-  ['MINING', -315, -185],
-  ['SATELLITE', -25, -300],
-  ['WEATHER', 300, -190],
-  ['SEISMIC', -285, 165],
-  ['ROUTES', 285, 160],
-] as const;
-
 export default makeScene2D(function* (view) {
   const project = getProject(carouselMetadata, 'geoplatform');
-  const context = createRef<Rect>();
-  const pulse = createRef<Circle>();
+  const chipRow = createRef<Layout>();
   const screenshotFrame = createRef<Rect>();
-  const labels = DOMAIN_LABELS.map(() => createRef<Txt>());
+  const pulse = createRef<Circle>();
+  const contextRail = createRef<Rect>();
   const focal = normalizeFocalPosition(project.imagePosition);
 
-  view.fill(THEME.color.background);
+  view.fill(THEME.color.canvas);
   view.add(
-    <>
-      <Rect width={1024} height={1294} radius={24} stroke={THEME.color.borderSoft} lineWidth={2} />
+    <EnterpriseFrame
+      eyebrow={'02 / TERRITORIAL INTELLIGENCE'}
+      name={project.name}
+      status={project.status}
+      footer={'MINING · SATELLITE · WEATHER · SEISMIC · ROUTES'}
+    >
       <Layout
         layout
         width={936}
-        height={76}
-        y={-570}
-        direction={'row'}
+        height={920}
+        direction={'column'}
+        gap={18}
         alignItems={'center'}
-        justifyContent={'space-between'}
       >
-        <Txt
-          text={project.name}
-          fill={THEME.color.text}
-          fontFamily={THEME.font.display}
-          fontSize={48}
-          fontWeight={700}
-        />
-        <Txt
-          text={project.status}
-          fill={THEME.color.accent}
-          fontFamily={THEME.font.mono}
-          fontSize={15}
-          fontWeight={700}
-          letterSpacing={1.4}
-        />
-      </Layout>
+        <Layout
+          ref={chipRow}
+          layout
+          width={936}
+          height={42}
+          gap={8}
+          alignItems={'center'}
+        >
+          <StatusChip label={'MINING'} icon={'database'} active />
+          <StatusChip label={'SATELLITE'} icon={'satellite'} active />
+          <StatusChip label={'WEATHER'} />
+          <StatusChip label={'SEISMIC'} icon={'activity'} />
+          <StatusChip label={'ROUTES'} icon={'route'} />
+        </Layout>
 
-      <Rect ref={context} y={-15} width={936} height={760}>
-        <Line points={[[-95, 0], [95, 0]]} stroke={THEME.color.border} lineWidth={2} />
-        <Line points={[[0, -95], [0, 95]]} stroke={THEME.color.border} lineWidth={2} />
-        {DOMAIN_LABELS.map(([, x, y]) => (
+        <Rect
+          ref={screenshotFrame}
+          width={THEME.space.screenshotWidth}
+          height={THEME.space.screenshotHeight}
+          radius={18}
+          clip
+          fill={THEME.color.raised}
+          stroke={THEME.color.border}
+          lineWidth={1}
+          opacity={0}
+        >
+          <Img
+            src={ASSET_URLS[project.screenshot]}
+            width={THEME.space.screenshotWidth + 120}
+            x={focal.x * 44}
+            y={focal.y * 34}
+          />
           <Line
-            points={[[0, 0], [x * 0.72, y * 0.72]]}
-            stroke={THEME.color.borderSoft}
+            points={[[-292, -78], [-218, -78]]}
+            stroke={THEME.color.accentSoft}
+            lineWidth={1}
+            opacity={0.7}
+          />
+          <Line
+            points={[[-255, -115], [-255, -41]]}
+            stroke={THEME.color.accentSoft}
+            lineWidth={1}
+            opacity={0.7}
+          />
+          <Circle
+            ref={pulse}
+            x={-255}
+            y={-78}
+            width={12}
+            height={12}
+            stroke={THEME.color.accent}
             lineWidth={2}
-            opacity={0.85}
+            fill={'#00000000'}
           />
-        ))}
-        <Circle width={20} height={20} fill={THEME.color.accent} />
-        <Circle
-          ref={pulse}
-          width={14}
-          height={14}
-          stroke={THEME.color.accent}
-          lineWidth={3}
-          fill={'#00000000'}
-        />
-        {DOMAIN_LABELS.map(([label, x, y], index) => (
+        </Rect>
+
+        <SurfacePanel
+          ref={contextRail}
+          layout
+          width={936}
+          height={88}
+          padding={[16, 20]}
+          alignItems={'center'}
+          justifyContent={'space-between'}
+          opacity={0}
+        >
+          <Layout layout direction={'column'} gap={4} alignItems={'start'}>
+            <Txt
+              text={'LIVE TERRITORIAL CONTEXT'}
+              fill={THEME.color.text}
+              fontFamily={THEME.font.sans}
+              fontSize={18}
+              fontWeight={600}
+            />
+            <Txt
+              text={'ONE PLACE / MULTIPLE VERIFIED CONTEXT LAYERS'}
+              fill={THEME.color.muted2}
+              fontFamily={THEME.font.mono}
+              fontSize={12}
+              fontWeight={500}
+              letterSpacing={0.8}
+            />
+          </Layout>
           <Txt
-            ref={labels[index]}
-            text={label}
-            x={x}
-            y={y}
-            fill={THEME.color.text}
+            text={'05 DOMAINS'}
+            fill={THEME.color.accent}
             fontFamily={THEME.font.mono}
-            fontSize={20}
-            fontWeight={700}
-            letterSpacing={1.8}
-            opacity={0}
+            fontSize={14}
+            fontWeight={600}
           />
-        ))}
-        <Txt
-          text={'ONE PLACE → MULTIPLE CONTEXT LAYERS'}
-          y={292}
-          fill={THEME.color.muted2}
-          fontFamily={THEME.font.mono}
-          fontSize={14}
-          fontWeight={700}
-          letterSpacing={1.4}
-        />
-      </Rect>
-
-      <Rect
-        ref={screenshotFrame}
-        y={THEME.space.screenshotY}
-        width={THEME.space.screenshotWidth}
-        height={THEME.space.screenshotHeight}
-        radius={24}
-        clip
-        fill={THEME.color.surface}
-        stroke={THEME.color.border}
-        lineWidth={2}
-        opacity={0}
-      >
-        <Img
-          src={ASSET_URLS[project.screenshot]}
-          width={THEME.space.screenshotWidth + 120}
-          x={focal.x * 44}
-          y={focal.y * 34}
-        />
-      </Rect>
-      <Txt
-        text={'MINING · SATELLITE · WEATHER · SEISMIC · ROUTES'}
-        y={THEME.space.captionY}
-        fill={THEME.color.muted}
-        fontFamily={THEME.font.mono}
-        fontSize={16}
-        fontWeight={700}
-        letterSpacing={0.7}
-      />
-    </>,
+        </SurfacePanel>
+      </Layout>
+    </EnterpriseFrame>,
   );
 
-  yield* scanPulse(pulse(), 0.38, 225);
-  yield* sequence(
-    0.04,
-    ...labels.map(label => revealText(label(), 0.18, 8)),
-  );
-  yield* waitFor(0.1);
+  chipRow().opacity(0);
+  contextRail().opacity(0);
+
+  yield* chipRow().opacity(1, MOTION.component, MOTION.easing.enter);
   yield* all(
-    context().opacity(0.08, 0.34),
-    context().scale(0.97, 0.34),
-    revealScreenshot(screenshotFrame(), 0.36, 1.018),
+    revealScreenshot(screenshotFrame(), MOTION.component, 1.02),
+    scanPulse(pulse(), MOTION.component, 120),
   );
-  yield* waitFor(0.82);
+  yield* contextRail().opacity(1, MOTION.component, MOTION.easing.enter);
+  yield* waitFor(1.18);
 });

@@ -51,8 +51,9 @@ describe('motion reel visual contract', () => {
     }
   });
 
-  it('lays out project name and status as one space-between header row', () => {
+  it('keeps legacy scene headers layout-driven until each scene migrates', () => {
     for (const [filename, source] of PROJECT_SCENES) {
+      if (source.includes('<EnterpriseFrame')) continue;
       expect(source, filename).toContain("justifyContent={'space-between'}");
       expect(source, filename).toContain("alignItems={'center'}");
     }
