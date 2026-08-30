@@ -16,17 +16,16 @@ export default makeScene2D(function* (view) {
   const title = createRef<Txt>();
   const subtitle = createRef<Txt>();
   const footer = createRef<Txt>();
-  const frame = createRef<Rect>();
   const nodeRefs = Array.from({length: 6}, () => createRef<Circle>());
 
   const routePoints = [
-    [-410, -322],
-    [-290, -382],
-    [-138, -300],
-    [16, -362],
-    [168, -276],
-    [306, -342],
-    [414, -286],
+    [-404, 20],
+    [-286, -40],
+    [-142, 24],
+    [8, -34],
+    [162, 38],
+    [300, -18],
+    [404, 32],
   ] as const;
 
   const nodePoints = [
@@ -41,20 +40,11 @@ export default makeScene2D(function* (view) {
   view.fill(THEME.color.canvas);
   view.add(
     <>
-      <Rect
-        ref={frame}
-        width={1024}
-        height={1294}
-        radius={24}
-        fill={THEME.color.workspace}
-        stroke={THEME.color.borderSoft}
-        lineWidth={1}
-      />
       <RegistrationMarks />
 
       <Layout
         layout
-        width={936}
+        width={THEME.space.contentWidth}
         height={42}
         y={-570}
         alignItems={'center'}
@@ -64,99 +54,86 @@ export default makeScene2D(function* (view) {
           text={carouselMetadata.cover.eyebrow}
           fill={THEME.color.accent}
           fontFamily={THEME.font.mono}
-          fontSize={THEME.type.eyebrow}
+          fontSize={15}
           fontWeight={600}
-          letterSpacing={2}
+          letterSpacing={1.05}
         />
         <Txt
           text={'MOTION PORTFOLIO / 2026'}
           fill={THEME.color.muted2}
           fontFamily={THEME.font.mono}
-          fontSize={THEME.type.micro}
+          fontSize={13}
           fontWeight={500}
-          letterSpacing={1.2}
+          letterSpacing={0.6}
         />
       </Layout>
-      <Line
-        points={[[-468, -536], [468, -536]]}
-        stroke={THEME.color.borderSoft}
-        lineWidth={1}
-      />
 
-      <Rect
-        width={936}
-        height={330}
-        y={-305}
-        radius={18}
-        fill={THEME.color.canvas}
-        stroke={THEME.color.borderSoft}
-        lineWidth={1}
-      >
+      <Rect width={THEME.space.contentWidth} height={230} y={-330}>
         <Line
           ref={route}
-          points={routePoints.map(([x, y]) => [x, y + 305])}
-          stroke={THEME.color.accent}
-          lineWidth={3}
+          points={routePoints.map(([x, y]) => [x, y])}
+          stroke={THEME.color.accentSoft}
+          lineWidth={2}
           radius={18}
-          opacity={0.86}
+          opacity={0.82}
         />
         {nodePoints.map((position, index) => (
           <Circle
             ref={nodeRefs[index]}
             x={position[0]}
-            y={position[1] + 305}
-            width={12}
-            height={12}
+            y={position[1]}
+            width={index === 3 ? 12 : 9}
+            height={index === 3 ? 12 : 9}
             fill={THEME.color.canvas}
-            stroke={THEME.color.accent}
+            stroke={index === 3 ? THEME.color.accent : THEME.color.accentSoft}
             lineWidth={2}
           />
         ))}
       </Rect>
 
-      <Line points={[[-310, -116], [-310, -82]]} stroke={THEME.color.border} lineWidth={1} />
-      <Line points={[[0, -116], [0, -82]]} stroke={THEME.color.border} lineWidth={1} />
-      <Line points={[[310, -116], [310, -82]]} stroke={THEME.color.border} lineWidth={1} />
+      <Line points={[[-310, -194], [-310, -164]]} stroke={THEME.color.border} lineWidth={1} />
+      <Line points={[[0, -194], [0, -164]]} stroke={THEME.color.border} lineWidth={1} />
+      <Line points={[[310, -194], [310, -164]]} stroke={THEME.color.border} lineWidth={1} />
 
       <Txt
         ref={territory}
         text={'TERRITORY'}
         x={-310}
-        y={-56}
-        fill={THEME.color.text}
+        y={-140}
+        fill={THEME.color.muted}
         fontFamily={THEME.font.mono}
-        fontSize={16}
-        fontWeight={600}
-        letterSpacing={1.8}
+        fontSize={15}
+        fontWeight={500}
+        letterSpacing={0.9}
       />
       <Txt
         ref={evidence}
         text={'EVIDENCE'}
         x={0}
-        y={-56}
-        fill={THEME.color.text}
+        y={-140}
+        fill={THEME.color.muted}
         fontFamily={THEME.font.mono}
-        fontSize={16}
-        fontWeight={600}
-        letterSpacing={1.8}
+        fontSize={15}
+        fontWeight={500}
+        letterSpacing={0.9}
       />
       <Txt
         ref={operations}
         text={'OPERATIONS'}
         x={310}
-        y={-56}
-        fill={THEME.color.text}
+        y={-140}
+        fill={THEME.color.muted}
         fontFamily={THEME.font.mono}
-        fontSize={16}
-        fontWeight={600}
-        letterSpacing={1.8}
+        fontSize={15}
+        fontWeight={500}
+        letterSpacing={0.9}
       />
 
       <Layout
         layout
-        width={936}
+        width={THEME.space.contentWidth}
         height={280}
-        y={154}
+        y={100}
         direction={'column'}
         alignItems={'start'}
         justifyContent={'center'}
@@ -174,9 +151,9 @@ export default makeScene2D(function* (view) {
 
       <Layout
         layout
-        width={936}
+        width={THEME.space.contentWidth}
         height={100}
-        y={402}
+        y={375}
         direction={'column'}
         alignItems={'start'}
         justifyContent={'center'}
@@ -194,7 +171,7 @@ export default makeScene2D(function* (view) {
 
       <Layout
         layout
-        width={936}
+        width={THEME.space.contentWidth}
         height={34}
         y={566}
         alignItems={'center'}
@@ -207,14 +184,14 @@ export default makeScene2D(function* (view) {
           fontFamily={THEME.font.mono}
           fontSize={13}
           fontWeight={500}
-          letterSpacing={0.8}
+          letterSpacing={0.45}
         />
         <Txt
           text={'01 / 07'}
           fill={THEME.color.accentSoft}
           fontFamily={THEME.font.mono}
           fontSize={13}
-          fontWeight={600}
+          fontWeight={500}
         />
       </Layout>
     </>,
@@ -245,9 +222,6 @@ export default makeScene2D(function* (view) {
     revealText(subtitle(), MOTION.component, 10),
   );
   yield* revealText(footer(), 0.2, 5);
-  yield* all(
-    frame().stroke(THEME.color.border, MOTION.component, MOTION.easing.continuity),
-    route().opacity(0.18, MOTION.component, MOTION.easing.continuity),
-  );
+  yield* route().opacity(0.18, MOTION.component, MOTION.easing.continuity);
   yield* waitFor(0.42);
 });
