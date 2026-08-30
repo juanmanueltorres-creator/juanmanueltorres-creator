@@ -1,5 +1,5 @@
-import {Line, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
-import {createRef, sequence, waitFor} from '@motion-canvas/core';
+import {Circle, Line, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
+import {all, createRef, sequence, waitFor} from '@motion-canvas/core';
 import {carouselMetadata} from '../shared/metadata';
 import {drawPath} from '../shared/primitives/DrawPath';
 import {revealText} from '../shared/primitives/RevealText';
@@ -13,7 +13,9 @@ const SYSTEM_ORDER = [
 ] as const;
 
 export default makeScene2D(function* (view) {
+  const spine = createRef<Line>();
   const branches = SYSTEM_ORDER.map(() => createRef<Line>());
+  const endpointRefs = SYSTEM_ORDER.map(() => createRef<Circle>());
   const categoryRefs = SYSTEM_ORDER.map(() => createRef<Txt>());
   const nameRefs = SYSTEM_ORDER.map(() => createRef<Txt>());
   const stackRefs = SYSTEM_ORDER.map(() => createRef<Txt>());
@@ -45,37 +47,26 @@ export default makeScene2D(function* (view) {
       <Txt
         text={carouselMetadata.moreSystems.title}
         x={-468}
-        y={-475}
+        y={-470}
         width={900}
         fill={THEME.color.text}
         fontFamily={THEME.font.display}
-        fontSize={46}
+        fontSize={48}
         fontWeight={700}
-        lineHeight={58}
-        textWrap
-        textAlign={'left'}
-      />
-      <Txt
-        text={carouselMetadata.moreSystems.subtitle}
-        x={-468}
-        y={-360}
-        width={880}
-        fill={THEME.color.muted}
-        fontFamily={THEME.font.display}
-        fontSize={24}
-        lineHeight={34}
+        lineHeight={60}
         textWrap
         textAlign={'left'}
       />
 
       <Line
-        points={[[-330, -180], [-330, 400]]}
+        ref={spine}
+        points={[[-330, -285], [-330, 410]]}
         stroke={THEME.color.border}
         lineWidth={3}
       />
 
       {systems.map(({category, item}, index) => {
-        const y = -125 + index * 170;
+        const y = -210 + index * 175;
         return (
           <>
             <Line
@@ -84,12 +75,22 @@ export default makeScene2D(function* (view) {
               stroke={index === systems.length - 1 ? THEME.color.accent : THEME.color.border}
               lineWidth={3}
             />
+            <Circle
+              ref={endpointRefs[index]}
+              x={-205}
+              y={y}
+              width={13}
+              height={13}
+              fill={THEME.color.background}
+              stroke={index === systems.length - 1 ? THEME.color.accent : THEME.color.text}
+              lineWidth={2}
+            />
             <Txt
               ref={categoryRefs[index]}
               text={category}
-              x={-120}
-              y={y - 22}
-              width={180}
+              x={-105}
+              y={y - 24}
+              width={190}
               fill={THEME.color.muted2}
               fontFamily={THEME.font.mono}
               fontSize={14}
@@ -101,12 +102,12 @@ export default makeScene2D(function* (view) {
             <Txt
               ref={nameRefs[index]}
               text={item.name}
-              x={80}
-              y={y + 5}
+              x={105}
+              y={y + 4}
               width={560}
               fill={THEME.color.text}
               fontFamily={THEME.font.display}
-              fontSize={34}
+              fontSize={38}
               fontWeight={700}
               textAlign={'left'}
               opacity={0}
@@ -114,12 +115,12 @@ export default makeScene2D(function* (view) {
             <Txt
               ref={stackRefs[index]}
               text={item.stack.slice(0, 3).join(' · ')}
-              x={80}
-              y={y + 48}
+              x={105}
+              y={y + 51}
               width={560}
               fill={THEME.color.muted}
               fontFamily={THEME.font.mono}
-              fontSize={14}
+              fontSize={15}
               textAlign={'left'}
               opacity={0}
             />
@@ -142,17 +143,24 @@ export default makeScene2D(function* (view) {
     </>,
   );
 
+  spine().end(0);
   for (const branch of branches) branch().end(0);
+  for (const endpoint of endpointRefs) endpoint().opacity(0);
+
+  yield* drawPath(spine(), 0.34);
 
   for (let index = 0; index < systems.length; index += 1) {
-    yield* drawPath(branches[index](), 0.18);
+    yield* all(
+      drawPath(branches[index](), 0.16),
+      endpointRefs[index]().opacity(1, 0.12),
+    );
     yield* sequence(
-      0.04,
-      revealText(categoryRefs[index](), 0.16, 7),
-      revealText(nameRefs[index](), 0.2, 9),
-      revealText(stackRefs[index](), 0.16, 6),
+      0.035,
+      revealText(categoryRefs[index](), 0.14, 6),
+      revealText(nameRefs[index](), 0.18, 7),
+      revealText(stackRefs[index](), 0.14, 5),
     );
   }
 
-  yield* waitFor(0.46);
+  yield* waitFor(0.58);
 });
