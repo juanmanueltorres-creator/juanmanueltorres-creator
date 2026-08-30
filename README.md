@@ -113,22 +113,6 @@
   <sub><a href="https://atlas-geotech.onrender.com/">open app →</a> · <a href="https://github.com/juanmanueltorres-creator/atlas-geotech">repository →</a></sub>
 </p>
 
-<p align="center"><img src="./assets/product-frame-bottom.svg" alt="" width="80%" /></p>
-
-### 06 / [Rally Stage Sim](https://github.com/juanmanueltorres-creator/rally-stage-sim)
-
-<p align="center">
-  <a href="https://github.com/juanmanueltorres-creator/rally-stage-sim">
-    <img src="./assets/rally.png" alt="Rally Stage Sim prototype" width="52%" />
-  </a>
-</p>
-
-<p align="center">
-  <strong>PROTOTYPE</strong><br />
-  <sub>A rally-stage experiment for combining moving cars, stage timing, weather and terrain on an interactive map.</sub><br />
-  <sub><a href="https://github.com/juanmanueltorres-creator/rally-stage-sim">repository →</a></sub>
-</p>
-
 <p align="center"><img src="./assets/section-ornament.svg" alt="" width="80%" /></p>
 
 ## LORE
