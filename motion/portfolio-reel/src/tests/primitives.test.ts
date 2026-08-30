@@ -1,5 +1,8 @@
 import {describe, expect, it} from 'vitest';
-import {normalizeFocalPosition} from '../shared/primitives/ScreenshotReveal';
+import {
+  clampScreenshotScale,
+  normalizeFocalPosition,
+} from '../shared/primitives/ScreenshotReveal';
 import {normalizePulseRadius} from '../shared/primitives/ScanPulse';
 import {clampProgress} from '../shared/primitives/DrawPath';
 import {boundedPoints} from '../shared/primitives/StaggerPoints';
@@ -11,6 +14,11 @@ describe('ScreenshotReveal', () => {
     expect(normalizeFocalPosition('center')).toEqual({x: 0, y: 0});
     expect(normalizeFocalPosition('top')).toEqual({x: 0, y: -1});
     expect(normalizeFocalPosition('bottom')).toEqual({x: 0, y: 1});
+  });
+
+  it('keeps enterprise screenshot drift restrained', () => {
+    expect(clampScreenshotScale(1.08)).toBe(1.03);
+    expect(clampScreenshotScale(0.9)).toBe(1);
   });
 });
 

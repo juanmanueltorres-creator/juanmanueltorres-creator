@@ -113,4 +113,19 @@ describe('motion reel visual contract', () => {
     expect(techIconSource).toContain('<SVG');
     expect(statusChipSource).toContain('THEME.color.raised');
   });
+
+  it('upgrades GeoPlatform onto the shared enterprise frame', () => {
+    expect(geoplatformSource).toContain('<EnterpriseFrame');
+    expect(geoplatformSource).toContain('MINING');
+    expect(geoplatformSource).toContain('SATELLITE');
+    expect(geoplatformSource).toContain('WEATHER');
+    expect(geoplatformSource).toContain('SEISMIC');
+    expect(geoplatformSource).toContain('ROUTES');
+  });
+
+  it('keeps the cover enterprise and wrap-safe', () => {
+    expect(coverSource).toContain('RegistrationMarks');
+    expect(coverSource).not.toContain('Georgia');
+    expect(coverSource).not.toContain('textWrap');
+  });
 });
