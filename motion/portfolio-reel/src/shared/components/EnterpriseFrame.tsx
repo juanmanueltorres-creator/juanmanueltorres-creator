@@ -41,9 +41,11 @@ export function EnterpriseFrame({
         {footer ? (
           <Txt
             text={footer}
-            fill={THEME.color.muted2}
+            fill={THEME.color.muted}
             fontFamily={THEME.font.mono}
             fontSize={THEME.type.micro}
+            fontWeight={500}
+            letterSpacing={0.35}
           />
         ) : null}
       </Layout>
