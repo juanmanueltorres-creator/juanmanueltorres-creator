@@ -2,12 +2,13 @@ import {describe, expect, it} from 'vitest';
 import pulsoSource from '../scenes/03-pulso.tsx?raw';
 import antiIaSource from '../scenes/04-anti-ia.tsx?raw';
 
-describe('enterprise scene migrations', () => {
-  it('uses enterprise frame and provenance states in Pulso', () => {
-    expect(pulsoSource).toContain('<EnterpriseFrame');
+describe('scene migration contracts', () => {
+  it('preserves provenance states in Pulso after open editorial migration', () => {
+    expect(pulsoSource).not.toContain('<EnterpriseFrame');
     expect(pulsoSource).toContain('SIGNAL');
     expect(pulsoSource).toContain('SOURCE');
     expect(pulsoSource).toContain('FRESHNESS');
+    expect(pulsoSource).toContain('PROVENANCE ON');
   });
 
   it('uses enterprise frame and evidence hierarchy in Anti IA', () => {
