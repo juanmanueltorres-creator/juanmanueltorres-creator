@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1100" height="200" viewBox="0 0 1100 200" role="img" aria-labelledby="title desc">
   <title id="title">Juan Manuel Torres — cinematic profile hero</title>
-  <desc id="desc">Dark editorial geospatial profile hero with aged gold, bone, and crimson accents.</desc>
+  <desc id="desc">Dark editorial profile hero focused on geospatial software, decision technologies, and AI systems.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#070706"/>
@@ -37,6 +37,6 @@
   <text x="550" y="104" text-anchor="middle" fill="url(#titleMetal)" stroke="#4a2c18" stroke-width="1.15" paint-order="stroke fill" font-family="Palatino Linotype, Book Antiqua, Georgia, serif" font-size="47" font-weight="700" letter-spacing="1.5">JUAN MANUEL TORRES</text>
   <text x="550" y="103" text-anchor="middle" fill="none" stroke="#fff1d4" stroke-width=".35" opacity=".55" font-family="Palatino Linotype, Book Antiqua, Georgia, serif" font-size="47" font-weight="700" letter-spacing="1.5">JUAN MANUEL TORRES</text>
 
-  <text x="550" y="137" text-anchor="middle" fill="#d7c9b2" font-family="Palatino Linotype, Book Antiqua, Georgia, serif" font-size="16" font-style="italic" letter-spacing=".55">Geospatial Software · Territorial Intelligence · AI Systems</text>
-  <text x="550" y="169" text-anchor="middle" fill="#8f8171" font-family="Courier New, monospace" font-size="10.5" letter-spacing="2.2">TERRITORY → EVIDENCE → SPATIAL DATA → SOFTWARE → DECISION CONTEXT</text>
+  <text x="550" y="137" text-anchor="middle" fill="#d7c9b2" font-family="Palatino Linotype, Book Antiqua, Georgia, serif" font-size="16" font-style="italic" letter-spacing=".55">Geospatial Software · Decision Technologies · AI Systems</text>
+  <text x="550" y="169" text-anchor="middle" fill="#8f8171" font-family="Courier New, monospace" font-size="10.5" letter-spacing="2.2">DATA → EVIDENCE → MODELS → SOFTWARE → DECISIONS</text>
 </svg>
