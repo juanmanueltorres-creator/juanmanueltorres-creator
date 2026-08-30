@@ -1,6 +1,9 @@
 import {Circle, Layout, Line, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
 import {all, createRef, waitFor} from '@motion-canvas/core';
+import {RegistrationMarks} from '../shared/components/RegistrationMarks';
+import {SurfacePanel} from '../shared/components/SurfacePanel';
 import {carouselMetadata} from '../shared/metadata';
+import {MOTION} from '../shared/motion';
 import {drawPath} from '../shared/primitives/DrawPath';
 import {THEME} from '../shared/theme';
 
@@ -24,74 +27,96 @@ export default makeScene2D(function* (view) {
     return {category, item};
   });
 
-  view.fill(THEME.color.background);
+  const closingTitle = carouselMetadata.moreSystems.title.replace(
+    ' and experiments.',
+    '\nand experiments.',
+  );
+
+  view.fill(THEME.color.canvas);
   view.add(
-    <Rect width={1024} height={1294} radius={24} stroke={THEME.color.borderSoft} lineWidth={2} />,
+    <Rect
+      width={1024}
+      height={1294}
+      radius={24}
+      fill={THEME.color.workspace}
+      stroke={THEME.color.borderSoft}
+      lineWidth={1}
+    >
+      <RegistrationMarks />
+    </Rect>,
   );
 
   view.add(
     <Layout
       layout
       width={936}
-      height={190}
-      y={-500}
+      height={176}
+      y={-506}
       direction={'column'}
       alignItems={'start'}
       justifyContent={'center'}
-      gap={18}
+      gap={14}
     >
       <Txt
         text={carouselMetadata.moreSystems.eyebrow}
         fill={THEME.color.accent}
         fontFamily={THEME.font.mono}
-        fontSize={18}
-        fontWeight={700}
-        letterSpacing={2.4}
+        fontSize={THEME.type.eyebrow}
+        fontWeight={600}
+        letterSpacing={2}
       />
       <Txt
-        text={carouselMetadata.moreSystems.title}
-        width={900}
+        text={closingTitle}
         fill={THEME.color.text}
-        fontFamily={THEME.font.display}
-        fontSize={48}
-        fontWeight={700}
-        lineHeight={60}
-        textWrap
+        fontFamily={THEME.font.sans}
+        fontSize={44}
+        fontWeight={600}
+        lineHeight={54}
       />
     </Layout>,
   );
 
   view.add(
+    <SurfacePanel
+      width={900}
+      height={718}
+      y={92}
+      level={'raised'}
+    />,
+  );
+
+  view.add(
     <Line
       ref={spine}
-      points={[[-330, -285], [-330, 410]]}
+      points={[[-338, -238], [-338, 392]]}
       stroke={THEME.color.border}
-      lineWidth={3}
+      lineWidth={2}
     />,
   );
 
   for (let index = 0; index < systems.length; index += 1) {
     const {category, item} = systems[index];
-    const y = -210 + index * 175;
+    const y = -172 + index * 162;
+    const active = index === systems.length - 1;
 
     view.add(
       <Line
         ref={branches[index]}
-        points={[[-330, y], [-215, y]]}
-        stroke={index === systems.length - 1 ? THEME.color.accent : THEME.color.border}
-        lineWidth={3}
+        points={[[-338, y], [-238, y]]}
+        stroke={active ? THEME.color.accentSoft : THEME.color.border}
+        lineWidth={2}
       />,
     );
 
     view.add(
       <Circle
         ref={endpointRefs[index]}
-        x={-205}
+        x={-226}
         y={y}
-        width={13}
-        height={13}
-        fill={THEME.color.background}
-        stroke={index === systems.length - 1 ? THEME.color.accent : THEME.color.text}
+        width={12}
+        height={12}
+        fill={THEME.color.workspace}
+        stroke={active ? THEME.color.accent : THEME.color.text}
         lineWidth={2}
       />,
     );
@@ -99,38 +124,39 @@ export default makeScene2D(function* (view) {
     view.add(
       <Layout
         layout
-        x={105}
-        y={y + 12}
-        width={560}
-        height={118}
+        x={112}
+        y={y + 3}
+        width={590}
+        height={112}
         direction={'column'}
         alignItems={'start'}
         justifyContent={'center'}
-        gap={1}
+        gap={3}
       >
         <Txt
           text={category}
-          width={560}
+          width={590}
           fill={THEME.color.muted2}
           fontFamily={THEME.font.mono}
           fontSize={14}
-          fontWeight={700}
-          letterSpacing={1.5}
+          fontWeight={600}
+          letterSpacing={1.35}
         />
         <Txt
           text={item.name}
-          width={560}
+          width={590}
           fill={THEME.color.text}
-          fontFamily={THEME.font.display}
-          fontSize={38}
-          fontWeight={700}
+          fontFamily={THEME.font.sans}
+          fontSize={33}
+          fontWeight={600}
         />
         <Txt
           text={item.stack.slice(0, 3).join(' · ')}
-          width={560}
+          width={590}
           fill={THEME.color.muted}
           fontFamily={THEME.font.mono}
-          fontSize={15}
+          fontSize={14}
+          fontWeight={500}
         />
       </Layout>,
     );
@@ -148,11 +174,11 @@ export default makeScene2D(function* (view) {
     >
       <Txt
         text={'github.com/juanmanueltorres-creator'}
-        fill={THEME.color.muted2}
+        fill={THEME.color.muted}
         fontFamily={THEME.font.mono}
         fontSize={14}
-        fontWeight={700}
-        letterSpacing={1.2}
+        fontWeight={500}
+        letterSpacing={0.8}
       />
     </Layout>,
   );
@@ -161,14 +187,14 @@ export default makeScene2D(function* (view) {
   for (const branch of branches) branch().end(0);
   for (const endpoint of endpointRefs) endpoint().opacity(0);
 
-  yield* drawPath(spine(), 0.34);
+  yield* drawPath(spine(), MOTION.component);
 
   for (let index = 0; index < systems.length; index += 1) {
     yield* all(
-      drawPath(branches[index](), 0.16),
-      endpointRefs[index]().opacity(1, 0.12),
+      drawPath(branches[index](), MOTION.micro),
+      endpointRefs[index]().opacity(1, MOTION.micro, MOTION.easing.enter),
     );
   }
 
-  yield* waitFor(0.9);
+  yield* waitFor(0.92);
 });
