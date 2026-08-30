@@ -1,5 +1,5 @@
 import {Circle, Img, Line, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
-import {createRef, sequence, waitFor} from '@motion-canvas/core';
+import {all, createRef, sequence, waitFor} from '@motion-canvas/core';
 import {ASSET_URLS} from '../shared/assets';
 import {carouselMetadata, getProject} from '../shared/metadata';
 import {revealText} from '../shared/primitives/RevealText';
@@ -11,8 +11,8 @@ import {staggerPoints} from '../shared/primitives/StaggerPoints';
 import {THEME} from '../shared/theme';
 
 const SIGNAL_POINTS = [
-  [-360, -180], [-240, -90], [-120, -210], [15, -120], [155, -215], [325, -120],
-  [-300, 70], [-165, 135], [-20, 45], [125, 120], [260, 35], [360, 145],
+  [-365, -190], [-255, -95], [-130, -220], [10, -125], [165, -220], [325, -125],
+  [-305, 70], [-170, 140], [-20, 45], [130, 125], [265, 35], [365, 150],
 ] as const;
 
 export default makeScene2D(function* (view) {
@@ -55,25 +55,41 @@ export default makeScene2D(function* (view) {
 
       <Rect ref={field} y={0} width={936} height={760}>
         <Rect
-          width={860}
-          height={500}
+          width={880}
+          height={510}
           radius={28}
           stroke={THEME.color.border}
           lineWidth={2}
           fill={THEME.color.surface}
-          opacity={0.72}
+          opacity={0.76}
         />
-        {SIGNAL_POINTS.map(([x, y], index) => (
-          <Circle
-            ref={pointRefs[index]}
-            x={x}
-            y={y}
-            width={16 + (index % 3) * 4}
-            height={16 + (index % 3) * 4}
-            fill={index % 4 === 0 ? THEME.color.accent : THEME.color.text}
-            opacity={0}
-          />
-        ))}
+        <Txt
+          text={'ABSTRACT SIGNAL FIELD'}
+          x={-395}
+          y={-210}
+          fill={THEME.color.muted2}
+          fontFamily={THEME.font.mono}
+          fontSize={13}
+          fontWeight={700}
+          letterSpacing={1.6}
+          textAlign={'left'}
+        />
+        {SIGNAL_POINTS.map(([x, y], index) => {
+          const ring = index % 4 === 0;
+          return (
+            <Circle
+              ref={pointRefs[index]}
+              x={x}
+              y={y}
+              width={ring ? 26 : 16 + (index % 3) * 4}
+              height={ring ? 26 : 16 + (index % 3) * 4}
+              fill={ring ? '#00000000' : (index % 3 === 0 ? THEME.color.accent : THEME.color.text)}
+              stroke={ring ? THEME.color.accent : undefined}
+              lineWidth={ring ? 3 : 0}
+              opacity={0}
+            />
+          );
+        })}
 
         <Txt
           ref={signal}
@@ -82,9 +98,9 @@ export default makeScene2D(function* (view) {
           y={300}
           fill={THEME.color.text}
           fontFamily={THEME.font.mono}
-          fontSize={20}
+          fontSize={19}
           fontWeight={700}
-          letterSpacing={1.8}
+          letterSpacing={1.6}
           opacity={0}
         />
         <Line points={[[-190, 300], [-95, 300]]} stroke={THEME.color.border} lineWidth={3} endArrow />
@@ -95,9 +111,9 @@ export default makeScene2D(function* (view) {
           y={300}
           fill={THEME.color.text}
           fontFamily={THEME.font.mono}
-          fontSize={20}
+          fontSize={19}
           fontWeight={700}
-          letterSpacing={1.8}
+          letterSpacing={1.6}
           opacity={0}
         />
         <Line points={[[90, 300], [185, 300]]} stroke={THEME.color.border} lineWidth={3} endArrow />
@@ -108,16 +124,16 @@ export default makeScene2D(function* (view) {
           y={300}
           fill={THEME.color.accent}
           fontFamily={THEME.font.mono}
-          fontSize={20}
+          fontSize={19}
           fontWeight={700}
-          letterSpacing={1.8}
+          letterSpacing={1.6}
           opacity={0}
         />
       </Rect>
 
       <Rect
         ref={screenshotFrame}
-        y={40}
+        y={THEME.space.screenshotY}
         width={THEME.space.screenshotWidth}
         height={THEME.space.screenshotHeight}
         radius={24}
@@ -129,30 +145,35 @@ export default makeScene2D(function* (view) {
       >
         <Img
           src={ASSET_URLS[project.screenshot]}
-          width={THEME.space.screenshotWidth + 80}
-          x={focal.x * 36}
-          y={focal.y * 28}
+          width={THEME.space.screenshotWidth + 120}
+          x={focal.x * 44}
+          y={focal.y * 34}
         />
       </Rect>
       <Txt
-        text={'Public signals with visible source and update time'}
-        y={390}
+        text={'EARTHQUAKES · THERMAL · WEATHER · SOURCE · FRESHNESS'}
+        y={THEME.space.captionY}
         fill={THEME.color.muted}
         fontFamily={THEME.font.mono}
-        fontSize={17}
+        fontSize={15}
+        fontWeight={700}
+        letterSpacing={0.7}
       />
     </>,
   );
 
-  yield* staggerPoints(pointRefs.map(ref => ref()), 0.045, 16);
+  yield* staggerPoints(pointRefs.map(ref => ref()), 0.04, 16);
   yield* sequence(
-    0.08,
-    revealText(signal(), 0.2, 10),
-    revealText(source(), 0.2, 10),
-    revealText(freshness(), 0.2, 10),
+    0.065,
+    revealText(signal(), 0.18, 8),
+    revealText(source(), 0.18, 8),
+    revealText(freshness(), 0.18, 8),
   );
-  yield* waitFor(0.2);
-  yield* field().opacity(0, 0.2);
-  yield* revealScreenshot(screenshotFrame(), 0.42, 1.025);
-  yield* waitFor(0.55);
+  yield* waitFor(0.08);
+  yield* all(
+    field().opacity(0.06, 0.32),
+    field().scale(0.98, 0.32),
+    revealScreenshot(screenshotFrame(), 0.36, 1.018),
+  );
+  yield* waitFor(0.82);
 });
