@@ -50,4 +50,20 @@ describe('motion reel visual contract', () => {
       expect(source, filename).not.toContain('x={468}');
     }
   });
+
+  it('anchors edge-aligned text with Motion Canvas left/right shortcuts', () => {
+    expect(coverSource).toContain('left={[');
+    expect(moreSystemsSource).toContain('left={[');
+
+    for (const source of [
+      geoplatformSource,
+      pulsoSource,
+      antiIaSource,
+      fleetflowSource,
+      atlasSource,
+    ]) {
+      expect(source).toContain('left={[');
+      expect(source).toContain('right={[');
+    }
+  });
 });
