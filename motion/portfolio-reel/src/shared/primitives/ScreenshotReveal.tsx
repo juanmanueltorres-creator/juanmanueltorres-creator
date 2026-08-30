@@ -28,8 +28,8 @@ export function clampScreenshotScale(value: number): number {
 
 export function* revealScreenshot(
   node: Rect,
-  duration = MOTION.component,
-  startScale = 1.02,
+  duration: number = MOTION.component,
+  startScale: number = 1.02,
 ): ThreadGenerator {
   const safeScale = clampScreenshotScale(startScale);
   node.opacity(0);
