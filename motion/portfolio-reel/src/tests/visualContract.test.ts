@@ -6,6 +6,10 @@ import antiIaSource from '../scenes/04-anti-ia.tsx?raw';
 import fleetflowSource from '../scenes/05-fleetflow.tsx?raw';
 import atlasSource from '../scenes/06-atlas.tsx?raw';
 import moreSystemsSource from '../scenes/07-more-systems.tsx?raw';
+import enterpriseFrameSource from '../shared/components/EnterpriseFrame.tsx?raw';
+import projectHeaderSource from '../shared/components/ProjectHeader.tsx?raw';
+import statusChipSource from '../shared/components/StatusChip.tsx?raw';
+import techIconSource from '../shared/components/TechIcon.tsx?raw';
 import {THEME} from '../shared/theme';
 import {MOTION} from '../shared/motion';
 
@@ -92,5 +96,21 @@ describe('motion reel visual contract', () => {
     expect(MOTION.component).toBeLessThanOrEqual(0.45);
     expect(MOTION.scene).toBeGreaterThanOrEqual(0.35);
     expect(MOTION.scene).toBeLessThanOrEqual(0.7);
+  });
+
+  it('defines the shared enterprise workspace shell', () => {
+    expect(enterpriseFrameSource).toContain('RegistrationMarks');
+    expect(enterpriseFrameSource).toContain('ProjectHeader');
+    expect(enterpriseFrameSource).toContain('THEME.color.workspace');
+  });
+
+  it('keeps enterprise headers layout-driven and wrap-safe', () => {
+    expect(projectHeaderSource).toContain("justifyContent={'space-between'}");
+    expect(projectHeaderSource).not.toContain('textWrap');
+  });
+
+  it('keeps icon and chip styling bounded', () => {
+    expect(techIconSource).toContain('<SVG');
+    expect(statusChipSource).toContain('THEME.color.raised');
   });
 });
