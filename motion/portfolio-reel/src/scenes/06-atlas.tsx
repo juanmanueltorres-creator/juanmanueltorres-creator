@@ -1,5 +1,5 @@
 import {Circle, Img, Line, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
-import {createRef, sequence, waitFor} from '@motion-canvas/core';
+import {all, createRef, sequence, waitFor} from '@motion-canvas/core';
 import {ASSET_URLS} from '../shared/assets';
 import {carouselMetadata, getProject} from '../shared/metadata';
 import {revealText} from '../shared/primitives/RevealText';
@@ -11,8 +11,8 @@ import {staggerPoints} from '../shared/primitives/StaggerPoints';
 import {THEME} from '../shared/theme';
 
 const PROJECT_POINTS = [
-  [-310, -190], [-170, -245], [15, -170], [205, -230], [335, -120],
-  [-250, 20], [-70, 75], [110, 5], [285, 80],
+  [-320, -190], [-175, -245], [15, -170], [205, -230], [340, -120],
+  [-255, 20], [-70, 78], [115, 5], [290, 82],
 ] as const;
 
 const DIMENSIONS = ['PROVINCE', 'MINERAL', 'STAGE', 'COMPANY', 'CAPITAL'] as const;
@@ -55,32 +55,32 @@ export default makeScene2D(function* (view) {
 
       <Rect ref={field} y={0} width={936} height={760}>
         <Rect
-          width={860}
-          height={500}
+          width={880}
+          height={510}
           radius={28}
           fill={THEME.color.surface}
           stroke={THEME.color.border}
           lineWidth={2}
-          opacity={0.74}
+          opacity={0.78}
         />
-        {[-240, -120, 0, 120, 240].map(x => (
+        {[-264, -132, 0, 132, 264].map(x => (
           <Line
-            points={[[x, -250], [x, 250]]}
+            points={[[x, -255], [x, 255]]}
             stroke={THEME.color.borderSoft}
             lineWidth={2}
           />
         ))}
         {[-160, -80, 0, 80, 160].map(y => (
           <Line
-            points={[[-430, y], [430, y]]}
+            points={[[-440, y], [440, y]]}
             stroke={THEME.color.borderSoft}
             lineWidth={2}
           />
         ))}
         <Txt
           text={'ABSTRACT TERRITORIAL FRAME'}
-          x={-390}
-          y={-205}
+          x={-400}
+          y={-210}
           fill={THEME.color.muted2}
           fontFamily={THEME.font.mono}
           fontSize={13}
@@ -88,36 +88,50 @@ export default makeScene2D(function* (view) {
           letterSpacing={1.6}
           textAlign={'left'}
         />
-        {PROJECT_POINTS.map(([x, y], index) => (
-          <Circle
-            ref={pointRefs[index]}
-            x={x}
-            y={y}
-            width={14 + (index % 3) * 3}
-            height={14 + (index % 3) * 3}
-            fill={index % 3 === 0 ? THEME.color.accent : THEME.color.text}
-            opacity={0}
-          />
-        ))}
+        {PROJECT_POINTS.map(([x, y], index) => {
+          const ring = index % 3 === 0;
+          return (
+            <Circle
+              ref={pointRefs[index]}
+              x={x}
+              y={y}
+              width={ring ? 25 : 15 + (index % 3) * 3}
+              height={ring ? 25 : 15 + (index % 3) * 3}
+              fill={ring ? '#00000000' : THEME.color.text}
+              stroke={ring ? THEME.color.accent : undefined}
+              lineWidth={ring ? 3 : 0}
+              opacity={0}
+            />
+          );
+        })}
         {DIMENSIONS.map((label, index) => (
-          <Txt
-            ref={labelRefs[index]}
-            text={label}
+          <Rect
             x={-340 + index * 170}
-            y={310}
-            fill={index === DIMENSIONS.length - 1 ? THEME.color.accent : THEME.color.text}
-            fontFamily={THEME.font.mono}
-            fontSize={15}
-            fontWeight={700}
-            letterSpacing={1.2}
-            opacity={0}
-          />
+            y={305}
+            width={150}
+            height={42}
+            radius={12}
+            fill={THEME.color.surfaceRaised}
+            stroke={index === DIMENSIONS.length - 1 ? THEME.color.accent : THEME.color.border}
+            lineWidth={2}
+          >
+            <Txt
+              ref={labelRefs[index]}
+              text={label}
+              fill={index === DIMENSIONS.length - 1 ? THEME.color.accent : THEME.color.text}
+              fontFamily={THEME.font.mono}
+              fontSize={15}
+              fontWeight={700}
+              letterSpacing={1.1}
+              opacity={0}
+            />
+          </Rect>
         ))}
       </Rect>
 
       <Rect
         ref={screenshotFrame}
-        y={40}
+        y={THEME.space.screenshotY}
         width={THEME.space.screenshotWidth}
         height={THEME.space.screenshotHeight}
         radius={24}
@@ -129,28 +143,33 @@ export default makeScene2D(function* (view) {
       >
         <Img
           src={ASSET_URLS[project.screenshot]}
-          width={THEME.space.screenshotWidth + 80}
-          x={focal.x * 36}
-          y={focal.y * 28}
+          width={THEME.space.screenshotWidth + 110}
+          x={focal.x * 44}
+          y={focal.y * 34}
         />
       </Rect>
       <Txt
-        text={'Argentine mining projects · filters · territorial variables'}
-        y={390}
+        text={'ARGENTINE MINING ATLAS · PROJECTS · FILTERS'}
+        y={THEME.space.captionY}
         fill={THEME.color.muted}
         fontFamily={THEME.font.mono}
-        fontSize={17}
+        fontSize={16}
+        fontWeight={700}
+        letterSpacing={0.7}
       />
     </>,
   );
 
-  yield* staggerPoints(pointRefs.map(ref => ref()), 0.05, 16);
+  yield* staggerPoints(pointRefs.map(ref => ref()), 0.045, 16);
   yield* sequence(
-    0.055,
-    ...labelRefs.map(label => revealText(label(), 0.18, 8)),
+    0.05,
+    ...labelRefs.map(label => revealText(label(), 0.16, 6)),
   );
-  yield* waitFor(0.18);
-  yield* field().opacity(0, 0.2);
-  yield* revealScreenshot(screenshotFrame(), 0.42, 1.025);
-  yield* waitFor(0.55);
+  yield* waitFor(0.08);
+  yield* all(
+    field().opacity(0.06, 0.32),
+    field().scale(0.98, 0.32),
+    revealScreenshot(screenshotFrame(), 0.36, 1.018),
+  );
+  yield* waitFor(0.82);
 });
