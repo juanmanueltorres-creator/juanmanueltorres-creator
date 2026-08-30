@@ -11,20 +11,20 @@
       <stop offset="100%" stop-color="#5d4025"/>
     </linearGradient>
     <style>
-      .eyebrow { fill:#caa56b; font:700 18px "Courier New", monospace; letter-spacing:2.4px; }
-      .title { fill:#f3e8d4; font:700 56px Georgia, "Palatino Linotype", serif; }
-      .subtitle { fill:#b9a58a; font:400 26px Georgia, serif; }
-      .slide-number { fill:#8e7c67; font:700 16px "Courier New", monospace; letter-spacing:1.8px; }
-      .kicker { fill:#caa56b; font:700 14px "Courier New", monospace; letter-spacing:1.8px; }
-      .project-title { fill:#f3e8d4; font:700 44px Georgia, serif; }
-      .body { fill:#b9a58a; font:400 24px Georgia, serif; }
-      .label { fill:#8e7c67; font:700 14px "Courier New", monospace; letter-spacing:1.4px; }
-      .status { fill:#f3e8d4; font:700 15px "Courier New", monospace; letter-spacing:1.4px; }
-      .pill { fill:#f3e8d4; font:700 13px "Courier New", monospace; letter-spacing:0.4px; }
-      .pill-link { fill:#caa56b; font:700 13px "Courier New", monospace; letter-spacing:0.4px; }
-      .tool-title { fill:#f3e8d4; font:700 27px Georgia, serif; }
-      .tool-body { fill:#b9a58a; font:400 18px Georgia, serif; }
-      .footer { fill:#8e7c67; font:700 14px "Courier New", monospace; letter-spacing:1.4px; }
+      .eyebrow { fill:#caa56b; font-family:"Courier New", monospace; font-size:18px; font-weight:700; letter-spacing:2.4px; }
+      .title { fill:#f3e8d4; font-family:Georgia, serif; font-size:56px; font-weight:700; }
+      .subtitle { fill:#b9a58a; font-family:Georgia, serif; font-size:26px; font-weight:400; }
+      .slide-number { fill:#8e7c67; font-family:"Courier New", monospace; font-size:16px; font-weight:700; letter-spacing:1.8px; }
+      .kicker { fill:#caa56b; font-family:"Courier New", monospace; font-size:14px; font-weight:700; letter-spacing:1.8px; }
+      .project-title { fill:#f3e8d4; font-family:Georgia, serif; font-size:44px; font-weight:700; }
+      .body { fill:#b9a58a; font-family:Georgia, serif; font-size:24px; font-weight:400; }
+      .label { fill:#8e7c67; font-family:"Courier New", monospace; font-size:14px; font-weight:700; letter-spacing:1.4px; }
+      .status { fill:#f3e8d4; font-family:"Courier New", monospace; font-size:15px; font-weight:700; letter-spacing:1.4px; }
+      .pill { fill:#f3e8d4; font-family:"Courier New", monospace; font-size:13px; font-weight:700; letter-spacing:0.4px; }
+      .pill-link { fill:#caa56b; font-family:"Courier New", monospace; font-size:13px; font-weight:700; letter-spacing:0.4px; }
+      .tool-title { fill:#f3e8d4; font-family:Georgia, serif; font-size:27px; font-weight:700; }
+      .tool-body { fill:#b9a58a; font-family:Georgia, serif; font-size:18px; font-weight:400; }
+      .footer { fill:#8e7c67; font-family:"Courier New", monospace; font-size:14px; font-weight:700; letter-spacing:1.4px; }
     </style>
   </defs>
   <rect width="100%" height="100%" fill="url(#bg)"/>

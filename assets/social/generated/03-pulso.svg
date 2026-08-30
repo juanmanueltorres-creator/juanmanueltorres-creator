@@ -11,20 +11,20 @@
       <stop offset="100%" stop-color="#5d4025"/>
     </linearGradient>
     <style>
-      .eyebrow { fill:#caa56b; font:700 18px "Courier New", monospace; letter-spacing:2.4px; }
-      .title { fill:#f3e8d4; font:700 56px Georgia, "Palatino Linotype", serif; }
-      .subtitle { fill:#b9a58a; font:400 26px Georgia, serif; }
-      .slide-number { fill:#8e7c67; font:700 16px "Courier New", monospace; letter-spacing:1.8px; }
-      .kicker { fill:#caa56b; font:700 14px "Courier New", monospace; letter-spacing:1.8px; }
-      .project-title { fill:#f3e8d4; font:700 44px Georgia, serif; }
-      .body { fill:#b9a58a; font:400 24px Georgia, serif; }
-      .label { fill:#8e7c67; font:700 14px "Courier New", monospace; letter-spacing:1.4px; }
-      .status { fill:#f3e8d4; font:700 15px "Courier New", monospace; letter-spacing:1.4px; }
-      .pill { fill:#f3e8d4; font:700 13px "Courier New", monospace; letter-spacing:0.4px; }
-      .pill-link { fill:#caa56b; font:700 13px "Courier New", monospace; letter-spacing:0.4px; }
-      .tool-title { fill:#f3e8d4; font:700 27px Georgia, serif; }
-      .tool-body { fill:#b9a58a; font:400 18px Georgia, serif; }
-      .footer { fill:#8e7c67; font:700 14px "Courier New", monospace; letter-spacing:1.4px; }
+      .eyebrow { fill:#caa56b; font-family:"Courier New", monospace; font-size:18px; font-weight:700; letter-spacing:2.4px; }
+      .title { fill:#f3e8d4; font-family:Georgia, serif; font-size:56px; font-weight:700; }
+      .subtitle { fill:#b9a58a; font-family:Georgia, serif; font-size:26px; font-weight:400; }
+      .slide-number { fill:#8e7c67; font-family:"Courier New", monospace; font-size:16px; font-weight:700; letter-spacing:1.8px; }
+      .kicker { fill:#caa56b; font-family:"Courier New", monospace; font-size:14px; font-weight:700; letter-spacing:1.8px; }
+      .project-title { fill:#f3e8d4; font-family:Georgia, serif; font-size:44px; font-weight:700; }
+      .body { fill:#b9a58a; font-family:Georgia, serif; font-size:24px; font-weight:400; }
+      .label { fill:#8e7c67; font-family:"Courier New", monospace; font-size:14px; font-weight:700; letter-spacing:1.4px; }
+      .status { fill:#f3e8d4; font-family:"Courier New", monospace; font-size:15px; font-weight:700; letter-spacing:1.4px; }
+      .pill { fill:#f3e8d4; font-family:"Courier New", monospace; font-size:13px; font-weight:700; letter-spacing:0.4px; }
+      .pill-link { fill:#caa56b; font-family:"Courier New", monospace; font-size:13px; font-weight:700; letter-spacing:0.4px; }
+      .tool-title { fill:#f3e8d4; font-family:Georgia, serif; font-size:27px; font-weight:700; }
+      .tool-body { fill:#b9a58a; font-family:Georgia, serif; font-size:18px; font-weight:400; }
+      .footer { fill:#8e7c67; font-family:"Courier New", monospace; font-size:14px; font-weight:700; letter-spacing:1.4px; }
     </style>
   </defs>
   <rect width="100%" height="100%" fill="url(#bg)"/>
@@ -41,7 +41,7 @@
     <text x="72" y="902" class="body"><tspan x="72" dy="0">A public map of recent signals across</tspan><tspan x="72" dy="31">Argentina: earthquakes, thermal detections,</tspan><tspan x="72" dy="31">weather and national indicators, with the</tspan><tspan x="72" dy="31">source and update time visible.</tspan></text>
     <text x="72" y="1036" class="label">STACK</text>
     <rect x="72" y="1058" rx="14" ry="14" width="94" height="28" fill="#191510" stroke="#3a2d21" /><text x="119.0" y="1077" class="pill" text-anchor="middle">React</text><rect x="176" y="1058" rx="14" ry="14" width="114" height="28" fill="#191510" stroke="#3a2d21" /><text x="233.0" y="1077" class="pill" text-anchor="middle">TypeScript</text><rect x="300" y="1058" rx="14" ry="14" width="96" height="28" fill="#191510" stroke="#3a2d21" /><text x="348.0" y="1077" class="pill" text-anchor="middle">MapLibre</text><rect x="406" y="1058" rx="14" ry="14" width="123" height="28" fill="#191510" stroke="#3a2d21" /><text x="467.5" y="1077" class="pill" text-anchor="middle">Public Data</text>
-    <a href="https://juanmanueltorres-creator.github.io/pulso-publico-argentina/"><rect x="72" y="1182" rx="14" ry="14" width="124" height="32" fill="#191510" stroke="#caa56b" /><text x="134.0" y="1203" class="pill-link" text-anchor="middle">open app →</text></a><a href="https://github.com/juanmanueltorres-creator/pulso-publico-argentina"><rect x="208" y="1182" rx="14" ry="14" width="130" height="32" fill="#191510" stroke="#caa56b" /><text x="273.0" y="1203" class="pill-link" text-anchor="middle">repository →</text></a>
+    <a href="https://juanmanueltorres-creator.github.io/pulso-publico-argentina/"><rect x="72" y="1182" rx="14" ry="14" width="136" height="32" fill="#191510" stroke="#caa56b" /><text x="140.0" y="1203" class="pill-link" text-anchor="middle">open app →</text></a><a href="https://github.com/juanmanueltorres-creator/pulso-publico-argentina"><rect x="220" y="1182" rx="14" ry="14" width="136" height="32" fill="#191510" stroke="#caa56b" /><text x="288.0" y="1203" class="pill-link" text-anchor="middle">repository →</text></a>
     <text x="1008" y="1248" class="slide-number" text-anchor="end">03 / 07</text>
     
 </svg>

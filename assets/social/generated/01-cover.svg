@@ -11,20 +11,20 @@
       <stop offset="100%" stop-color="#5d4025"/>
     </linearGradient>
     <style>
-      .eyebrow { fill:#caa56b; font:700 18px "Courier New", monospace; letter-spacing:2.4px; }
-      .title { fill:#f3e8d4; font:700 56px Georgia, "Palatino Linotype", serif; }
-      .subtitle { fill:#b9a58a; font:400 26px Georgia, serif; }
-      .slide-number { fill:#8e7c67; font:700 16px "Courier New", monospace; letter-spacing:1.8px; }
-      .kicker { fill:#caa56b; font:700 14px "Courier New", monospace; letter-spacing:1.8px; }
-      .project-title { fill:#f3e8d4; font:700 44px Georgia, serif; }
-      .body { fill:#b9a58a; font:400 24px Georgia, serif; }
-      .label { fill:#8e7c67; font:700 14px "Courier New", monospace; letter-spacing:1.4px; }
-      .status { fill:#f3e8d4; font:700 15px "Courier New", monospace; letter-spacing:1.4px; }
-      .pill { fill:#f3e8d4; font:700 13px "Courier New", monospace; letter-spacing:0.4px; }
-      .pill-link { fill:#caa56b; font:700 13px "Courier New", monospace; letter-spacing:0.4px; }
-      .tool-title { fill:#f3e8d4; font:700 27px Georgia, serif; }
-      .tool-body { fill:#b9a58a; font:400 18px Georgia, serif; }
-      .footer { fill:#8e7c67; font:700 14px "Courier New", monospace; letter-spacing:1.4px; }
+      .eyebrow { fill:#caa56b; font-family:"Courier New", monospace; font-size:18px; font-weight:700; letter-spacing:2.4px; }
+      .title { fill:#f3e8d4; font-family:Georgia, serif; font-size:56px; font-weight:700; }
+      .subtitle { fill:#b9a58a; font-family:Georgia, serif; font-size:26px; font-weight:400; }
+      .slide-number { fill:#8e7c67; font-family:"Courier New", monospace; font-size:16px; font-weight:700; letter-spacing:1.8px; }
+      .kicker { fill:#caa56b; font-family:"Courier New", monospace; font-size:14px; font-weight:700; letter-spacing:1.8px; }
+      .project-title { fill:#f3e8d4; font-family:Georgia, serif; font-size:44px; font-weight:700; }
+      .body { fill:#b9a58a; font-family:Georgia, serif; font-size:24px; font-weight:400; }
+      .label { fill:#8e7c67; font-family:"Courier New", monospace; font-size:14px; font-weight:700; letter-spacing:1.4px; }
+      .status { fill:#f3e8d4; font-family:"Courier New", monospace; font-size:15px; font-weight:700; letter-spacing:1.4px; }
+      .pill { fill:#f3e8d4; font-family:"Courier New", monospace; font-size:13px; font-weight:700; letter-spacing:0.4px; }
+      .pill-link { fill:#caa56b; font-family:"Courier New", monospace; font-size:13px; font-weight:700; letter-spacing:0.4px; }
+      .tool-title { fill:#f3e8d4; font-family:Georgia, serif; font-size:27px; font-weight:700; }
+      .tool-body { fill:#b9a58a; font-family:Georgia, serif; font-size:18px; font-weight:400; }
+      .footer { fill:#8e7c67; font-family:"Courier New", monospace; font-size:14px; font-weight:700; letter-spacing:1.4px; }
     </style>
   </defs>
   <rect width="100%" height="100%" fill="url(#bg)"/>
@@ -32,15 +32,15 @@
   
     <text x="72" y="104" class="eyebrow">JUAN MANUEL TORRES</text>
     <line x1="72" y1="126" x2="1008" y2="126" stroke="url(#goldLine)" stroke-width="1.5" opacity="0.8" />
-    <text x="72" y="250" class="title"><tspan x="72" dy="0">Software built</tspan><tspan x="72" dy="66">around territory,</tspan><tspan x="72" dy="66">evidence and</tspan><tspan x="72" dy="66">operations.</tspan></text>
+    <text x="72" y="250" class="title"><tspan x="72" dy="0">Software built around</tspan><tspan x="72" dy="66">territory, evidence</tspan><tspan x="72" dy="66">and operations.</tspan></text>
     <text x="72" y="430" class="subtitle"><tspan x="72" dy="0">A compact visual atlas of geospatial</tspan><tspan x="72" dy="34">products, applied tools and spatial</tspan><tspan x="72" dy="34">systems.</tspan></text>
-    <rect x="72" y="535" width="936" height="520" rx="28" fill="#11100d" stroke="#3a2d21"/>
-    <text x="108" y="608" class="kicker">SELECTED BUILDS</text>
-    <line x1="108" y1="626" x2="972" y2="626" stroke="#3a2d21" stroke-width="1"/>
-    <text x="108" y="690" class="project-title">GeoPlatform · Pulso · Anti IA</text>
-    <text x="108" y="742" class="body">FleetFlow Sim · Atlas Geotech</text>
-    <text x="108" y="826" class="label">GEOSPATIAL · TERRITORY · EVIDENCE · OPERATIONS</text>
-    <text x="108" y="902" class="body">A compact visual atlas of my public-facing software builds.</text>
+    <rect x="72" y="560" width="936" height="480" rx="28" fill="#11100d" stroke="#3a2d21"/>
+    <text x="108" y="633" class="kicker">SELECTED BUILDS</text>
+    <line x1="108" y1="651" x2="972" y2="651" stroke="#3a2d21" stroke-width="1"/>
+    <text x="108" y="715" class="project-title">GeoPlatform · Pulso · Anti IA</text>
+    <text x="108" y="767" class="body">FleetFlow Sim · Atlas Geotech</text>
+    <text x="108" y="851" class="label">GEOSPATIAL · TERRITORY · EVIDENCE · OPERATIONS</text>
+    <text x="108" y="927" class="body">A compact visual atlas of my public-facing software builds.</text>
     <text x="72" y="1248" class="footer">github.com/juanmanueltorres-creator · juanmtorres.vercel.app</text>
     <text x="1008" y="1248" class="slide-number" text-anchor="end">01 / 07</text>
     
