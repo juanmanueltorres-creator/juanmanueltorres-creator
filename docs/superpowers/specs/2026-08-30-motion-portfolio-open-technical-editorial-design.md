@@ -27,6 +27,8 @@ The visual system must communicate hierarchy through typography, whitespace, con
 - Product screenshots are the main elements that may be visually encapsulated.
 - Keep scene edges visually open: no thick perimeter border and no boxed safe-area treatment.
 - Maintain generous internal breathing room so mountains, routes, diagrams, labels, and screenshots do not sit against card or canvas edges.
+- Keep major free-floating content at least 64 px from canvas edges unless a deliberate full-bleed screenshot treatment is explicitly approved.
+- Keep route, mountain, signal, and evidence geometry at least 56 px inside its own visual field.
 
 ## 3. Design Principle
 
@@ -80,7 +82,7 @@ Recommended weights:
 
 ### 5.3 Size vocabulary
 
-Keep a small vocabulary:
+Keep a small five-level vocabulary:
 
 - Eyebrow: 14–16 px
 - Product title: 46–54 px
@@ -257,7 +259,7 @@ Structure:
 - Three compact KPIs aligned cleanly without enclosing the whole group in a large card
 - Large screenshot
 
-The route geometry must stay comfortably inside the visual field.
+The route geometry must stay comfortably inside the visual field, including at peak trail width and vehicle radius.
 
 Route, vehicle, trail, and KPIs remain synchronized with the same linear progress signal.
 
@@ -346,12 +348,12 @@ Prevention: one dominant action per scene, plus only necessary supporting motion
 ### Edge crowding
 Routes, mountains, labels, or screenshots sit too close to boundaries.
 
-Prevention: enforce minimum visual margins and test at actual feed scale.
+Prevention: enforce the 64 px canvas margin and 56 px internal visual-field margin, then test at actual feed scale.
 
 ### Font noise
 Too many weights, sizes, letter-spacing values, or uppercase labels.
 
-Prevention: strict four-level type vocabulary and bounded weight usage.
+Prevention: strict five-level type vocabulary and bounded weight usage.
 
 ### Shadow noise
 Every surface gets a shadow.
@@ -374,7 +376,28 @@ Continuity comes from:
 
 Avoid hard scene-to-scene wipes that feel unrelated to the content.
 
-## 15. Testing Strategy
+## 15. Baseline and Recovery Strategy
+
+Implementation must stop using branch resets as a visual iteration mechanism.
+
+The implementation baseline is the current `feat/motion-portfolio-reel` branch after this spec is committed.
+
+Historical visual states are reference-only:
+
+- `backup/motion-enterprise-d74f51c` preserves the later boxed Enterprise pass.
+- `candidate/motion-enterprise-a8864` preserves the centered-route / micro-polish candidate.
+
+Rules:
+
+- Do not reset the implementation branch to historical commits while iterating.
+- Reuse a historical implementation only by copying or cherry-picking the smallest validated primitive needed.
+- Keep every new visual checkpoint as a normal forward commit.
+- If a checkpoint is rejected, revert or replace that specific forward change rather than moving the branch backward through unrelated commits.
+- Mandatory manual checkpoints occur after the shared open-editorial shell, after FleetFlow, and after all seven scenes are migrated.
+
+This preserves provenance and prevents another visual commit-selection loop.
+
+## 16. Testing Strategy
 
 Automated tests remain structural and behavioral, not pixel-perfect.
 
@@ -393,7 +416,7 @@ Required tests should cover:
 
 Manual visual QA remains mandatory for typography, whitespace, shadows, edge safety, and feed-scale readability.
 
-## 16. Manual Visual QA Checklist
+## 17. Manual Visual QA Checklist
 
 Review each scene at actual portrait preview size and at reduced feed-like scale.
 
@@ -410,7 +433,7 @@ Check:
 - Does the scene still make sense if paused on a representative frame?
 - Do all seven scenes feel like one editorial system?
 
-## 17. Non-Goals
+## 18. Non-Goals
 
 This pass does not include:
 
@@ -426,7 +449,7 @@ This pass does not include:
 - 3D camera work
 - automated headless MP4 rendering
 
-## 18. Definition of Done
+## 19. Definition of Done
 
 The redesign is complete when:
 
