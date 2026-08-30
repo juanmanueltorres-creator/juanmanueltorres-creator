@@ -1,4 +1,5 @@
 import {Layout, Txt} from '@motion-canvas/2d';
+import type {SignalValue} from '@motion-canvas/core';
 import type {IconName} from '../icons';
 import {THEME} from '../theme';
 import {SurfacePanel} from './SurfacePanel';
@@ -6,7 +7,7 @@ import {TechIcon} from './TechIcon';
 
 export interface MetricPanelProps {
   label: string;
-  value: string;
+  value: SignalValue<string>;
   icon?: IconName;
   width?: number;
 }
