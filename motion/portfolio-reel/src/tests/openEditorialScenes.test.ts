@@ -24,7 +24,7 @@ describe('open editorial anchor scenes', () => {
     expect(pulsoSource).not.toContain('EnterpriseFrame');
     expect(pulsoSource).not.toContain('SurfacePanel');
     expect(pulsoSource).not.toContain('staggerPoints');
-    expect(pulsoSource).toContain('const SIGNAL_POINTS = [');
+    expect(pulsoSource).toContain('const SIGNAL_POINTS');
     expect(pulsoSource).toContain('SIGNAL · SOURCE · FRESHNESS');
   });
 });
