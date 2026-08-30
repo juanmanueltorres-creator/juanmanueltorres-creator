@@ -30,10 +30,20 @@ export const THEME = Object.freeze({
   },
   space: {
     outer: 72,
+    edgeMin: 64,
+    localVisualMin: 56,
     contentWidth: 936,
     screenshotWidth: 936,
     screenshotHeight: 560,
+    screenshotRadius: 18,
     screenshotY: 35,
     captionY: 410,
+  },
+  shadow: {
+    product: {
+      color: '#00000057',
+      blur: 70,
+      offset: [0, 28] as const,
+    },
   },
 });
