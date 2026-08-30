@@ -1,4 +1,5 @@
 import {makeProject} from '@motion-canvas/core';
+import './shared/fonts';
 import cover from './scenes/01-cover?scene';
 import geoplatform from './scenes/02-geoplatform?scene';
 import pulso from './scenes/03-pulso?scene';
