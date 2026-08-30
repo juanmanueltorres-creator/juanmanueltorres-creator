@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1100" height="104" viewBox="0 0 1100 104" role="img" aria-labelledby="title desc">
-  <title id="title">Juan Manuel Torres — territorial archive</title>
-  <desc id="desc">Dark cinematic banner for GeoPlatform, Anti IA and territorial intelligence.</desc>
+  <title id="title">Juan Manuel Torres — decision technologies archive</title>
+  <desc id="desc">Dark cinematic banner for geospatial software, evidence, operations, and decision technologies.</desc>
   <defs>
     <linearGradient id="ember" x1="0" x2="1">
       <stop offset="0" stop-color="#6f4627"/>
@@ -42,14 +42,14 @@
   <rect class="bg" x="1" y="1" width="1098" height="102" rx="15"/>
   <rect class="inner" x="10" y="10" width="1080" height="84" rx="11"/>
   <path class="cut" d="M28 22h84m876 0h84M28 82h84m876 0h84M28 22v12m1044-12v12M28 70v12m1044-12v12"/>
-  <text x="550" y="27" text-anchor="middle" class="kicker">ARCHIVE OF TERRITORY · DATA · SOFTWARE</text>
+  <text x="550" y="27" text-anchor="middle" class="kicker">ARCHIVE OF DATA · SYSTEMS · DECISIONS</text>
   <g>
-    <text x="550" y="61" text-anchor="middle" class="phrase p1">GeoPlatform · Anti IA · Territorial Intelligence</text>
-    <text x="550" y="61" text-anchor="middle" class="etch e1">GeoPlatform · Anti IA · Territorial Intelligence</text>
-    <text x="550" y="61" text-anchor="middle" class="phrase p2">Geosciences · Spatial Data · AI-assisted Software</text>
-    <text x="550" y="61" text-anchor="middle" class="etch e2">Geosciences · Spatial Data · AI-assisted Software</text>
-    <text x="550" y="61" text-anchor="middle" class="phrase p3">Maps, data and context for territorial intelligence</text>
-    <text x="550" y="61" text-anchor="middle" class="etch e3">Maps, data and context for territorial intelligence</text>
+    <text x="550" y="61" text-anchor="middle" class="phrase p1">GeoPlatform · Anti IA · Decision Technologies</text>
+    <text x="550" y="61" text-anchor="middle" class="etch e1">GeoPlatform · Anti IA · Decision Technologies</text>
+    <text x="550" y="61" text-anchor="middle" class="phrase p2">Geosciences · Spatial Data · AI-assisted Systems</text>
+    <text x="550" y="61" text-anchor="middle" class="etch e2">Geosciences · Spatial Data · AI-assisted Systems</text>
+    <text x="550" y="61" text-anchor="middle" class="phrase p3">Data, models and interfaces for better decisions</text>
+    <text x="550" y="61" text-anchor="middle" class="etch e3">Data, models and interfaces for better decisions</text>
   </g>
   <line class="rail" x1="260" y1="79" x2="840" y2="79"/>
   <line class="scan" x1="260" y1="79" x2="840" y2="79"/>
