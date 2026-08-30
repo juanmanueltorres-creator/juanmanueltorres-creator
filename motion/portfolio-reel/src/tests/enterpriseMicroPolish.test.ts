@@ -1,7 +1,7 @@
 import {describe, expect, it} from 'vitest';
 import pulsoSource from '../scenes/03-pulso.tsx?raw';
+import fleetflowSource from '../scenes/05-fleetflow.tsx?raw';
 import enterpriseFrameSource from '../shared/components/EnterpriseFrame.tsx?raw';
-import {FLEETFLOW_ROUTE} from '../scenes/05-fleetflow';
 
 describe('enterprise micro polish', () => {
   it('keeps the Pulso signal rail compact', () => {
@@ -15,9 +15,9 @@ describe('enterprise micro polish', () => {
   });
 
   it('keeps the FleetFlow route comfortably inside its viewport', () => {
-    const xs = FLEETFLOW_ROUTE.map(([x]) => Math.abs(x));
-    const ys = FLEETFLOW_ROUTE.map(([, y]) => Math.abs(y));
-    expect(Math.max(...xs)).toBeLessThanOrEqual(350);
-    expect(Math.max(...ys)).toBeLessThanOrEqual(72);
+    expect(fleetflowSource).toContain('[-340, 36]');
+    expect(fleetflowSource).toContain('[340, -66]');
+    expect(fleetflowSource).not.toContain('[-390, 58]');
+    expect(fleetflowSource).not.toContain('[390, -92]');
   });
 });
