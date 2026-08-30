@@ -1,0 +1,60 @@
+name: Motion portfolio checks
+
+on:
+  push:
+    branches:
+      - feat/motion-portfolio-reel
+    paths:
+      - "motion/portfolio-reel/**"
+      - ".github/workflows/motion-portfolio-checks.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: motion/portfolio-reel
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Persist generated package lock
+        if: github.actor != 'github-actions[bot]'
+        run: |
+          if git diff --quiet -- package-lock.json && git diff --cached --quiet -- package-lock.json; then
+            echo "package-lock.json unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json
+          git commit -m "chore: lock motion portfolio dependencies"
+          git push origin HEAD:${GITHUB_REF_NAME}
+
+      - name: Run tests
+        run: npm test
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build

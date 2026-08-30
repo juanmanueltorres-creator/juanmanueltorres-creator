@@ -1,0 +1,10 @@
+{
+  "extends": "@motion-canvas/2d/tsconfig.project.json",
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "types": ["vite/client", "vitest/globals"]
+  },
+  "include": ["src", "node_modules/@motion-canvas/core/project.d.ts"]
+}
