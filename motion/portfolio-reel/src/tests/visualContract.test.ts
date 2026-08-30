@@ -6,19 +6,19 @@ import antiIaSource from '../scenes/04-anti-ia.tsx?raw';
 import fleetflowSource from '../scenes/05-fleetflow.tsx?raw';
 import atlasSource from '../scenes/06-atlas.tsx?raw';
 import moreSystemsSource from '../scenes/07-more-systems.tsx?raw';
-import {
-  leftAlignedCenterX,
-  rightAlignedCenterX,
-} from '../shared/layout';
 import {THEME} from '../shared/theme';
 
-const SCENE_SOURCES = [
-  ['01-cover.tsx', coverSource],
+const PROJECT_SCENES = [
   ['02-geoplatform.tsx', geoplatformSource],
   ['03-pulso.tsx', pulsoSource],
   ['04-anti-ia.tsx', antiIaSource],
   ['05-fleetflow.tsx', fleetflowSource],
   ['06-atlas.tsx', atlasSource],
+] as const;
+
+const ALL_SCENES = [
+  ['01-cover.tsx', coverSource],
+  ...PROJECT_SCENES,
   ['07-more-systems.tsx', moreSystemsSource],
 ] as const;
 
@@ -36,34 +36,27 @@ describe('motion reel visual contract', () => {
     );
   });
 
-  it('centers left and right aligned boxes from the content edges', () => {
-    expect(leftAlignedCenterX(936)).toBe(0);
-    expect(leftAlignedCenterX(900)).toBe(-18);
-    expect(leftAlignedCenterX(850)).toBe(-43);
-    expect(rightAlignedCenterX(420)).toBe(258);
-    expect(rightAlignedCenterX(460)).toBe(238);
-  });
-
-  it('does not treat canvas edge coordinates as text-box centers', () => {
-    for (const [filename, source] of SCENE_SOURCES) {
-      expect(source, filename).not.toContain('x={-468}');
-      expect(source, filename).not.toContain('x={468}');
+  it('uses flex Layout containers instead of absolute edge anchoring', () => {
+    for (const [filename, source] of ALL_SCENES) {
+      expect(source, filename).toContain('<Layout');
+      expect(source, filename).not.toContain('left={[');
+      expect(source, filename).not.toContain('right={[');
+      expect(source, filename).not.toContain('leftAlignedCenterX');
+      expect(source, filename).not.toContain('rightAlignedCenterX');
     }
   });
 
-  it('anchors edge-aligned text with Motion Canvas left/right shortcuts', () => {
-    expect(coverSource).toContain('left={[');
-    expect(moreSystemsSource).toContain('left={[');
-
-    for (const source of [
-      geoplatformSource,
-      pulsoSource,
-      antiIaSource,
-      fleetflowSource,
-      atlasSource,
-    ]) {
-      expect(source).toContain('left={[');
-      expect(source).toContain('right={[');
+  it('lays out project name and status as one space-between header row', () => {
+    for (const [filename, source] of PROJECT_SCENES) {
+      expect(source, filename).toContain("justifyContent={'space-between'}");
+      expect(source, filename).toContain("alignItems={'center'}");
     }
+  });
+
+  it('lays out Cover and More Systems editorial copy in start-aligned columns', () => {
+    expect(coverSource).toContain("direction={'column'}");
+    expect(coverSource).toContain("alignItems={'start'}");
+    expect(moreSystemsSource).toContain("direction={'column'}");
+    expect(moreSystemsSource).toContain("alignItems={'start'}");
   });
 });
