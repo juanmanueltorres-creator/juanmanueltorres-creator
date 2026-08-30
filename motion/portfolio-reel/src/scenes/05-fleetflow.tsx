@@ -21,16 +21,17 @@ import {
   normalizeFocalPosition,
   revealScreenshot,
 } from '../shared/primitives/ScreenshotReveal';
+import {staggerPoints} from '../shared/primitives/StaggerPoints';
 import {interpolatePolyline} from '../shared/route';
 import {THEME} from '../shared/theme';
 
 export const FLEETFLOW_ROUTE = [
-  [-380, 120],
-  [-220, 20],
-  [-80, 90],
-  [90, -30],
-  [240, 45],
-  [380, -80],
+  [-390, 115],
+  [-225, 10],
+  [-80, 88],
+  [90, -35],
+  [245, 42],
+  [390, -88],
 ] as const;
 
 export default makeScene2D(function* (view) {
@@ -40,6 +41,7 @@ export default makeScene2D(function* (view) {
   const depot = createRef<Circle>();
   const schematic = createRef<Rect>();
   const screenshotFrame = createRef<Rect>();
+  const stopRefs = FLEETFLOW_ROUTE.slice(1, -1).map(() => createRef<Circle>());
   const focal = normalizeFocalPosition(project.imagePosition);
   const delivered = createSignal('0');
   const distance = createSignal('0.0 km');
@@ -79,11 +81,11 @@ export default makeScene2D(function* (view) {
         textAlign={'right'}
       />
 
-      <Rect ref={schematic} y={10} width={936} height={760}>
+      <Rect ref={schematic} y={0} width={936} height={760}>
         <Txt
           text={'SYNTHETIC OPERATIONS'}
           x={-410}
-          y={-310}
+          y={-305}
           fill={THEME.color.muted2}
           fontFamily={THEME.font.mono}
           fontSize={14}
@@ -95,16 +97,16 @@ export default makeScene2D(function* (view) {
           ref={route}
           points={FLEETFLOW_ROUTE.map(([x, y]) => [x, y])}
           stroke={THEME.color.accent}
-          lineWidth={5}
-          radius={18}
-          opacity={0.82}
+          lineWidth={6}
+          radius={20}
+          opacity={0.88}
         />
         <Circle
           ref={depot}
           x={FLEETFLOW_ROUTE[0][0]}
           y={FLEETFLOW_ROUTE[0][1]}
-          width={32}
-          height={32}
+          width={40}
+          height={40}
           fill={THEME.color.background}
           stroke={THEME.color.accent}
           lineWidth={4}
@@ -112,39 +114,51 @@ export default makeScene2D(function* (view) {
         <Txt
           text={'DEPOT'}
           x={FLEETFLOW_ROUTE[0][0]}
-          y={FLEETFLOW_ROUTE[0][1] + 48}
+          y={FLEETFLOW_ROUTE[0][1] + 54}
           fill={THEME.color.muted}
           fontFamily={THEME.font.mono}
           fontSize={15}
           fontWeight={700}
         />
+        {FLEETFLOW_ROUTE.slice(1, -1).map(([x, y], index) => (
+          <Circle
+            ref={stopRefs[index]}
+            x={x}
+            y={y}
+            width={18}
+            height={18}
+            fill={THEME.color.background}
+            stroke={THEME.color.text}
+            lineWidth={3}
+          />
+        ))}
         <Circle
           ref={vehicle}
           x={FLEETFLOW_ROUTE[0][0]}
           y={FLEETFLOW_ROUTE[0][1]}
-          width={22}
-          height={22}
+          width={32}
+          height={32}
           fill={THEME.color.text}
           stroke={THEME.color.background}
-          lineWidth={4}
+          lineWidth={5}
         />
 
         <Rect
           x={0}
           y={280}
-          width={860}
-          height={126}
+          width={880}
+          height={120}
           radius={18}
-          fill={THEME.color.surface}
+          fill={THEME.color.surfaceRaised}
           stroke={THEME.color.border}
           lineWidth={2}
         >
           <Txt
             text={() => `DELIVERED  ${delivered()}`}
-            x={-280}
+            x={-292}
             fill={THEME.color.text}
             fontFamily={THEME.font.mono}
-            fontSize={19}
+            fontSize={20}
             fontWeight={700}
           />
           <Txt
@@ -152,15 +166,15 @@ export default makeScene2D(function* (view) {
             x={0}
             fill={THEME.color.text}
             fontFamily={THEME.font.mono}
-            fontSize={19}
+            fontSize={20}
             fontWeight={700}
           />
           <Txt
             text={() => `ACTIVE  ${active()}`}
-            x={290}
+            x={300}
             fill={THEME.color.text}
             fontFamily={THEME.font.mono}
-            fontSize={19}
+            fontSize={20}
             fontWeight={700}
           />
         </Rect>
@@ -168,7 +182,7 @@ export default makeScene2D(function* (view) {
 
       <Rect
         ref={screenshotFrame}
-        y={40}
+        y={THEME.space.screenshotY}
         width={THEME.space.screenshotWidth}
         height={THEME.space.screenshotHeight}
         radius={24}
@@ -180,17 +194,18 @@ export default makeScene2D(function* (view) {
       >
         <Img
           src={ASSET_URLS[project.screenshot]}
-          width={THEME.space.screenshotWidth + 80}
-          x={focal.x * 36}
-          y={focal.y * 28}
+          width={THEME.space.screenshotWidth + 120}
+          x={focal.x * 44}
+          y={focal.y * 34}
         />
       </Rect>
       <Txt
-        text={'Routes · scheduled stops · packages · fleet KPIs'}
-        y={390}
+        text={'ROUTES · STOPS · PACKAGES · FLEET KPIs'}
+        y={THEME.space.captionY}
         fill={THEME.color.muted}
         fontFamily={THEME.font.mono}
-        fontSize={17}
+        fontSize={16}
+        fontWeight={700}
         letterSpacing={0.8}
       />
     </>,
@@ -199,20 +214,30 @@ export default makeScene2D(function* (view) {
   route().end(0);
   depot().opacity(0);
   vehicle().opacity(0);
+  for (const stop of stopRefs) {
+    stop().opacity(0);
+    stop().scale(0);
+  }
 
-  yield* depot().opacity(1, 0.18);
-  yield* drawPath(route(), 0.48);
-  yield* vehicle().opacity(1, 0.12);
-  yield* tween(0.72, progress => {
-    const point = interpolatePolyline(FLEETFLOW_ROUTE, progress);
-    vehicle().position([point.x, point.y]);
-  });
+  yield* depot().opacity(1, 0.14);
   yield* all(
-    countMetric(delivered, 0, 100, 0.46),
-    countMetric(distance, 0, 84.7, 0.46, {decimals: 1, suffix: ' km'}),
-    countMetric(active, 0, 8, 0.46, {suffix: '/8'}),
+    drawPath(route(), 0.4),
+    staggerPoints(stopRefs.map(ref => ref()), 0.055, 4),
   );
-  yield* schematic().opacity(0, 0.22);
-  yield* revealScreenshot(screenshotFrame(), 0.42, 1.025);
-  yield* waitFor(0.5);
+  yield* vehicle().opacity(1, 0.1);
+  yield* all(
+    tween(0.66, progress => {
+      const point = interpolatePolyline(FLEETFLOW_ROUTE, progress);
+      vehicle().position([point.x, point.y]);
+    }),
+    countMetric(delivered, 0, 100, 0.66),
+    countMetric(distance, 0, 84.7, 0.66, {decimals: 1, suffix: ' km'}),
+    countMetric(active, 0, 8, 0.66, {suffix: '/8'}),
+  );
+  yield* all(
+    schematic().opacity(0.05, 0.32),
+    schematic().scale(0.98, 0.32),
+    revealScreenshot(screenshotFrame(), 0.36, 1.018),
+  );
+  yield* waitFor(0.88);
 });
