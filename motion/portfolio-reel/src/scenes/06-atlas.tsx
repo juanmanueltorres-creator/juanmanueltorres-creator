@@ -1,8 +1,11 @@
-import {Circle, Img, Layout, Line, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
-import {all, createRef, sequence, waitFor} from '@motion-canvas/core';
+import {Circle, Img, Layout, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
+import {all, createRef, waitFor} from '@motion-canvas/core';
 import {ASSET_URLS} from '../shared/assets';
+import {EnterpriseFrame} from '../shared/components/EnterpriseFrame';
+import {StatusChip} from '../shared/components/StatusChip';
+import {SurfacePanel} from '../shared/components/SurfacePanel';
 import {carouselMetadata, getProject} from '../shared/metadata';
-import {revealText} from '../shared/primitives/RevealText';
+import {MOTION} from '../shared/motion';
 import {
   normalizeFocalPosition,
   revealScreenshot,
@@ -11,167 +14,142 @@ import {staggerPoints} from '../shared/primitives/StaggerPoints';
 import {THEME} from '../shared/theme';
 
 const PROJECT_POINTS = [
-  [-320, -190], [-175, -245], [15, -170], [205, -230], [340, -120],
-  [-255, 20], [-70, 78], [115, 5], [290, 82],
+  [-320, -24], [-228, 22], [-132, -32], [-28, 12],
+  [82, -26], [188, 26], [292, -8], [346, 30],
 ] as const;
-
-const DIMENSIONS = ['PROVINCE', 'MINERAL', 'STAGE', 'COMPANY', 'CAPITAL'] as const;
 
 export default makeScene2D(function* (view) {
   const project = getProject(carouselMetadata, 'atlas');
+  const filterRow = createRef<Layout>();
   const field = createRef<Rect>();
   const screenshotFrame = createRef<Rect>();
   const pointRefs = PROJECT_POINTS.map(() => createRef<Circle>());
-  const labelRefs = DIMENSIONS.map(() => createRef<Txt>());
   const focal = normalizeFocalPosition(project.imagePosition);
 
-  view.fill(THEME.color.background);
+  view.fill(THEME.color.canvas);
   view.add(
-    <>
-      <Rect width={1024} height={1294} radius={24} stroke={THEME.color.borderSoft} lineWidth={2} />
+    <EnterpriseFrame
+      eyebrow={'06 / MINING INTELLIGENCE'}
+      name={project.name}
+      status={project.status}
+      footer={'ARGENTINE MINING ATLAS · PROJECTS · FILTERS'}
+    >
       <Layout
         layout
         width={936}
-        height={76}
-        y={-570}
-        direction={'row'}
+        height={920}
+        direction={'column'}
+        gap={18}
         alignItems={'center'}
-        justifyContent={'space-between'}
       >
-        <Txt
-          text={project.name}
-          fill={THEME.color.text}
-          fontFamily={THEME.font.display}
-          fontSize={48}
-          fontWeight={700}
-        />
-        <Txt
-          text={project.status}
-          fill={THEME.color.accent}
-          fontFamily={THEME.font.mono}
-          fontSize={15}
-          fontWeight={700}
-          letterSpacing={1.2}
-        />
-      </Layout>
+        <Layout
+          ref={filterRow}
+          layout
+          width={936}
+          height={42}
+          gap={8}
+          alignItems={'center'}
+          opacity={0}
+        >
+          <StatusChip label={'PROVINCE'} icon={'mapPin'} />
+          <StatusChip label={'MINERAL'} icon={'database'} active />
+          <StatusChip label={'STAGE'} />
+          <StatusChip label={'COMPANY'} />
+          <StatusChip label={'CAPITAL'} icon={'gauge'} />
+        </Layout>
 
-      <Rect ref={field} y={0} width={936} height={760}>
-        <Rect
-          width={880}
-          height={510}
-          radius={28}
-          fill={THEME.color.surface}
-          stroke={THEME.color.border}
-          lineWidth={2}
-          opacity={0.78}
-        />
-        {[-264, -132, 0, 132, 264].map(x => (
-          <Line
-            points={[[x, -255], [x, 255]]}
-            stroke={THEME.color.borderSoft}
-            lineWidth={2}
-          />
-        ))}
-        {[-160, -80, 0, 80, 160].map(y => (
-          <Line
-            points={[[-440, y], [440, y]]}
-            stroke={THEME.color.borderSoft}
-            lineWidth={2}
-          />
-        ))}
-        <Txt
-          text={'ABSTRACT TERRITORIAL FRAME'}
-          x={-400}
-          y={-210}
-          fill={THEME.color.muted2}
-          fontFamily={THEME.font.mono}
-          fontSize={13}
-          fontWeight={700}
-          letterSpacing={1.6}
-          textAlign={'left'}
-        />
-        {PROJECT_POINTS.map(([x, y], index) => {
-          const ring = index % 3 === 0;
-          return (
-            <Circle
-              ref={pointRefs[index]}
-              x={x}
-              y={y}
-              width={ring ? 25 : 15 + (index % 3) * 3}
-              height={ring ? 25 : 15 + (index % 3) * 3}
-              fill={ring ? '#00000000' : THEME.color.text}
-              stroke={ring ? THEME.color.accent : undefined}
-              lineWidth={ring ? 3 : 0}
-              opacity={0}
-            />
-          );
-        })}
-        {DIMENSIONS.map((label, index) => (
-          <Rect
-            x={-340 + index * 170}
-            y={305}
-            width={150}
-            height={42}
-            radius={12}
-            fill={THEME.color.surfaceRaised}
-            stroke={index === DIMENSIONS.length - 1 ? THEME.color.accent : THEME.color.border}
-            lineWidth={2}
+        <SurfacePanel
+          ref={field}
+          width={936}
+          height={162}
+          level={'raised'}
+        >
+          <Layout
+            layout
+            width={880}
+            height={124}
+            direction={'column'}
+            gap={10}
+            alignItems={'start'}
           >
-            <Txt
-              ref={labelRefs[index]}
-              text={label}
-              fill={index === DIMENSIONS.length - 1 ? THEME.color.accent : THEME.color.text}
-              fontFamily={THEME.font.mono}
-              fontSize={15}
-              fontWeight={700}
-              letterSpacing={1.1}
-              opacity={0}
-            />
-          </Rect>
-        ))}
-      </Rect>
+            <Layout
+              layout
+              width={880}
+              height={26}
+              alignItems={'center'}
+              justifyContent={'space-between'}
+            >
+              <Txt
+                text={'ABSTRACT TERRITORIAL FRAME / ARGENTINA'}
+                fill={THEME.color.muted}
+                fontFamily={THEME.font.mono}
+                fontSize={13}
+                fontWeight={600}
+                letterSpacing={1.05}
+              />
+              <Txt
+                text={'MINERAL FILTER · ACTIVE'}
+                fill={THEME.color.accent}
+                fontFamily={THEME.font.mono}
+                fontSize={12}
+                fontWeight={600}
+                letterSpacing={0.8}
+              />
+            </Layout>
 
-      <Rect
-        ref={screenshotFrame}
-        y={THEME.space.screenshotY}
-        width={THEME.space.screenshotWidth}
-        height={THEME.space.screenshotHeight}
-        radius={24}
-        clip
-        fill={THEME.color.surface}
-        stroke={THEME.color.border}
-        lineWidth={2}
-        opacity={0}
-      >
-        <Img
-          src={ASSET_URLS[project.screenshot]}
-          width={THEME.space.screenshotWidth + 110}
-          x={focal.x * 44}
-          y={focal.y * 34}
-        />
-      </Rect>
-      <Txt
-        text={'ARGENTINE MINING ATLAS · PROJECTS · FILTERS'}
-        y={THEME.space.captionY}
-        fill={THEME.color.muted}
-        fontFamily={THEME.font.mono}
-        fontSize={16}
-        fontWeight={700}
-        letterSpacing={0.7}
-      />
-    </>,
+            <Rect width={880} height={88}>
+              {PROJECT_POINTS.map(([x, y], index) => {
+                const selected = index === 4;
+                const ring = index % 3 === 0;
+                return (
+                  <Circle
+                    ref={pointRefs[index]}
+                    x={x}
+                    y={y}
+                    width={selected ? 22 : ring ? 17 : 11 + (index % 2) * 3}
+                    height={selected ? 22 : ring ? 17 : 11 + (index % 2) * 3}
+                    fill={selected ? THEME.color.accent : ring ? '#00000000' : THEME.color.text}
+                    stroke={selected || ring ? THEME.color.accent : THEME.color.border}
+                    lineWidth={selected ? 2 : ring ? 2 : 1}
+                    opacity={0}
+                  />
+                );
+              })}
+            </Rect>
+          </Layout>
+        </SurfacePanel>
+
+        <Rect
+          ref={screenshotFrame}
+          width={THEME.space.screenshotWidth}
+          height={THEME.space.screenshotHeight}
+          radius={18}
+          clip
+          fill={THEME.color.raised}
+          stroke={THEME.color.border}
+          lineWidth={1}
+          opacity={0}
+        >
+          <Img
+            src={ASSET_URLS[project.screenshot]}
+            width={THEME.space.screenshotWidth + 110}
+            x={focal.x * 44}
+            y={focal.y * 34}
+          />
+        </Rect>
+      </Layout>
+    </EnterpriseFrame>,
   );
 
-  yield* staggerPoints(pointRefs.map(ref => ref()), 0.045, 16);
-  yield* sequence(
-    0.05,
-    ...labelRefs.map(label => revealText(label(), 0.16, 6)),
-  );
-  yield* waitFor(0.08);
   yield* all(
-    field().opacity(0.06, 0.32),
-    field().scale(0.98, 0.32),
-    revealScreenshot(screenshotFrame(), 0.36, 1.018),
+    filterRow().opacity(1, MOTION.component, MOTION.easing.enter),
+    staggerPoints(pointRefs.map(ref => ref()), 0.04, 14),
   );
-  yield* waitFor(0.82);
+  yield* pointRefs[4]().scale(1.32, MOTION.micro, MOTION.easing.enter);
+  yield* pointRefs[4]().scale(1, MOTION.micro, MOTION.easing.continuity);
+  yield* all(
+    field().opacity(0.62, MOTION.component, MOTION.easing.continuity),
+    revealScreenshot(screenshotFrame(), MOTION.component, 1.02),
+  );
+  yield* waitFor(0.98);
 });
