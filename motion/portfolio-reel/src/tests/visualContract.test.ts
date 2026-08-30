@@ -64,4 +64,10 @@ describe('motion reel visual contract', () => {
     expect(moreSystemsSource).not.toContain('opacity={0}');
     expect(moreSystemsSource).not.toContain('revealText(');
   });
+
+  it('adds More Systems rows as concrete nodes instead of mapped JSX fragments', () => {
+    expect(moreSystemsSource).not.toContain('{systems.map(');
+    expect(moreSystemsSource).toContain('for (let index = 0; index < systems.length; index += 1)');
+    expect(moreSystemsSource).toContain('view.add(\n      <Layout');
+  });
 });
