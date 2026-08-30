@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - feat/motion-portfolio-reel
+      - feat/open-technical-editorial-reel
     paths:
       - "motion/portfolio-reel/**"
       - ".github/workflows/motion-portfolio-checks.yml"
