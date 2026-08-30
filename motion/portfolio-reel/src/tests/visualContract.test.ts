@@ -1,4 +1,5 @@
 import {describe, expect, it} from 'vitest';
+import projectSource from '../project.ts?raw';
 import coverSource from '../scenes/01-cover.tsx?raw';
 import geoplatformSource from '../scenes/02-geoplatform.tsx?raw';
 import pulsoSource from '../scenes/03-pulso.tsx?raw';
@@ -8,9 +9,10 @@ import atlasSource from '../scenes/06-atlas.tsx?raw';
 import moreSystemsSource from '../scenes/07-more-systems.tsx?raw';
 import techIconSource from '../shared/components/TechIcon.tsx?raw';
 import {MOTION} from '../shared/motion';
+import {clampScreenshotScale} from '../shared/primitives/ScreenshotReveal';
 import {THEME} from '../shared/theme';
 
-const PROJECT_SCENES = [
+const PRODUCT_SCENES = [
   ['02-geoplatform.tsx', geoplatformSource],
   ['03-pulso.tsx', pulsoSource],
   ['04-anti-ia.tsx', antiIaSource],
@@ -20,7 +22,7 @@ const PROJECT_SCENES = [
 
 const ALL_SCENES = [
   ['01-cover.tsx', coverSource],
-  ...PROJECT_SCENES,
+  ...PRODUCT_SCENES,
   ['07-more-systems.tsx', moreSystemsSource],
 ] as const;
 
@@ -29,18 +31,44 @@ describe('motion reel visual contract', () => {
     expect(THEME.canvas).toEqual({width: 1080, height: 1350, fps: 25});
   });
 
-  it('makes the product screenshot the dominant visual', () => {
+  it('locks the screenshot geometry and bounded reveal scale', () => {
+    expect(THEME.space.screenshotWidth).toBe(936);
+    expect(THEME.space.screenshotHeight).toBe(560);
+    expect(THEME.space.screenshotRadius).toBe(18);
     expect(THEME.space.screenshotWidth).toBe(THEME.space.contentWidth);
-    expect(THEME.space.screenshotHeight).toBeGreaterThanOrEqual(550);
-    expect(THEME.space.screenshotY).toBe(35);
-    expect(THEME.space.captionY).toBeGreaterThan(
-      THEME.space.screenshotY + THEME.space.screenshotHeight / 2 + 40,
-    );
+    expect(clampScreenshotScale(2)).toBe(1.03);
+    expect(clampScreenshotScale(0.5)).toBe(1);
   });
 
   it('keeps the open editorial spacing contract', () => {
     expect(THEME.space.edgeMin).toBeGreaterThanOrEqual(64);
     expect(THEME.space.localVisualMin).toBeGreaterThanOrEqual(56);
+  });
+
+  it('keeps every product scene on the final open editorial shell', () => {
+    for (const [filename, source] of PRODUCT_SCENES) {
+      expect(source, filename).toContain('EditorialHeader');
+      expect(source, filename).toContain('ScreenshotSurface');
+      expect(source, filename).not.toContain('EnterpriseFrame');
+      expect(source, filename).not.toContain('SurfacePanel');
+      expect(source, filename).not.toContain('textWrap');
+      expect(source, filename).not.toContain('width={1024}');
+    }
+  });
+
+  it('registers exactly the seven intended scene modules', () => {
+    for (const scenePath of [
+      './scenes/01-cover?scene',
+      './scenes/02-geoplatform?scene',
+      './scenes/03-pulso?scene',
+      './scenes/04-anti-ia?scene',
+      './scenes/05-fleetflow?scene',
+      './scenes/06-atlas?scene',
+      './scenes/07-more-systems?scene',
+    ]) {
+      expect(projectSource).toContain(scenePath);
+    }
+    expect(projectSource.match(/\?scene'/g)?.length).toBe(7);
   });
 
   it('uses flex Layout containers instead of absolute edge anchoring', () => {
@@ -50,14 +78,6 @@ describe('motion reel visual contract', () => {
       expect(source, filename).not.toContain('right={[');
       expect(source, filename).not.toContain('leftAlignedCenterX');
       expect(source, filename).not.toContain('rightAlignedCenterX');
-    }
-  });
-
-  it('keeps legacy scene headers layout-driven until each scene migrates', () => {
-    for (const [filename, source] of PROJECT_SCENES) {
-      if (source.includes('<EnterpriseFrame')) continue;
-      expect(source, filename).toContain("justifyContent={'space-between'}");
-      expect(source, filename).toContain("alignItems={'center'}");
     }
   });
 
@@ -100,7 +120,7 @@ describe('motion reel visual contract', () => {
     expect(techIconSource).toContain("fill={'#00000000'}");
   });
 
-  it('keeps GeoPlatform domain vocabulary intact during migration', () => {
+  it('keeps GeoPlatform domain vocabulary intact', () => {
     expect(geoplatformSource).toContain('MINING');
     expect(geoplatformSource).toContain('SATELLITE');
     expect(geoplatformSource).toContain('WEATHER');
@@ -112,5 +132,6 @@ describe('motion reel visual contract', () => {
     expect(coverSource).toContain('RegistrationMarks');
     expect(coverSource).not.toContain('Georgia');
     expect(coverSource).not.toContain('textWrap');
+    expect(coverSource).not.toContain('width={1024}');
   });
 });
