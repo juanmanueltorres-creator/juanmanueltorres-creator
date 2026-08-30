@@ -43,7 +43,7 @@ export const THEME = Object.freeze({
     product: {
       color: '#00000057',
       blur: 70,
-      offset: [0, 28] as const,
+      offset: [0, 28] as [number, number],
     },
   },
 });
