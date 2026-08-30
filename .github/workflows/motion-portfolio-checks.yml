@@ -29,13 +29,10 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install dependencies
+      - name: Refresh lockfile and install dependencies
         run: |
-          if [ -f package-lock.json ]; then
-            npm ci
-          else
-            npm install
-          fi
+          npm install --package-lock-only --ignore-scripts
+          npm ci
 
       - name: Report dependency audit
         run: npm audit || true
