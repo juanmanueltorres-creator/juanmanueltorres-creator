@@ -1,8 +1,7 @@
 import {Circle, Layout, Line, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
-import {all, createRef, sequence, waitFor} from '@motion-canvas/core';
+import {all, createRef, waitFor} from '@motion-canvas/core';
 import {carouselMetadata} from '../shared/metadata';
 import {drawPath} from '../shared/primitives/DrawPath';
-import {revealText} from '../shared/primitives/RevealText';
 import {THEME} from '../shared/theme';
 
 const SYSTEM_ORDER = [
@@ -16,9 +15,6 @@ export default makeScene2D(function* (view) {
   const spine = createRef<Line>();
   const branches = SYSTEM_ORDER.map(() => createRef<Line>());
   const endpointRefs = SYSTEM_ORDER.map(() => createRef<Circle>());
-  const categoryRefs = SYSTEM_ORDER.map(() => createRef<Txt>());
-  const nameRefs = SYSTEM_ORDER.map(() => createRef<Txt>());
-  const stackRefs = SYSTEM_ORDER.map(() => createRef<Txt>());
 
   const systems = SYSTEM_ORDER.map(([category, name]) => {
     const item = carouselMetadata.moreSystems.items.find(candidate => candidate.name === name);
@@ -102,7 +98,6 @@ export default makeScene2D(function* (view) {
               gap={1}
             >
               <Txt
-                ref={categoryRefs[index]}
                 text={category}
                 width={560}
                 fill={THEME.color.muted2}
@@ -110,26 +105,21 @@ export default makeScene2D(function* (view) {
                 fontSize={14}
                 fontWeight={700}
                 letterSpacing={1.5}
-                opacity={0}
               />
               <Txt
-                ref={nameRefs[index]}
                 text={item.name}
                 width={560}
                 fill={THEME.color.text}
                 fontFamily={THEME.font.display}
                 fontSize={38}
                 fontWeight={700}
-                opacity={0}
               />
               <Txt
-                ref={stackRefs[index]}
                 text={item.stack.slice(0, 3).join(' · ')}
                 width={560}
                 fill={THEME.color.muted}
                 fontFamily={THEME.font.mono}
                 fontSize={15}
-                opacity={0}
               />
             </Layout>
           </>
@@ -168,13 +158,7 @@ export default makeScene2D(function* (view) {
       drawPath(branches[index](), 0.16),
       endpointRefs[index]().opacity(1, 0.12),
     );
-    yield* sequence(
-      0.035,
-      revealText(categoryRefs[index](), 0.14, 6),
-      revealText(nameRefs[index](), 0.18, 7),
-      revealText(stackRefs[index](), 0.14, 5),
-    );
   }
 
-  yield* waitFor(0.58);
+  yield* waitFor(0.9);
 });
