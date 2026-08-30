@@ -1,7 +1,7 @@
 # Motion Portfolio Reel — Design
 
 **Date:** 2026-08-30  
-**Status:** Approved design, pending implementation plan  
+**Status:** Approved design, ready for implementation plan  
 **Repository:** `juanmanueltorres-creator/juanmanueltorres-creator`
 
 ## Goal
@@ -22,12 +22,12 @@ V1 does not:
 - build a website or interactive portfolio experience;
 - create 1080 × 1920 or other aspect-ratio variants;
 - publish automatically to LinkedIn, X, Instagram, or other platforms;
-- render automatically on every push;
+- render video automatically on every push;
 - add generic particles, excessive glow, or decorative motion unrelated to the products.
 
 ## Technology Decision
 
-Use **Motion Canvas** as the motion renderer.
+Use **Motion Canvas 3.17.2** as the motion renderer.
 
 Reasons:
 
@@ -35,10 +35,16 @@ Reasons:
 - designed for programmatic motion graphics rather than browser-only animation;
 - deterministic timeline control;
 - appropriate primitives for paths, nodes, counters, typography, and screenshot composition;
-- can render frames/video through an FFmpeg-backed workflow;
+- supported FFmpeg exporter for producing video from the editor;
 - keeps the motion subsystem independent from the existing Python static renderer.
 
 Anime.js remains a candidate for a future interactive web experience, especially for SVG path drawing and browser motion. It is intentionally excluded from Motion Reel V1 to avoid maintaining two animation engines for the same output.
+
+### Render-path constraint
+
+Motion Canvas 3.17.2 documents rendering through the editor and its exporters. V1 therefore uses the supported **editor + FFmpeg exporter** flow for the final MP4. A headless CLI renderer is not a V1 requirement.
+
+Automated verification covers metadata, types, tests, and the Vite production build. The final video render is a required manual verification step.
 
 ## Existing System That Must Remain Stable
 
@@ -70,14 +76,16 @@ Add an isolated subsystem:
 motion/
   portfolio-reel/
     package.json
+    package-lock.json
     tsconfig.json
-    motion-canvas.config.ts
+    vite.config.ts
     src/
       project.ts
       shared/
         theme.ts
         types.ts
         metadata.ts
+        assets.ts
         primitives/
           DrawPath.tsx
           RevealText.tsx
@@ -93,6 +101,7 @@ motion/
         05-fleetflow.tsx
         06-atlas.tsx
         07-more-systems.tsx
+      tests/
 ```
 
 The motion renderer reads the same source metadata and screenshots used by the static renderer.
@@ -191,7 +200,6 @@ Requirements:
 
 - deterministic timing;
 - no bounce by default;
-- support reduced-motion/static preview behavior where practical;
 - reusable across every scene.
 
 ### `DrawPath`
@@ -352,9 +360,10 @@ Implementation must proceed incrementally.
 ### Stage 1 — Scaffold
 
 - create isolated Motion Canvas package;
-- establish dev/preview and render commands;
+- establish dev/preview, test, typecheck, and production-build commands;
+- configure the FFmpeg exporter for manual final rendering;
 - load and validate existing metadata;
-- render a minimal cover scene.
+- render a minimal cover scene in the editor preview.
 
 ### Stage 2 — Design System
 
@@ -383,10 +392,10 @@ Add GeoPlatform, Pulso, Anti IA, Atlas, and More Systems using the shared primit
 
 ### Stage 6 — Full Render and Timing Pass
 
-- render the complete reel;
+- preview the complete reel;
 - inspect for clipping, overlap, crop issues, and pacing;
 - tune scene timings;
-- produce final V1 MP4.
+- render the final V1 MP4 from the Motion Canvas editor using the FFmpeg exporter.
 
 ## Testing and Verification
 
@@ -395,18 +404,19 @@ The motion subsystem must fail clearly when required source assets are missing o
 Minimum automated checks:
 
 - metadata loader accepts the current canonical JSON;
-- referenced screenshots resolve from repository-relative paths;
+- referenced screenshots resolve through the explicit asset registry;
 - unsupported/malformed optional motion metadata falls back safely or fails with a clear validation error according to the field;
 - scene registry contains exactly the expected V1 scene sequence;
 - metric formatting never emits `NaN` or `Infinity`;
-- project/type checks pass;
-- at least one deterministic non-interactive render command completes successfully.
+- TypeScript typecheck passes;
+- Vite production build passes.
 
 Required manual verification before V1 is considered complete:
 
+- Motion Canvas editor starts successfully;
 - cover preview inspected;
 - FleetFlow preview inspected;
-- full 1080 × 1350 reel rendered;
+- full 1080 × 1350 / 25 fps reel rendered with the FFmpeg exporter;
 - no visible text clipping or overlap;
 - screenshots preserve aspect ratio and intended focal regions;
 - visual hierarchy remains readable at normal social-feed scale;
@@ -418,14 +428,9 @@ V1 rendering is **manual/local first**.
 
 Do not render video on every push.
 
-After V1 is visually accepted, a later change may add a manual GitHub Actions `workflow_dispatch` that:
+Automated repository checks may run tests, typecheck, and the Vite build. Video rendering remains manual until Motion Canvas has a deliberately adopted, reliable headless render path for this repository.
 
-1. installs the motion package;
-2. runs tests/type checks;
-3. renders the video;
-4. publishes a generated MP4 artifact or checked-in publication asset.
-
-That automation is explicitly outside the initial implementation unless rendering locally proves sufficiently stable and cheap.
+A later change may add a manual `workflow_dispatch` only after that render path is explicitly designed and verified. That automation is outside V1.
 
 ## Error Handling
 
@@ -433,11 +438,11 @@ The motion renderer must fail closed for configuration and source-data problems.
 
 Examples:
 
-- missing metadata file → clear startup/render error;
-- missing screenshot → identify project id and missing path;
+- missing metadata source → clear build/test failure;
+- screenshot path absent from the explicit asset registry → identify project id and missing path;
 - malformed numeric motion option → validation error or documented default;
 - unknown motif → documented default motif, unless a scene explicitly requires one;
-- FFmpeg/render failure → non-zero command exit and no false success message.
+- FFmpeg/export failure → the video is not considered produced or complete.
 
 Scenes must not silently substitute unrelated images or fabricated geographic content.
 
@@ -458,8 +463,9 @@ V1 is complete when:
 3. all six reusable primitives exist;
 4. all seven scene files exist and are registered in order;
 5. Cover and FleetFlow demonstrate the intended cartographic/operational motion language;
-6. the full reel renders at 1080 × 1350 / 25 fps;
-7. final runtime is 18–24 seconds;
-8. no visible overlap, clipping, image distortion, or unrelated decorative motion remains;
-9. existing SVG/PNG/PDF carousel generation continues to pass unchanged;
-10. a final MP4 is produced and visually reviewed.
+6. automated tests, typecheck, and Vite build pass;
+7. the full reel renders manually at 1080 × 1350 / 25 fps using the FFmpeg exporter;
+8. final runtime is 18–24 seconds;
+9. no visible overlap, clipping, image distortion, or unrelated decorative motion remains;
+10. existing SVG/PNG/PDF carousel generation continues to pass unchanged;
+11. a final MP4 is produced and visually reviewed.
