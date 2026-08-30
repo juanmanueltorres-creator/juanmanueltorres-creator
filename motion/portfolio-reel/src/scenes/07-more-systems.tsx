@@ -26,125 +26,135 @@ export default makeScene2D(function* (view) {
 
   view.fill(THEME.color.background);
   view.add(
-    <>
-      <Rect width={1024} height={1294} radius={24} stroke={THEME.color.borderSoft} lineWidth={2} />
+    <Rect width={1024} height={1294} radius={24} stroke={THEME.color.borderSoft} lineWidth={2} />,
+  );
 
-      <Layout
-        layout
-        width={936}
-        height={190}
-        y={-500}
-        direction={'column'}
-        alignItems={'start'}
-        justifyContent={'center'}
-        gap={18}
-      >
-        <Txt
-          text={carouselMetadata.moreSystems.eyebrow}
-          fill={THEME.color.accent}
-          fontFamily={THEME.font.mono}
-          fontSize={18}
-          fontWeight={700}
-          letterSpacing={2.4}
-        />
-        <Txt
-          text={carouselMetadata.moreSystems.title}
-          width={900}
-          fill={THEME.color.text}
-          fontFamily={THEME.font.display}
-          fontSize={48}
-          fontWeight={700}
-          lineHeight={60}
-          textWrap
-        />
-      </Layout>
-
-      <Line
-        ref={spine}
-        points={[[-330, -285], [-330, 410]]}
-        stroke={THEME.color.border}
-        lineWidth={3}
+  view.add(
+    <Layout
+      layout
+      width={936}
+      height={190}
+      y={-500}
+      direction={'column'}
+      alignItems={'start'}
+      justifyContent={'center'}
+      gap={18}
+    >
+      <Txt
+        text={carouselMetadata.moreSystems.eyebrow}
+        fill={THEME.color.accent}
+        fontFamily={THEME.font.mono}
+        fontSize={18}
+        fontWeight={700}
+        letterSpacing={2.4}
       />
+      <Txt
+        text={carouselMetadata.moreSystems.title}
+        width={900}
+        fill={THEME.color.text}
+        fontFamily={THEME.font.display}
+        fontSize={48}
+        fontWeight={700}
+        lineHeight={60}
+        textWrap
+      />
+    </Layout>,
+  );
 
-      {systems.map(({category, item}, index) => {
-        const y = -210 + index * 175;
-        return (
-          <>
-            <Line
-              ref={branches[index]}
-              points={[[-330, y], [-215, y]]}
-              stroke={index === systems.length - 1 ? THEME.color.accent : THEME.color.border}
-              lineWidth={3}
-            />
-            <Circle
-              ref={endpointRefs[index]}
-              x={-205}
-              y={y}
-              width={13}
-              height={13}
-              fill={THEME.color.background}
-              stroke={index === systems.length - 1 ? THEME.color.accent : THEME.color.text}
-              lineWidth={2}
-            />
-            <Layout
-              layout
-              x={105}
-              y={y + 12}
-              width={560}
-              height={118}
-              direction={'column'}
-              alignItems={'start'}
-              justifyContent={'center'}
-              gap={1}
-            >
-              <Txt
-                text={category}
-                width={560}
-                fill={THEME.color.muted2}
-                fontFamily={THEME.font.mono}
-                fontSize={14}
-                fontWeight={700}
-                letterSpacing={1.5}
-              />
-              <Txt
-                text={item.name}
-                width={560}
-                fill={THEME.color.text}
-                fontFamily={THEME.font.display}
-                fontSize={38}
-                fontWeight={700}
-              />
-              <Txt
-                text={item.stack.slice(0, 3).join(' · ')}
-                width={560}
-                fill={THEME.color.muted}
-                fontFamily={THEME.font.mono}
-                fontSize={15}
-              />
-            </Layout>
-          </>
-        );
-      })}
+  view.add(
+    <Line
+      ref={spine}
+      points={[[-330, -285], [-330, 410]]}
+      stroke={THEME.color.border}
+      lineWidth={3}
+    />,
+  );
 
+  for (let index = 0; index < systems.length; index += 1) {
+    const {category, item} = systems[index];
+    const y = -210 + index * 175;
+
+    view.add(
+      <Line
+        ref={branches[index]}
+        points={[[-330, y], [-215, y]]}
+        stroke={index === systems.length - 1 ? THEME.color.accent : THEME.color.border}
+        lineWidth={3}
+      />,
+    );
+
+    view.add(
+      <Circle
+        ref={endpointRefs[index]}
+        x={-205}
+        y={y}
+        width={13}
+        height={13}
+        fill={THEME.color.background}
+        stroke={index === systems.length - 1 ? THEME.color.accent : THEME.color.text}
+        lineWidth={2}
+      />,
+    );
+
+    view.add(
       <Layout
         layout
-        width={936}
-        height={40}
-        y={570}
+        x={105}
+        y={y + 12}
+        width={560}
+        height={118}
         direction={'column'}
         alignItems={'start'}
         justifyContent={'center'}
+        gap={1}
       >
         <Txt
-          text={'github.com/juanmanueltorres-creator'}
+          text={category}
+          width={560}
           fill={THEME.color.muted2}
           fontFamily={THEME.font.mono}
           fontSize={14}
           fontWeight={700}
-          letterSpacing={1.2}
+          letterSpacing={1.5}
         />
-      </Layout>
-    </>,
+        <Txt
+          text={item.name}
+          width={560}
+          fill={THEME.color.text}
+          fontFamily={THEME.font.display}
+          fontSize={38}
+          fontWeight={700}
+        />
+        <Txt
+          text={item.stack.slice(0, 3).join(' · ')}
+          width={560}
+          fill={THEME.color.muted}
+          fontFamily={THEME.font.mono}
+          fontSize={15}
+        />
+      </Layout>,
+    );
+  }
+
+  view.add(
+    <Layout
+      layout
+      width={936}
+      height={40}
+      y={570}
+      direction={'column'}
+      alignItems={'start'}
+      justifyContent={'center'}
+    >
+      <Txt
+        text={'github.com/juanmanueltorres-creator'}
+        fill={THEME.color.muted2}
+        fontFamily={THEME.font.mono}
+        fontSize={14}
+        fontWeight={700}
+        letterSpacing={1.2}
+      />
+    </Layout>,
   );
 
   spine().end(0);
