@@ -33,12 +33,12 @@ import {interpolatePolyline} from '../shared/route';
 import {THEME} from '../shared/theme';
 
 export const FLEETFLOW_ROUTE = [
-  [-390, 58],
-  [-225, -38],
-  [-80, 36],
-  [90, -66],
-  [245, 8],
-  [390, -92],
+  [-340, 36],
+  [-205, -28],
+  [-78, 24],
+  [82, -52],
+  [210, 2],
+  [340, -66],
 ] as const;
 
 export default makeScene2D(function* (view) {
