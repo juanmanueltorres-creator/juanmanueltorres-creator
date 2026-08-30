@@ -59,4 +59,9 @@ describe('motion reel visual contract', () => {
     expect(moreSystemsSource).toContain("direction={'column'}");
     expect(moreSystemsSource).toContain("alignItems={'start'}");
   });
+
+  it('keeps More Systems content visible independently of timeline reveals', () => {
+    expect(moreSystemsSource).not.toContain('opacity={0}');
+    expect(moreSystemsSource).not.toContain('revealText(');
+  });
 });
