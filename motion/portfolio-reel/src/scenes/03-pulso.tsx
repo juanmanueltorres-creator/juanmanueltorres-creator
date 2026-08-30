@@ -14,8 +14,8 @@ import {staggerPoints} from '../shared/primitives/StaggerPoints';
 import {THEME} from '../shared/theme';
 
 const SIGNAL_POINTS = [
-  [-336, -56], [-238, 34], [-126, -72], [-8, 16],
-  [116, -58], [226, 40], [322, -20], [72, 76],
+  [-336, -28], [-238, 12], [-126, -34], [-8, 8],
+  [116, -28], [226, 18], [322, -10], [72, 34],
 ] as const;
 
 export default makeScene2D(function* (view) {
@@ -59,21 +59,21 @@ export default makeScene2D(function* (view) {
         <SurfacePanel
           ref={field}
           width={936}
-          height={210}
+          height={156}
           level={'raised'}
         >
           <Layout
             layout
             width={880}
-            height={172}
+            height={118}
             direction={'column'}
-            gap={12}
+            gap={8}
             alignItems={'start'}
           >
             <Layout
               layout
               width={880}
-              height={28}
+              height={24}
               alignItems={'center'}
               justifyContent={'space-between'}
             >
@@ -94,7 +94,7 @@ export default makeScene2D(function* (view) {
                 letterSpacing={0.8}
               />
             </Layout>
-            <Rect width={880} height={128}>
+            <Rect width={880} height={86}>
               {SIGNAL_POINTS.map(([x, y], index) => {
                 const ring = index % 3 === 0;
                 return (
