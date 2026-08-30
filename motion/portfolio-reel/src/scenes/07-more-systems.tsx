@@ -1,5 +1,6 @@
 import {Circle, Line, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
 import {all, createRef, sequence, waitFor} from '@motion-canvas/core';
+import {leftAlignedCenterX} from '../shared/layout';
 import {carouselMetadata} from '../shared/metadata';
 import {drawPath} from '../shared/primitives/DrawPath';
 import {revealText} from '../shared/primitives/RevealText';
@@ -34,7 +35,7 @@ export default makeScene2D(function* (view) {
       <Rect width={1024} height={1294} radius={24} stroke={THEME.color.borderSoft} lineWidth={2} />
       <Txt
         text={carouselMetadata.moreSystems.eyebrow}
-        x={-468}
+        x={leftAlignedCenterX(936)}
         y={-570}
         width={936}
         fill={THEME.color.accent}
@@ -46,7 +47,7 @@ export default makeScene2D(function* (view) {
       />
       <Txt
         text={carouselMetadata.moreSystems.title}
-        x={-468}
+        x={leftAlignedCenterX(900)}
         y={-470}
         width={900}
         fill={THEME.color.text}
@@ -130,7 +131,7 @@ export default makeScene2D(function* (view) {
 
       <Txt
         text={'github.com/juanmanueltorres-creator'}
-        x={-468}
+        x={leftAlignedCenterX(936)}
         y={570}
         width={936}
         fill={THEME.color.muted2}
