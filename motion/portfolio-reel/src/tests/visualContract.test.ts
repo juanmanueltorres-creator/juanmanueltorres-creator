@@ -6,12 +6,9 @@ import antiIaSource from '../scenes/04-anti-ia.tsx?raw';
 import fleetflowSource from '../scenes/05-fleetflow.tsx?raw';
 import atlasSource from '../scenes/06-atlas.tsx?raw';
 import moreSystemsSource from '../scenes/07-more-systems.tsx?raw';
-import enterpriseFrameSource from '../shared/components/EnterpriseFrame.tsx?raw';
-import projectHeaderSource from '../shared/components/ProjectHeader.tsx?raw';
-import statusChipSource from '../shared/components/StatusChip.tsx?raw';
 import techIconSource from '../shared/components/TechIcon.tsx?raw';
-import {THEME} from '../shared/theme';
 import {MOTION} from '../shared/motion';
+import {THEME} from '../shared/theme';
 
 const PROJECT_SCENES = [
   ['02-geoplatform.tsx', geoplatformSource],
@@ -39,6 +36,11 @@ describe('motion reel visual contract', () => {
     expect(THEME.space.captionY).toBeGreaterThan(
       THEME.space.screenshotY + THEME.space.screenshotHeight / 2 + 40,
     );
+  });
+
+  it('keeps the open editorial spacing contract', () => {
+    expect(THEME.space.edgeMin).toBeGreaterThanOrEqual(64);
+    expect(THEME.space.localVisualMin).toBeGreaterThanOrEqual(56);
   });
 
   it('uses flex Layout containers instead of absolute edge anchoring', () => {
@@ -77,17 +79,10 @@ describe('motion reel visual contract', () => {
     expect(moreSystemsSource).toContain('view.add(\n      <Layout');
   });
 
-  it('uses enterprise IBM Plex typography', () => {
+  it('uses IBM Plex typography', () => {
     expect(THEME.font.sans).toBe('IBM Plex Sans');
     expect(THEME.font.display).toBe('IBM Plex Sans');
     expect(THEME.font.mono).toBe('IBM Plex Mono');
-  });
-
-  it('defines three explicit enterprise surface levels', () => {
-    expect(THEME.color.canvas).toBeTruthy();
-    expect(THEME.color.workspace).toBeTruthy();
-    expect(THEME.color.raised).toBeTruthy();
-    expect(THEME.color.workspace).not.toBe(THEME.color.raised);
   });
 
   it('uses one bounded motion vocabulary', () => {
@@ -99,26 +94,13 @@ describe('motion reel visual contract', () => {
     expect(MOTION.scene).toBeLessThanOrEqual(0.7);
   });
 
-  it('defines the shared enterprise workspace shell', () => {
-    expect(enterpriseFrameSource).toContain('RegistrationMarks');
-    expect(enterpriseFrameSource).toContain('ProjectHeader');
-    expect(enterpriseFrameSource).toContain('THEME.color.workspace');
-  });
-
-  it('keeps enterprise headers layout-driven and wrap-safe', () => {
-    expect(projectHeaderSource).toContain("justifyContent={'space-between'}");
-    expect(projectHeaderSource).not.toContain('textWrap');
-  });
-
-  it('keeps icon and chip styling bounded and Motion Canvas color-safe', () => {
+  it('keeps Motion Canvas icon colors safe', () => {
     expect(techIconSource).toContain('<SVG');
     expect(techIconSource).not.toContain("fill={'transparent'}");
     expect(techIconSource).toContain("fill={'#00000000'}");
-    expect(statusChipSource).toContain('THEME.color.raised');
   });
 
-  it('upgrades GeoPlatform onto the shared enterprise frame', () => {
-    expect(geoplatformSource).toContain('<EnterpriseFrame');
+  it('keeps GeoPlatform domain vocabulary intact during migration', () => {
     expect(geoplatformSource).toContain('MINING');
     expect(geoplatformSource).toContain('SATELLITE');
     expect(geoplatformSource).toContain('WEATHER');
@@ -126,7 +108,7 @@ describe('motion reel visual contract', () => {
     expect(geoplatformSource).toContain('ROUTES');
   });
 
-  it('keeps the cover enterprise and wrap-safe', () => {
+  it('keeps the cover IBM Plex based and wrap-safe', () => {
     expect(coverSource).toContain('RegistrationMarks');
     expect(coverSource).not.toContain('Georgia');
     expect(coverSource).not.toContain('textWrap');
