@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -51,4 +53,5 @@ jobs:
             exit 0
           fi
           git commit -m "chore: refresh social carousel exports"
-          git push
+          git pull --rebase origin main
+          git push origin HEAD:main
