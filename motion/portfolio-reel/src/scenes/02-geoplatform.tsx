@@ -1,5 +1,5 @@
 import {Circle, Img, Line, makeScene2D, Rect, Txt} from '@motion-canvas/2d';
-import {createRef, sequence, waitFor} from '@motion-canvas/core';
+import {all, createRef, sequence, waitFor} from '@motion-canvas/core';
 import {ASSET_URLS} from '../shared/assets';
 import {carouselMetadata, getProject} from '../shared/metadata';
 import {revealText} from '../shared/primitives/RevealText';
@@ -11,11 +11,11 @@ import {
 import {THEME} from '../shared/theme';
 
 const DOMAIN_LABELS = [
-  ['MINING', -290, -175],
-  ['SATELLITE', -20, -285],
-  ['WEATHER', 275, -180],
-  ['SEISMIC', -250, 150],
-  ['ROUTES', 260, 145],
+  ['MINING', -315, -185],
+  ['SATELLITE', -25, -300],
+  ['WEATHER', 300, -190],
+  ['SEISMIC', -285, 165],
+  ['ROUTES', 285, 160],
 ] as const;
 
 export default makeScene2D(function* (view) {
@@ -54,14 +54,22 @@ export default makeScene2D(function* (view) {
         textAlign={'right'}
       />
 
-      <Rect ref={context} y={10} width={936} height={760}>
-        <Line points={[[-70, 0], [70, 0]]} stroke={THEME.color.border} lineWidth={2} />
-        <Line points={[[0, -70], [0, 70]]} stroke={THEME.color.border} lineWidth={2} />
-        <Circle width={16} height={16} fill={THEME.color.accent} />
+      <Rect ref={context} y={-15} width={936} height={760}>
+        <Line points={[[-95, 0], [95, 0]]} stroke={THEME.color.border} lineWidth={2} />
+        <Line points={[[0, -95], [0, 95]]} stroke={THEME.color.border} lineWidth={2} />
+        {DOMAIN_LABELS.map(([, x, y]) => (
+          <Line
+            points={[[0, 0], [x * 0.72, y * 0.72]]}
+            stroke={THEME.color.borderSoft}
+            lineWidth={2}
+            opacity={0.85}
+          />
+        ))}
+        <Circle width={20} height={20} fill={THEME.color.accent} />
         <Circle
           ref={pulse}
-          width={12}
-          height={12}
+          width={14}
+          height={14}
           stroke={THEME.color.accent}
           lineWidth={3}
           fill={'#00000000'}
@@ -74,7 +82,7 @@ export default makeScene2D(function* (view) {
             y={y}
             fill={THEME.color.text}
             fontFamily={THEME.font.mono}
-            fontSize={19}
+            fontSize={20}
             fontWeight={700}
             letterSpacing={1.8}
             opacity={0}
@@ -82,10 +90,10 @@ export default makeScene2D(function* (view) {
         ))}
         <Txt
           text={'ONE PLACE → MULTIPLE CONTEXT LAYERS'}
-          y={290}
+          y={292}
           fill={THEME.color.muted2}
           fontFamily={THEME.font.mono}
-          fontSize={15}
+          fontSize={14}
           fontWeight={700}
           letterSpacing={1.4}
         />
@@ -93,7 +101,7 @@ export default makeScene2D(function* (view) {
 
       <Rect
         ref={screenshotFrame}
-        y={40}
+        y={THEME.space.screenshotY}
         width={THEME.space.screenshotWidth}
         height={THEME.space.screenshotHeight}
         radius={24}
@@ -105,28 +113,33 @@ export default makeScene2D(function* (view) {
       >
         <Img
           src={ASSET_URLS[project.screenshot]}
-          width={THEME.space.screenshotWidth + 80}
-          x={focal.x * 36}
-          y={focal.y * 28}
+          width={THEME.space.screenshotWidth + 120}
+          x={focal.x * 44}
+          y={focal.y * 34}
         />
       </Rect>
       <Txt
-        text={'Mining · satellite · weather · seismic · routes'}
-        y={390}
+        text={'MINING · SATELLITE · WEATHER · SEISMIC · ROUTES'}
+        y={THEME.space.captionY}
         fill={THEME.color.muted}
         fontFamily={THEME.font.mono}
-        fontSize={17}
+        fontSize={16}
+        fontWeight={700}
+        letterSpacing={0.7}
       />
     </>,
   );
 
-  yield* scanPulse(pulse(), 0.48, 210);
+  yield* scanPulse(pulse(), 0.38, 225);
   yield* sequence(
-    0.05,
-    ...labels.map(label => revealText(label(), 0.2, 10)),
+    0.04,
+    ...labels.map(label => revealText(label(), 0.18, 8)),
   );
-  yield* waitFor(0.18);
-  yield* context().opacity(0, 0.22);
-  yield* revealScreenshot(screenshotFrame(), 0.42, 1.025);
-  yield* waitFor(0.62);
+  yield* waitFor(0.1);
+  yield* all(
+    context().opacity(0.08, 0.34),
+    context().scale(0.97, 0.34),
+    revealScreenshot(screenshotFrame(), 0.36, 1.018),
+  );
+  yield* waitFor(0.82);
 });
