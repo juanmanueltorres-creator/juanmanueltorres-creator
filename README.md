@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://www.linkedin.com/in/juanmtorres23/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Profile-c4a46a?style=flat-square&labelColor=11100d&logo=linkedin&logoColor=efe4d0"></a>
-  <a href="https://juanmtorres.vercel.app/"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-juanmtorres.vercel.app-a87a47?style=flat-square&labelColor=11100d&logo=vercel&logoColor=efe4d0"></a>
+  <a href="https://juanmanueltorres-creator.github.io/portfolio/"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-GitHub%20Pages-a87a47?style=flat-square&labelColor=11100d&logo=github&logoColor=efe4d0"></a>
   <a href="https://sanjuangeo.vercel.app/"><img alt="GeoPlatform" src="https://img.shields.io/badge/GeoPlatform-Live-8f2d2d?style=flat-square&labelColor=11100d"></a>
 </p>
 
@@ -99,6 +99,9 @@ METHOD     Contracts · Tests · Provenance · Human approval
 | System | What it explores |
 | --- | --- |
 | [Opportunity OS](https://github.com/juanmanueltorres-creator/opportunity-os) | Auditable, evidence-backed workflow automation for job search and outreach. |
+| [Territorial Score](https://github.com/juanmanueltorres-creator/territorial-score) | Independent territorial signals aligned over one corridor without collapsing them into a global risk score. |
+| [Rally Stage Sim](https://github.com/juanmanueltorres-creator/rally-stage-sim) | Rally stage intelligence combining route, time, modelled weather, access context and explicit simulation boundaries. |
+| [Geo Agent LangGraph](https://github.com/juanmanueltorres-creator/geo-agent-langgraph) | Bounded geospatial agent architecture with read-only tools, deterministic validation and one workflow retry. |
 | [Question Radar](https://github.com/juanmanueltorres-creator/question-radar) | Questions as structured, inspectable learning and research artifacts. |
 | [Screen2Social](https://github.com/juanmanueltorres-creator/screen2social) | Local OBS recording → deterministic social-media package → human review. |
 | [Andes Context OS](https://github.com/juanmanueltorres-creator/andes-context-os) | Territorial research context with provenance, authorization and evidence boundaries. |
@@ -137,4 +140,4 @@ InsightLaboratory → GeoPlatform → Decision Technologies
 
 ## CONTACT
 
-[Portfolio](https://juanmtorres.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/juanmtorres23/) · [GitHub](https://github.com/juanmanueltorres-creator)
+[Portfolio](https://juanmanueltorres-creator.github.io/portfolio/) · [LinkedIn](https://www.linkedin.com/in/juanmtorres23/) · [GitHub](https://github.com/juanmanueltorres-creator)
