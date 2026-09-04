@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://www.linkedin.com/in/juanmtorres23/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Profile-c4a46a?style=flat-square&labelColor=11100d&logo=linkedin&logoColor=efe4d0"></a>
-  <a href="https://juanmanueltorres-creator.github.io/portfolio/"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-GitHub%20Pages-a87a47?style=flat-square&labelColor=11100d&logo=github&logoColor=efe4d0"></a>
+  <a href="https://juanmtorres.vercel.app"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-GitHub%20Pages-a87a47?style=flat-square&labelColor=11100d&logo=github&logoColor=efe4d0"></a>
   <a href="https://sanjuangeo.vercel.app/"><img alt="GeoPlatform" src="https://img.shields.io/badge/GeoPlatform-Live-8f2d2d?style=flat-square&labelColor=11100d"></a>
 </p>
 
