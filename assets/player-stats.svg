@@ -36,11 +36,11 @@
     <text x="545" y="139" class="label">ACTIVE OWN REPOS · 90D</text>
   </g>
   <g text-anchor="middle">
-    <text x="780" y="108" class="value">1609</text>
+    <text x="780" y="108" class="value">1625</text>
     <text x="780" y="139" class="label">OWN PUBLIC COMMITS · 365D</text>
   </g>
   <g text-anchor="middle">
-    <text x="1000" y="108" class="value">2026-09-04</text>
+    <text x="1000" y="108" class="value">2026-09-05</text>
     <text x="1000" y="139" class="label">LAST PUBLIC PUSH</text>
   </g>
   <line x1="36" y1="158" x2="1064" y2="158" stroke="#3e3022" stroke-width="1"/>
